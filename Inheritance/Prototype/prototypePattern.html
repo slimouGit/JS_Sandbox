@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>prototype pattern</title>
+    </head>
+    <body>
+        <script>
+        "use strict";
+        
+            let Person = {
+                /*
+                init: function (firstname, lastname){
+                this.firstname = firstname;
+                this.lastname = lastname;
+                return this;
+            },
+            */
+                fullname: function(){
+                    return this.firstname + " " + this.lastname;
+                }
+            }
+            
+            let mimi = Object.create(Person, {
+                firstname: {
+                    value: 'Mimi'
+                },
+                lastname: {
+                    value: 'Illmi'
+                }
+            });
+            
+            //let mimi = Object.create(Person);
+            //mimi.init("Mimi", "Illmi");
+            console.log(mimi.fullname());
+        </script>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>function constructor</title>
+    </head>
+    <body>
+        <script>
+        "use strict";
+        
+            function Person(firstname, lastname){
+                this.firstname = firstname;
+                this.lastname = lastname;
+                this.fullname = function(){
+                    return firstname + " " + lastname; //without this to simulate a very close to private, because it refers to the invoke the constructor with its params
+                }
+            }
+            
+            Person.prototype.fullname_prototype = function(){
+                    return this.firstname + " " + this.lastname;
+                }
+            
+            let mimi = new Person("Mimi", "Illmi");
+            console.log(mimi);
+            
+            let salim = {};
+            Person.call(salim, "Salim", "Oussayfi");
+            console.log(salim);
+            
+            console.log(mimi.fullname());
+            mimi.lastname = "Usuffi";
+            console.log(mimi.fullname_prototype());
+            console.log(mimi.fullname());
+            
+        </script>
+    </body>
+</html>

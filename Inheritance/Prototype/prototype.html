@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Prototype</title>
+    </head>
+    <body>
+        <script>
+            var human = {
+                kind: "human"
+            };
+            console.log(human);
+            
+            /*
+            var mimi = {};
+            mimi.__proto__ = human;
+            */
+            
+            var mimi = Object.create(human, {view: {value: 'beautiful'}});
+            
+            
+            console.log(mimi.kind);
+            console.log(human.isPrototypeOf(mimi));
+            
+            human.kind = "animal";
+            
+            
+            console.log(mimi.kind);
+            
+            console.log(human.kind);
+            
+            console.log(mimi);
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>inheritance</title>
+    </head>
+    <body>
+        <script>
+        "use strict";
+        
+            function Person(firstname, lastname){
+                this.firstname = firstname;
+                this.lastname = lastname;
+            }
+            
+            Person.prototype.fullname = function(){
+                    return this.firstname + " " + this.lastname;
+                }
+            
+            function Professional(honorific, firstname, lastname){
+                Person.call(this, firstname, lastname);
+                this.honorific = honorific;
+            };
+            
+            Professional.prototype = Object.create(Person.prototype);
+            
+            Professional.prototype.professionalFullname = function(){
+                return this.honorific + " " + this.firstname + " " + this.lastname; 
+            }
+            
+            let mimi = new Professional("Dr.", "Mimi", "Illmi");
+            console.log(mimi);
+            console.log(mimi.professionalFullname());
+            
+            console.log(mimi.fullname());
+
+        </script>
+    </body>
+</html>
