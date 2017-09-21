@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fuhrpark</title>
+</head>
+<body>
+<script>
+    "use strict";
+
+    let counter = 0;
+
+    class Car{
+        constructor(typ, farbe, sitze, ps){
+            this.typ = typ;
+            console.log((this.typ).toUpperCase() + " wurde erstellt");
+            this.farbe = farbe;
+            this.sitze = sitze;
+            this.ps = ps;
+            this.geschwindigkeit = 0;
+            this.id = counter++;
+            this.anmeldung = new Anmeldung(this.typ, this.id);
+        }
+
+        printCar(){
+            return "CAR: " + this.typ + ": " + "Farbe: " + this.farbe + ", " + this.sitze + " Sitze, " + this.ps + " PS, " + " Geschwindigkeit " + this.geschwindigkeit + " km/h ";
+        }
+        accelerateCar(speed){
+            return this.geschwindigkeit+=speed;
+        }
+        tuneCar(power){
+            return this.ps+=power;
+        }
+        printKennzeichen(){
+            console.log("Das Kennzeichen lautet " + this.anmeldung.kennzeichen);
+        }
+    }
+
+    //-------------------
+
+    class Bus extends Car {
+        constructor(typ, farbe, ps, plaetze){
+            super(typ, farbe, ps);
+            this.sitze = 1;
+            this.ps = ps;
+            this.geschwindigkeit = 0;
+            this.plaetze = plaetze;
+        }
+
+        printCar(){
+            return "BUS: " + this.typ + ": " + "Farbe: " + this.farbe + ", " + this.plaetze + " Plätze, " + this.ps + " PS, " + " Geschwindigkeit " + this.geschwindigkeit + " km/h ";
+        }
+
+        accelerateCar(speed){
+            let oldSpeed = this.geschwindigkeit;
+            let newSpeed = this.geschwindigkeit+=speed;
+            if(newSpeed>50){
+                console.log("ACHTUNG!!! " + newSpeed + " km/h darf der Bus nicht fahren");
+                this.geschwindigkeit = oldSpeed;
+                return this.geschwindigkeit;
+            }
+            return newSpeed;
+        }
+    }
+
+    //-------------------
+
+    class Motorrad extends Car {
+        constructor(typ, farbe, ps, art){
+            super(typ, farbe, ps);
+            this.sitze = 1;
+            this.ps = ps;
+            this.geschwindigkeit = 0;
+            this.art = art;
+        }
+
+        printCar(){
+            return "MOTORRAD: " + this.typ + ": " + "Farbe: " + this.farbe + ", " + this.ps + " PS, " + " Geschwindigkeit " + this.geschwindigkeit + " km/h vom Typ: " + this.art;
+        }
+    }
+
+    //-------------------
+
+    class Anmeldung{
+        constructor(typ, id, kennzeichen){
+            this.typ = typ;
+            this.id = id;
+            this.kennzeichen = kennzeichen;
+            console.log(this.typ + " kann angemeldet werden");
+            this.anmeldenFahrzeug();
+        }
+
+        anmeldenFahrzeug(){
+            this.kennzeichen = "FP_"+this.typ + "_" + this.id;
+            console.log("Kennzeichen für " + this.typ + " wurde vergeben: " + this.kennzeichen);
+            return this.kennzeichen;
+        }
+    }
+
+    //-------------------------------------------------------------------------------------------------
+
+    let porsche = new Car("Porsche", "rot", 2, 350);
+    console.log(porsche.printCar());
+    porsche.accelerateCar(50);
+    console.log(porsche.printCar());
+    console.log(porsche.anmeldung.anmeldenFahrzeug());
+
+    console.log("-------------------");
+
+    let mercedes = new Car("Mercedes", "schwarz", 5, 325);
+    console.log(mercedes.printCar());
+    console.log(mercedes.anmeldung.anmeldenFahrzeug());
+
+    console.log("-------------------");
+
+    let golf = new Car("Golf", "grün", 5, 97);
+    console.log(golf.printCar());
+    golf.tuneCar(50);
+    console.log(golf.printCar());
+
+    console.log("-------------------");
+
+    let mercedes2 = new Car("Mercedes", "rot", 2, 420);
+    console.log(mercedes2.printCar());
+    console.log(mercedes2.anmeldung.anmeldenFahrzeug());
+
+    console.log("-------------------");
+
+    let schulbus = new Bus("Schulbus", "blau", 150, 30);
+    console.log(schulbus.printCar());
+    schulbus.accelerateCar(20);
+    console.log(schulbus.printCar());
+    schulbus.accelerateCar(35);
+    console.log(schulbus.printCar());
+    schulbus.accelerateCar(15);
+    console.log(schulbus.printCar());
+
+    console.log("-------------------");
+
+    let trabbi = new Car("Trabbi", "grau", 4, 35);
+
+    console.log("-------------------");
+
+    let suzuki = new Motorrad("Suzuki", "gold", 320, "Rennmaschine");
+    console.log(suzuki.printCar());
+    console.log(suzuki.anmeldung.anmeldenFahrzeug());
+    suzuki.tuneCar(105);
+    suzuki.accelerateCar(300);
+    console.log(suzuki.printCar());
+    suzuki.printKennzeichen();
+
+
+</script>
+</body>
+</html>
