@@ -13,7 +13,8 @@
     </div>
     <div id="einnahmenGesamt">
         <p>Einnahmen Gesamt</p>
-        <ul id="einnahmenGesamtListe"></ul>
+        <ul id="einnahmenGesamtBetrag">
+        </ul>
     </div>
 </div>
 <div id="ausgaben">
@@ -23,7 +24,8 @@
     </div>
     <div id="ausgabenGesamt">
         <p>Ausgaben Gesamt</p>
-        <ul id="ausgabennGesamtListe"></ul>
+        <ul id="ausgabenGesamtBetrag">
+        </ul>
     </div>
 </div>
 
@@ -75,6 +77,7 @@
             let einnahmenPositionen = document.getElementById("einnahmenPositionenListe");
             let li = document.createElement("li");
             li.setAttribute("id", this.id);
+            li.innerHTML = this.namePosition + ": " + this.betragPosition + " Euro";
             einnahmenPositionen.appendChild(li);
         }
         sumIn(x){
@@ -84,6 +87,8 @@
                 sum+=inArray[item].betragPosition;
             };
             console.log("Gesamt-Einnahmen " + sum + " Euro");
+            let einnahmenGesamtBetrag = document.getElementById("einnahmenGesamtBetrag");
+            einnahmenGesamtBetrag.firstChild.nodeValue = sum + " Euro";
         }
 
         //---------------------------------------------------------
@@ -94,6 +99,7 @@
             this.sumOut(this);
             let ausgabenPositionen = document.getElementById("ausgabenPositionenListe");
             let li = document.createElement("li");
+            li.innerHTML = this.namePosition + ": " + this.betragPosition + " Euro";
             li.setAttribute("id", this.id);
             ausgabenPositionen.appendChild(li);
         }
@@ -104,6 +110,8 @@
                 sum+=outArray[item].betragPosition;
             };
             console.log("Gesamt-Ausgaben " + sum + " Euro");
+            let ausgabenGesamtBetrag = document.getElementById("ausgabenGesamtBetrag");
+            ausgabenGesamtBetrag.firstChild.nodeValue = sum + " Euro";
         }
 
         //---------------------------------------------------------
@@ -113,11 +121,11 @@
 
     //---------------------------------------------------------
 
-    let gehalt = new Posten("Gehalt", 3500.00, "Einnahme");
-    let miete = new Posten("Miete", 800.00, "Ausgabe");
+    let miete = new Posten("Miete", 1200.00, "Ausgabe");
     let strom = new Posten("Strom", 60.00, "Ausgabe");
     let gewinn = new Posten("Gewinn", 365.75, "Einnahme");
     let fahrkarte = new Posten("Fahrkarte", 78.50, "Ausgabe");
+    let steuer = new Posten("Steuer", 2500.00, "Einnahme")
 
     //---------------------------------------------------------
 </script>
