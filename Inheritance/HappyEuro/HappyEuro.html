@@ -74,15 +74,15 @@
             console.log("registerIn()");
             console.log(this);
             this.sumIn(this);
-            let einnahmenPositionen = document.getElementById("einnahmenPositionenListe");
-            let li = document.createElement("li");
-            li.setAttribute("id", this.id);
-            li.innerHTML = this.namePosition + ": " + this.betragPosition + " Euro";
-            einnahmenPositionen.appendChild(li);
+            this.createInList(this);
         }
         sumIn(x){
             let sum = 0;
             inArray.push(x);
+            console.log("JSON: " + JSON.stringify(x));
+            let jsonObj = JSON.stringify(x);
+            let obj = JSON.parse(jsonObj);
+            console.log(obj);
             for(let item in inArray){
                 sum+=inArray[item].betragPosition;
             };
@@ -91,27 +91,39 @@
             einnahmenGesamtBetrag.firstChild.nodeValue = sum + " Euro";
         }
 
+        createInList(){
+            let einnahmenPositionen = document.getElementById("einnahmenPositionenListe");
+            let li = document.createElement("li");
+            li.setAttribute("id", inArray.indexOf(this));
+            li.innerHTML = this.namePosition + ": " + this.betragPosition + " Euro"  + " (ID: "+ inArray.indexOf(this) +")";
+            einnahmenPositionen.appendChild(li);
+        }
+
         //---------------------------------------------------------
 
         registerOut(){
             console.log("registerOut()");
             console.log(this);
             this.sumOut(this);
-            let ausgabenPositionen = document.getElementById("ausgabenPositionenListe");
-            let li = document.createElement("li");
-            li.innerHTML = this.namePosition + ": " + this.betragPosition + " Euro";
-            li.setAttribute("id", this.id);
-            ausgabenPositionen.appendChild(li);
+            this.createOutList(this);
         }
         sumOut(x){
             let sum = 0;
             outArray.push(x);
+            console.log("JSON: " + JSON.stringify(x));
             for(let item in outArray){
                 sum+=outArray[item].betragPosition;
             };
             console.log("Gesamt-Ausgaben " + sum + " Euro");
             let ausgabenGesamtBetrag = document.getElementById("ausgabenGesamtBetrag");
             ausgabenGesamtBetrag.firstChild.nodeValue = sum + " Euro";
+        }
+        createOutList(){
+            let ausgabenPositionen = document.getElementById("ausgabenPositionenListe");
+            let li = document.createElement("li");
+            li.innerHTML = this.namePosition + ": " + this.betragPosition + " Euro" + " (ID: "+ outArray.indexOf(this) +")";
+            li.setAttribute("id", outArray.indexOf(this));
+            ausgabenPositionen.appendChild(li);
         }
 
         //---------------------------------------------------------
