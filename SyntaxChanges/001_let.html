@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>let</title>
+</head>
+<body>
+    <script>
+        if(true) {
+            var name1 = 'Max';
+        }
+        console.log(name1);
+
+        //Blockscoping with let
+        if(true){
+            let name2 = 'Max';
+        }
+        console.log(name2);
+
+        let age = 37;
+        if(true){
+            let age = 27;
+        }
+        console.log(age);//37 is printing
+    </script>
+</body>
+</html>
