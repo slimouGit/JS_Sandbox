@@ -1,9 +1,44 @@
-angular.module('shopSystem', [])
+'use strict';
 
-.controller('ArticlesCtrl', function($scope){
-    $scope.articles = [
-        { id: 1, name: "Pizza Vegetaria", price: 5.1 },
-        { id: 2, name: "Pizza Salami",    price: 5.5 },
-        { id: 3, name: "Pizza Thunfisch", price: 6.3 }
-    ];
-});
+angular.module('tutorialApp', ['ngAnimate', 'ngRoute'])
+    .config(function($routeProvider) {
+        $routeProvider
+            .when('/', { templateUrl: 'articles.html' })
+            .when('/about', { template: 'Ueber unsere Pizzeria' })
+            .otherwise({ redirectTo: '/'});
+    })
+    .directive('price', function(){
+        return {
+            restrict: 'E',
+            scope: {
+                value: '='
+            },
+            template: '<span ng-show="value == 0">kostenlos</span>' +
+            '<span ng-show="value > 0">{{value | currency}}</span>'
+        }
+    })
+    .factory('Cart', function() {
+        var items = [];
+        return {
+            getItems: function() {
+                return items;
+            },
+            addArticle: function(article) {
+                items.push(article);
+            },
+            sum: function() {
+                return items.reduce(function(total, article) {
+                    return total + article.price;
+                }, 0);
+            }
+        };
+    })
+    .controller('ArticlesCtrl', function($scope, $http, Cart){
+        $scope.cart = Cart;
+        $http.get('articles.json').then(function(articlesResponse) {
+            $scope.articles = articlesResponse.data;
+        });
+    })
+    .controller('CartCtrl', function($scope, Cart){
+        $scope.cart = Cart;
+    });

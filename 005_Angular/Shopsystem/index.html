@@ -1,27 +1,22 @@
-<!DOCTYPE html>
-<html ng-app="shopSystem">
+<html ng-app="tutorialApp">
 <head>
-    <meta charset="UTF-8">
-    <title>Angular Shop</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.js"></script>
-    <script src="app.js"></script>
+    <meta charset="utf8" />
+    <title>AngularJS Tutorial</title>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <input type="text" ng-model="search">
-            <p ng-show="search">Du suchst gerade nach {{search}}</p>
-        </div>
-        <div class="row">
-            <table class="table" ng-controller="ArticlesCtrl">
-                <tr ng-repeat="article in articles | filter:search">
-                    <td>{{article.id}}</td>
-                    <td>{{article.name}}</td>
-                    <td>{{article.price + ' €'}}</td>
-                </tr>
-            </table>
-        </div>
-    </div>
+<div class="container">
+
+    <p class="well">
+        <a href="#/">Start</a> | <a href="#/about">Über</a>
+    </p>
+    <div ng-view></div>
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-animate.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-route.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
