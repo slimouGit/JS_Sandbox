@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="directiveApp">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <title>directiveApp</title>
+</head>
+<body>
+    <div ng-controller="directiveController">
+        {{title}}
+
+        <panel-directive panel-title="title">
+            <p>Ich bin ein Absatz</p>
+            {{panelContent}}
+        </panel-directive>
+
+
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.js"></script>
+<script src="app.js"></script>
+</html>

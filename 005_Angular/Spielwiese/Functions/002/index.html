@@ -5,9 +5,16 @@
     <title></title>
 </head>
 <body>
-    <div ng-controller="functionController">
-        <h1>{{testVar}}</h1>
-    </div>
+<div ng-controller="functionController">
+    <h1>{{headline}}</h1>
+    <ul>
+        <li ng-repeat="item in items track by $index">
+            {{item}}
+        </li>
+    </ul>
+    <input ng-model="newItem">
+    <button ng-if="newItem.length>0" ng-click="addItem()">hinzu</button>
+</div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.js"></script>
 <script src="app.js"></script>
