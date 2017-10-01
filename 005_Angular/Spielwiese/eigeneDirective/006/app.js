@@ -6,8 +6,6 @@ app.controller("directiveController", function($scope, $http){
     $http.get('data/contacts.json').then(function(contactResponse){
         $scope.contacts = contactResponse.data;
     });
-    $scope.title = "Panel-Titel";
-    $scope.content = "Panel-Content";
 });
 
 app.directive("panelDirective", function(){
