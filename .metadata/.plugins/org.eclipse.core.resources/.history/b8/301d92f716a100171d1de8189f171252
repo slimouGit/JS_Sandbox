@@ -1,0 +1,13 @@
+package HappyEuro;
+
+public class HappyEuro_Test {
+	public static void main(String[] args) {
+		HappyEuro miete = new HappyEuro("Ausgabe", "Miete", 800.00);
+		miete.erzeugenPosition();
+		miete.fuelleArrayList();
+		
+		HappyEuro strom = new HappyEuro("Ausgabe", "Strom", 55.00);
+		strom.erzeugenPosition();
+		strom.fuelleArrayList();
+	}
+}
