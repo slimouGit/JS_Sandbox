@@ -1,0 +1,16 @@
+<ion-view>
+    <ion-nav-title>Warenkorb</ion-nav-title>
+    <ion-content>
+        <ion-list show-delete="true">
+            <ion-item ng-repeat="item in cart">
+                <h2>{{item.name}}</h2>
+                <p>{{item.price | currency}}</p>
+                <ion-option-button class="button-assertive" ng-click="removeFromCart($index)">
+                    <i class="icon ion-minus-circled"></i>
+                </ion-option-button>
+                <ion-delete-button class="ion-minus-circled" ng-click="removeFromCart($index)">
+                </ion-delete-button>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
