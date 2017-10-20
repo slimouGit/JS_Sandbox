@@ -6,6 +6,7 @@ jQuery(document).ready(function($){
     $(form).submit(function(){
         event.preventDefault();
         let title = $("#title").val();
+
         let content = $("#content").val();
 
         //Url angeben, wo die Anfrage hingeschickt werden soll
@@ -26,13 +27,15 @@ jQuery(document).ready(function($){
 
                 //den wrapper-div der Liste in index.ejs waehlen
                 $("#guestbook-entries .entry").remove(); //alle Eintraege loeschen
-
                 //alle Eintraege inkl. des Neuen neu eintragen
                 newEntries.each(function(i, newEntry){
                     $("#guestbook-entries").append(newEntry);
                 });
+
             }
         })
+        document.getElementById("title").value = "";
+        document.getElementById("content").value = "";
     });
 
 });
