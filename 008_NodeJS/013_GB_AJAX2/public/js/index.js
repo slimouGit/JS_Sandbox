@@ -18,7 +18,7 @@ jQuery(document).ready(function($){
             },
             success: function(data){//ganzer DOM in data
                 //response nur in generiertem Div ausgeben
-                let div = $.parseHTML("<div></div>");
+                let div = $.parseHTML("<div></div>");//leeres Div erzeugen
                 $(div).html(data);
 
                 //Eintraege finden mit der Klasse entry in eínem (neuen) div
