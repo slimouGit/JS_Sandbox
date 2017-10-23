@@ -1,0 +1,15 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "outFile": "js/custom/Mfg.js",
+    "noImplicitAny":      true,
+    "removeComments":     true,
+    "preserveConstEnums": true,
+    "sourceMap":          true
+  },
+  "include": [
+    "001/src/**/*"
+  ],
+  "exclude": [
+  ]
+}

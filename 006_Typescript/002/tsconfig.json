@@ -1,14 +1,14 @@
 {
   "compileOnSave": true,
   "compilerOptions": {
-    "outFile":            "js/custom/Mfg.js",
+    "outFile": "js/custom/myCar.js",
     "noImplicitAny":      true,
     "removeComments":     true,
     "preserveConstEnums": true,
     "sourceMap":          true
   },
   "include": [
-    "src/**/*"
+    "002/src/**/*"
   ],
   "exclude": [
   ]
