@@ -12,11 +12,29 @@ class Car{
         this.speed = speed || 0;
 }
 
-    accelerate(): void{
+    accelerate():void{
         this.speed++;
     }
 
-    throttle(): void{
+    throttle():void{
         this.speed--;
     }
+
+    static numberOfWheels(): number{
+        return 4;
+    }
+
+    getSpeed():void{
+        console.log(this.speed);
+    }
+
+    printCar():void{
+        console.log("Engine: " + this.engineName + ", Gears: " + this.gears + ", Speed: " + this.speed);
+    }
 }
+
+let car = new Car("V8", 5, 0);
+car.getSpeed();
+car.accelerate();
+car.getSpeed();
+car.printCar();

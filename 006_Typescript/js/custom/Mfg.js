@@ -10,8 +10,22 @@ var Car = (function () {
     Car.prototype.throttle = function () {
         this.speed--;
     };
+    Car.numberOfWheels = function () {
+        return 4;
+    };
+    Car.prototype.getSpeed = function () {
+        console.log(this.speed);
+    };
+    Car.prototype.printCar = function () {
+        console.log("Engine: " + this.engineName + ", Gears: " + this.gears + ", Speed: " + this.speed);
+    };
     return Car;
 }());
+var car = new Car("V8", 5, 0);
+car.getSpeed();
+car.accelerate();
+car.getSpeed();
+car.printCar();
 var Mfg = (function () {
     function Mfg() {
     }
@@ -26,7 +40,7 @@ var Mfg = (function () {
     };
     Mfg.styleHtmlBody = function () {
         var style = document.body.style;
-        style.backgroundColor = "green;;
+        style.backgroundColor = "green";
         style.textAlign = "center";
         style.margin = "25px";
     };
