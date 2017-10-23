@@ -36,4 +36,4 @@ window.onload = function () {
     Mfg.main();
     Mfg.styleHtmlBody();
 };
-//# sourceMappingURL=Mfg.js.map
+//# sourceMappingURL=Car.js.map

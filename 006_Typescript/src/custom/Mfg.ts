@@ -31,7 +31,7 @@ class Mfg {
     {
         let style:CSSStyleDeclaration = document.body.style;
 
-        style.backgroundColor = "green";
+        style.backgroundColor = "green;
         style.textAlign       = "center";
         style.margin          = "25px";
     }
