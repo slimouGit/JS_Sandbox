@@ -39,3 +39,5 @@ car.getSpeed();
 car.accelerate();
 car.getSpeed();
 car.printCar();
+car.accelerate();
+car.printCar();
