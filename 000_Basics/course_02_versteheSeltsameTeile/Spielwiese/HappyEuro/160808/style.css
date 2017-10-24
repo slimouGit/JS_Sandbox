@@ -1,0 +1,34 @@
+body{margin:0;font-family: sans-serif;}
+
+h1{margin:0;font-size:15px;font-weight:normal;}
+h2{margin:0;font-size:13px;font-weight:normal;}
+
+label {display:block;float: left; width: 100px}
+input {float: left; }
+button{margin-left:100px}
+
+.formularFeld{display: table-row}
+.radioFeld{height:30px;}
+
+.beschriftungRadioButton{font-size:0.8em;width: 50px; margin-right: 10px;}
+
+.headlineAusgabe{font-size:1.3em;margin:0px;}
+
+#anzeigenKontostand{}
+#anzeigenAusgaben{}
+#anzeigenAusgabenGesamt{}
+#anzeigenEinnahmen{}
+#anzeigenEinnahmenGesamt{}
+#anzeigenErgebnis{}
+
+.displaySection{margin-bottom:15px;padding-bottom: 5px;border-bottom: 1px dashed #ccc;}
+.displaySection:first-child{margin-top:15px;padding-top: 15px;border-top: 1px dashed #ccc;}
+
+.noneDisplayed{display:none;}
+.hiddenArea{opacity: 0.0;height: 0px;}
+.visibleArea{opacity: 1.0; height:auto; -webkit-transition: opacity 2s; -moz-transition: opacity 2s; -o-transition: opacity 2s ease; transition: opacity 2s ease;}
+.heightArea{height:auto;}
+
+.delete_Link{margin-right:40px;float:right;}
+
+li { list-style: none }

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title></title>
+</head>
+<body>
+
+<!----------------------------------------------------------------------------------------------->
+
+<div id="formularEbene">
+    <form>
+        <div id="radioButtonPosition">
+    
+            <div class="formularFeld radioFeld">
+                <input name="artPosition" id="radio_Ausgabe" type="radio" onchange="auswahlArtPosition()" value="ausgabe">
+                <label class="beschriftungRadioButton">Ausgabe</label>
+                <!----------------------------------------------------------------------------------------------->
+                <input name="artPosition" id="radio_Einnahme" type="radio" onchange="auswahlArtPosition()" value="einnahme">
+                <label class="beschriftungRadioButton">Einnahme</label>
+                <!----------------------------------------------------------------------------------------------->
+                <input name="artPosition" id="radio_Konto" type="radio" onchange="auswahlArtPosition()" value="konto">
+                <label class="beschriftungRadioButton">Kontostand</label>
+            </div>
+    
+        </div>
+    
+        <div id="formInput" class="hiddenArea area">
+    
+            <div class="formularFeld ">
+                <label>Position</label><input type="text" id="inputNamePosition">
+            </div>
+    
+            <div class="formularFeld">
+                <label>Betrag</label><input type="text" id="inputBetragPosition">
+            </div>
+    
+            <button type="button" onclick="leseEingabe()" id="buttonEingabe">Eingabe</button>
+        </div>
+    </form>
+</div>
+
+<!----------------------------------------------------------------------------------------------->
+
+<div id="ausgebenDatenEbene">
+    
+    <section id="kontoEbene" class="hiddenArea area">
+        <span class="">Kontostand</span>
+        <div id="ergebnisKontoEbene"></div>
+    </section>
+    
+    <section id="ausgabenEbene" class="hiddenArea area">
+        <span class="">Ausgaben</span>
+        <div id="ausgabenListeEbene" class="area"></div>
+        <span class="ergebnis">Ausgaben Gesamt</span>
+        <div id="ausgabenGesamtEbene"></div>
+    </section>
+    
+    <section id="einnahmenEbene" class="hiddenArea area">
+        <span class="">Einnahmen</span>
+        <div id="einnahmenListeEbene" class="area"></div>
+        <span class="ergebnis">Einnahmen Gesamt</span>
+        <div id="einnahmenGesamtEbene"></div>
+    </section>
+    
+    <section id="ergebnisEbene" class="hiddenArea area">
+        <span class="">Ergebnis</span>
+        <div id="ergebnisGesamtEbene"></div>
+    </section>
+    
+</div>
+
+<!----------------------------------------------------------------------------------------------->
+
+</body>
+</html>

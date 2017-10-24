@@ -1,0 +1,62 @@
+body{margin:0;font-family: sans-serif;}
+
+header{width:710px;margin-bottom:10px;padding:10px;background-color:#6699cc;color:white;border-bottom-right-radius:10px;}
+main{padding:0px 10px;}
+footer{width:710px;margin-top:10px;padding:2px 10px;background-color:#40566d;border-top-right-radius:10px;}
+footer p{font-size:8px;color:white;}
+
+h1{margin:0;font-size:15px;font-weight:normal;}
+h2{margin:0;font-size:13px;font-weight:normal;}
+
+label {display:block;float: left; width: 100px; }
+input {float: left;}
+button{margin: 10px 0px 0px 100px; background-color:#40566d;border: none;color:white;}
+
+.formularFeld{display: table-row;padding:0px;}
+.radioFeld{height:30px;}
+
+.beschriftungRadioButton{font-size:0.8em;padding-top:2px;width:70px;}
+
+.headlineAusgabe{font-size:1.3em;margin:0px;}
+
+#input {width:710px;margin-bottom:10px;padding-bottom: 10px; border-bottom: 1px dashed #40566d;}
+#radioButtonPosition{padding:0px;}
+#radioButtonPosition table tr td {padding:0px;margin:0px;border:none;}
+
+.borderSection{width:700px;padding:0px;border: 1px solid #ccc; border-radius: 5px;}
+#kontostand{padding:0px;}
+#ausgaben{padding:0px;}
+#einnahmen{padding:0px;}
+#ergebnis{padding:0px;}
+
+.uppercaseLetter{text-transform:uppercase;}
+#anzeigenKontostand{padding-left:10px;padding-bottom:10px;}
+#anzeigenAusgaben{padding:0px 10px;}
+#anzeigenAusgabenGesamt{padding:5px 10px;background-color:red;color:white;border-bottom-left-radius:5px;border-bottom-right-radius:5px;}
+#anzeigenEinnahmen{padding:0px 10px;}
+#anzeigenEinnahmenGesamt{padding:5px 10px;background-color:green;color:white;border-bottom-left-radius:5px;border-bottom-right-radius:5px;}
+#anzeigenErgebnis{padding-left:10px;padding-bottom:10px;}
+
+
+
+.headlineBck{background-color:#6699cc;margin-top: 0px;padding: 3px 10px; color: white;border-top-right-radius:5px;border-top-left-radius:5px;}
+.subHeadlineBck{width:300px;margin-bottom:0px;padding-left: 10px; padding-bottom:5px;/*border-bottom: 1px solid #000;*/}
+.bottomDistance{margin-bottom:10px;}
+
+.displaySection{margin-bottom:15px;padding-bottom: 5px;/*border-bottom: 1px dashed #ccc;*/}
+/*
+.displaySection:first-child{margin-top:15px;padding-top: 15px;border-top: 1px dashed #ccc;}
+*/
+.noneDisplayed{display:none;}
+.hiddenArea{opacity: 0.0;height: 0px;}
+.visibleArea{opacity: 1.0; height:auto; -webkit-transition: opacity 2s; -moz-transition: opacity 2s; -o-transition: opacity 2s ease; transition: opacity 2s ease;}
+.heightArea{height:auto;}
+
+.positionContainer{margin:10px 0px;padding-bottom:5px; border-bottom:1px dashed #40566d;}
+.delete_Link{float:right;}
+
+.iconContainer{float:right;margin:0px;padding:0px;width: 40px;}
+.leftSideIcon{float:left;margin:0px;padding:0px;}
+.rightSideIcon{float:right;margin:0px;padding:0px;}
+
+li { padding:0px;list-style: none }

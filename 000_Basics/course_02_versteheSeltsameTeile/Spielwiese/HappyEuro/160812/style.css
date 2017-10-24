@@ -1,0 +1,23 @@
+body{font-family: sans-serif;}
+
+label {display:block;float: left; width: 100px}
+input {float: left; }
+button{margin-left:100px}
+
+.formularFeld{display: table-row}
+.radioFeld{height:30px;}
+
+.beschriftungRadioButton{font-size:0.8em;width: 50px; margin-right: 10px;}
+
+.headlineAusgabe{font-size:1.3em;margin:0px;}
+
+#anzeigenKontostand{}
+#anzeigenAusgaben{}
+#anzeigenAusgabenGesamt{border-top: 1px solid #000;}
+#anzeigenEinnahmen{}
+
+.hiddenArea{opacity: 0.0;height: 0px;}
+.visibleArea{opacity: 1.0; height:auto; -webkit-transition: opacity 2s; -moz-transition: opacity 2s; -o-transition: opacity 2s ease; transition: opacity 2s ease;}
+.heightArea{height:auto;}
+
+li { list-style: none }

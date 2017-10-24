@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>Happy Euro 3.0</title>
+    <script src="script.js"></script>
+    <link rel="icon" href="img/happyEuroFavicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>HappyEuro 3.0</h1>
+</header>
+<!----------------------------------------------------------------------------------------------->
+
+<main>
+    
+    <section id="input">
+        <form>
+            <!----------------------------------------------------------------------------------------------->
+            <section id="radioButtonPosition">
+                <label>Art Position</label>
+                <div class="formularFeld radioFeld displaySection">
+                    <table>
+                        <tr>
+                            <td>
+                                <input name="artPosition" id="radio_Ausgabe" type="radio" onchange="auswahlArtPosition()" value="ausgabe">
+                                <label class="beschriftungRadioButton">Ausgabe</label>
+                            </td>
+                    <!----------------------------------------------------------------------------------------------->
+                            <td>
+                                <input name="artPosition" id="radio_Einnahme" type="radio" onchange="auswahlArtPosition()" value="einnahme">
+                                <label class="beschriftungRadioButton">Einnahme</label>
+                            </td>
+                    <!----------------------------------------------------------------------------------------------->
+                            <td>
+                                <input name="artPosition" id="radio_Konto" type="radio" onchange="auswahlArtPosition()" value="konto">
+                                <label class="beschriftungRadioButton">Kontostand</label>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <span id="errorArtPosition" class="error"></span>
+            </section>
+            <!----------------------------------------------------------------------------------------------->
+            <section id="formInput" class="">
+                <div class="formularFeld ">
+                    <label>Position</label><input type="text" id="inputNamePosition"><span id="errorPosition" class="error"></span>
+                </div>
+                <!----------------------------------------------------------------------------------------------->
+                <div class="formularFeld">
+                    <label>Betrag</label><input type="text" id="inputBetragPosition"><span id="errorBetrag" class="error"></span>
+                </div>
+                <!----------------------------------------------------------------------------------------------->
+                <button type="button" id="buttonEingabe">Eingabe</button>
+            </section>
+            <!----------------------------------------------------------------------------------------------->
+        </form>
+    </section>
+    
+    <!----------------------------------------------------------------------------------------------->
+        
+    <section id="output">
+        <!----------------------------------------------------------------------------------------------->
+        <div class="ausgabeConatiner">
+            <section id="kontostand" class="borderSection displaySection noneDisplayed ">
+                <h1 class="headlineBck bottomDistance uppercaseLetter">Kontostand</h1>
+                <div id="anzeigenKontostand">
+                    <span></span>
+                </div>
+            </section>
+        </div>
+        <!----------------------------------------------------------------------------------------------->
+        <div class="ausgabeConatiner">
+            
+            <section id="einnahmen" class="borderSection displaySection noneDisplayed ganzeBreite">
+                <h1 class="headlineBck uppercaseLetter">Einnahmen</h1>
+                <div id="anzeigenEinnahmen"></div>
+                <h2 class="subHeadlineBck">Gesamt-Einnahmen</h2>
+                <div id="anzeigenEinnahmenGesamt">
+                    <span></span>
+                </div>
+            </section>
+            <!----------------------------------------------------------------------------------------------->
+            <section id="ausgaben" class="borderSection displaySection noneDisplayed ganzeBreite">
+                <h1 class="headlineBck uppercaseLetter">Ausgaben</h1>
+                <div id="anzeigenAusgaben"></div>
+                <h2 class="subHeadlineBck">Gesamt-Ausgaben</h2>
+                <div id="anzeigenAusgabenGesamt">
+                    <span></span>
+                </div>
+            </section>
+        
+        </div>
+        <!----------------------------------------------------------------------------------------------->
+        <div class="ausgabeConatiner">
+            <section id="ergebnis" class="borderSection displaySection noneDisplayed">
+                <h1 class="headlineBck bottomDistance uppercaseLetter">Ergebnis</h1>
+                <div id="anzeigenErgebnis">
+                    <span></span>
+                </div>
+            </section>
+        </div>
+        <!----------------------------------------------------------------------------------------------->
+    </section>
+
+</main>
+<footer>
+    <p>Version 3.0</p>
+</footer>
+
+<!----------------------------------------------------------------------------------------------->
+<script src="lib/pattern.js"></script>
+<script src="lib/manipulateData.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title></title>
+</head>
+<body>
+
+<!----------------------------------------------------------------------------------------------->
+
+<form>
+    <div id="radioButtonPosition">
+
+        <div class="formularFeld radioFeld">
+            <input name="artPosition" id="radio_Ausgabe" type="radio" onchange="auswahlArtPosition()" value="ausgabe">
+            <label class="beschriftungRadioButton">Ausgabe</label>
+            <!----------------------------------------------------------------------------------------------->
+            <input name="artPosition" id="radio_Einnahme" type="radio" onchange="auswahlArtPosition()" value="einnahme">
+            <label class="beschriftungRadioButton">Einnahme</label>
+            <!----------------------------------------------------------------------------------------------->
+            <input name="artPosition" id="radio_Konto" type="radio" onchange="auswahlArtPosition()" value="konto">
+            <label class="beschriftungRadioButton">Kontostand</label>
+        </div>
+
+    </div>
+
+    <div id="formInput" class="hiddenArea">
+
+        <div class="formularFeld ">
+            <label>Position</label><input type="text" id="inputNamePosition"><span id="errorPosition" class="error"></span>
+        </div>
+
+        <div class="formularFeld">
+            <label>Betrag</label><input type="text" id="inputBetragPosition"><span id="errorBetrag" class="error"></span>
+        </div>
+
+        <button type="button" id="buttonEingabe">Eingabe</button>
+        <button type="button" id="buttonReload">Ergebnis</button>
+    </div>
+</form>
+
+<div>
+    <p>Position wechseln von Einnahme zu Ausgabe</p>
+    <p>data[1].artPosition = "Ausgabe"</p>
+    <p>einnahmeErgebnis = einnahmeErgebnis - data[1].betragPosition</p>
+</div>
+
+
+<!----------------------------------------------------------------------------------------------->
+
+</body>
+</html>

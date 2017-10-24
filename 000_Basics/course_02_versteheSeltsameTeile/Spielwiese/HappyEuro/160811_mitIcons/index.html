@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Happy Euro</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title></title>
+</head>
+<body>
+
+<!----------------------------------------------------------------------------------------------->
+
+<section id="input">
+    <form>
+        <!----------------------------------------------------------------------------------------------->
+        <section id="radioButtonPosition">
+            <div class="formularFeld radioFeld, displaySection">
+                <input name="artPosition" id="radio_Ausgabe" type="radio" onchange="auswahlArtPosition()" value="ausgabe">
+                <label class="beschriftungRadioButton">Ausgabe</label>
+                <!----------------------------------------------------------------------------------------------->
+                <input name="artPosition" id="radio_Einnahme" type="radio" onchange="auswahlArtPosition()" value="einnahme">
+                 <label class="beschriftungRadioButton">Einnahme</label>
+                <!----------------------------------------------------------------------------------------------->
+                <input name="artPosition" id="radio_Konto" type="radio" onchange="auswahlArtPosition()" value="konto">
+                <label class="beschriftungRadioButton">Kontostand</label>
+            </div>
+        </section>
+        <!----------------------------------------------------------------------------------------------->
+        <section id="formInput" class="hiddenArea">
+            <div class="formularFeld ">
+                <label>Position</label><input type="text" id="inputNamePosition"><span id="errorPosition" class="error"></span>
+            </div>
+            <!----------------------------------------------------------------------------------------------->
+            <div class="formularFeld">
+                <label>Betrag</label><input type="text" id="inputBetragPosition"><span id="errorBetrag" class="error"></span>
+            </div>
+            <!----------------------------------------------------------------------------------------------->
+            <button type="button" id="buttonEingabe">Eingabe</button>
+            <button type="button" id="buttonReload">Ergebnis</button>
+        </section>
+        <!----------------------------------------------------------------------------------------------->
+    </form>
+</section>
+
+<!----------------------------------------------------------------------------------------------->
+    
+<section id="output">
+    <section id="kontostand" class="displaySection noneDisplayed">
+        <h1>Kontostand</h1>
+        <div id="anzeigenKontostand">
+            <span></span>
+        </div>
+    </section>
+    <!----------------------------------------------------------------------------------------------->
+    <section id="einnahmen" class="displaySection noneDisplayed">
+        <h1>Einnahmen</h1>
+        <div id="anzeigenEinnahmen"></div>
+        <h2>Gesamt-Einnahmen</h2>
+        <div id="anzeigenEinnahmenGesamt">
+            <span></span>
+        </div>
+    </section>
+    <!----------------------------------------------------------------------------------------------->
+    <section id="ausgaben" class="displaySection noneDisplayed">
+        <h1>Ausgaben</h1>
+        <div id="anzeigenAusgaben"></div>
+        <h2>Gesamt-Ausgaben</h2>
+        <div id="anzeigenAusgabenGesamt">
+            <span></span>
+        </div>
+    </section>
+    <!----------------------------------------------------------------------------------------------->
+    <section id="ergebnis" class="displaySection noneDisplayed">
+        <h1>Ergebnis</h1>
+        <div id="anzeigenErgebnis">
+            <span></span>
+        </div>
+    </section>
+</section>
+
+<!----------------------------------------------------------------------------------------------->
+
+<!--
+Position wechseln von Einnahme zu Ausgabe
+data[1].artPosition = "Ausgabe"
+einnahmeErgebnis = einnahmeErgebnis - data[1].betragPosition
+data.splice(0, 1);
+
+-->
+
+
+<!----------------------------------------------------------------------------------------------->
+
+<script src="positionHandling.js"></script>
+
+</body>
+</html>

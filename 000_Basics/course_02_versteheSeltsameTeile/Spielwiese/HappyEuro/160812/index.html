@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title></title>
+</head>
+<body>
+
+<!----------------------------------------------------------------------------------------------->
+
+<form>
+    <div id="radioButtonPosition">
+
+        <div class="formularFeld radioFeld">
+            <input name="artPosition" id="radio_Ausgabe" type="radio" onchange="auswahlArtPosition()" value="ausgabe">
+            <label class="beschriftungRadioButton">Ausgabe</label>
+            <!----------------------------------------------------------------------------------------------->
+            <input name="artPosition" id="radio_Einnahme" type="radio" onchange="auswahlArtPosition()" value="einnahme">
+            <label class="beschriftungRadioButton">Einnahme</label>
+            <!----------------------------------------------------------------------------------------------->
+            <input name="artPosition" id="radio_Konto" type="radio" onchange="auswahlArtPosition()" value="konto">
+            <label class="beschriftungRadioButton">Kontostand</label>
+        </div>
+
+    </div>
+
+    <div id="formInput" class="hiddenArea">
+
+        <div class="formularFeld ">
+            <label>Position</label><input type="text" id="inputNamePosition">
+        </div>
+
+        <div class="formularFeld">
+            <label>Betrag</label><input type="text" id="inputBetragPosition">
+        </div>
+
+        <button type="button" onclick="leseEingabe()" id="buttonEingabe">Eingabe</button>
+    </div>
+</form>
+
+<!----------------------------------------------------------------------------------------------->
+
+</body>
+</html>

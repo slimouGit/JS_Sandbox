@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HappyEuro</title>
+    <script src="he_script.js"></script>
+    <link rel="stylesheet" href="he_style.css">
+
+</head>
+<body>
+    <form>
+        <div id="radioButtonPosition">
+
+            <div class="formularFeld radioFeld">
+                <input name="artPosition" id="radio_Ausgabe" type="radio" onchange="auswahlArtPosition()" value="ausgabe">
+                <label class="beschriftungRadioButton">Ausgabe</label>
+            <!--</div>
+            <!----------------------------------------------------------------------------------------------->
+            <!--<div class="formularFeld">-->
+                <input name="artPosition" id="radio_Einnahme" type="radio" onchange="auswahlArtPosition()" value="einnahme">
+                <label class="beschriftungRadioButton">Einnahme</label>
+            <!--</div>
+            <!----------------------------------------------------------------------------------------------->
+            <!--<div class="formularFeld">-->
+                <input name="artPosition" id="radio_Konto" type="radio" onchange="auswahlArtPosition()" value="konto">
+                <label class="beschriftungRadioButton">Kontostand</label>
+            </div>
+
+        </div>
+        <div id="formInput" class="hiddenArea">
+            <div class="formularFeld ">
+                <label>Position</label><input type="text" id="inputNamePosition">
+            </div>
+            <div class="formularFeld">
+                <label>Betrag</label><input type="text" id="inputBetragPosition">
+            </div>
+    
+            <button type="button" onclick="einlesenDaten()" id="buttonEingabe">Eingabe</button>
+        </div>
+    </form>
+    <div id="anzeigenKontostand" class="hiddenArea">
+        <h1 class="headlineAusgabe">Konto</h1>
+        <div id="anzeigenKontostandListe">
+        </div>
+    </div>
+    
+    <div id="anzeigenAusgaben" class="hiddenArea">
+        <h1 class="headlineAusgabe">Ausgaben</h1>
+        <span id="anzeigenAusgabenListe"></span>
+        <span id="anzeigenAusgabenGesamt" class="hiddenArea"></span>
+    </div>
+    
+    <div id="anzeigenEinnahmen" class="hiddenArea">
+        <h1 class="headlineAusgabe">Einnahmen</h1>
+        <span id="anzeigenEinnahmenListe"></span>
+        <span id="anzeigenEinnahmenGesamt" class="hiddenArea"></span>
+    </div>
+</body>
+</html>
