@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Immediately Invoked Function Expression</title>
+</head>
+<script>
+
+    //Funktion wird deklariert und ruft sich sofort selber auf
+
+    (function(){
+        console.log("Diese Funktion wird deklariert und sofort aufgerufen.")
+    })();
+</script>
+
+<script>console.log("---------------------------------------")</script>
+
+<script>
+
+    //Behandeln von x in verschiedenen Scopes
+
+    var x = 3;
+
+    (function(){
+
+        var x = 11;
+
+        if(x<20){
+
+            (function(){
+                var x = 4;
+                console.log(x);
+            })();
+        }
+
+        if(x>2){
+
+            (function(){
+                var x = 7;
+                console.log(x);
+            })();
+        }
+
+        console.log(x);
+    })();
+
+    console.log(x);
+</script>
+<body>
+
+</body>
+</html>
