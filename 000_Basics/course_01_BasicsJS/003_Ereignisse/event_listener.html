@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>event_listener</title>
+        <meta charset="utf-8"/>
+        <script>
+            function fClick() {
+                alert("Click im Formular");
+            }
+            function dClick() {
+                alert("Click im Div-Container");
+            }
+            function bClick() {
+                alert("Click im Button");
+                
+                //EventListener werden geloescht
+                //*
+                if(window.addEventListener){
+                    document.getElementById("idButtonBubble").removeEventListener("click", bClick, false);
+                }
+                if(window.attachEvent) {
+                    document.getElementById("idButtonBubble").detachEvent("onclick", bClick);
+                }
+                //*/
+            }
+        </script>
+    </head>
+    <body>
+        <form id="idFormBubble" action="#">
+            <div id="idDivBubble">Bubbling-Verfahren
+            <p><input id="idButtonBubble" type="button" value="Click mit Bubble"></p>
+            </div>
+        </form>
+        
+        <hr>
+        
+        <form id="idFormCapture" action="#">
+            <div id="idDivCapture">Capturing-Verfahren
+            <p><input id="idButtonCapture" type="button" value="Click mit Capture"></p>
+            </div>
+        </form>
+        
+        <script>
+            if(window.addEventListener) {
+                document.getElementById("idFormBubble").addEventListener("click", fClick, false);//Bubbling
+                document.getElementById("idDivBubble").addEventListener("click", dClick, false);//Bubbling
+                document.getElementById("idButtonBubble").addEventListener("click", bClick, false);//Bubbling
+                //-------------------------------------------------------
+                document.getElementById("idFormCapture").addEventListener("click", fClick, true);//Capturing
+                document.getElementById("idDivCapture").addEventListener("click", dClick, true);//Capturing
+                document.getElementById("idButtonCapture").addEventListener("click", bClick, true);//Capturing
+            }
+            else if(window.attachEvent) {//IE-Kack-Browser
+                document.getElementById("idFormBubble").attachEvent("onclick", fClick);//nur Bubbling bei alten IE
+                document.getElementById("idDivBubble").attachEvent("onclick", dClick);//nur Bubbling bei alten IE
+                document.getElementById("idButtonBubble").attachEvent("onclick", bClick);//nur Bubbling bei alten IE
+                //-------------------------------------------------------
+                document.getElementById("idFormCapture").attachEvent("onclick", fClick);//nur Bubbling bei alten IE
+                document.getElementById("idDivCapture").attachEvent("onclick", dClick);//nur Bubbling bei alten IE
+                document.getElementById("idButtonCapture").attachEvent("onclick", bClick);//nur Bubbling bei alten IE
+            }
+        </script>
+    </body>
+</html>

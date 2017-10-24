@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON-Objekt</title>
+</head>
+<body>
+    <script>
+        var dacia = {"farbe":"rot", "geschwindigkeit":"50"};
+        document.write("1: " + dacia.farbe + " " + dacia.geschwindigkeit + "<br>");
+
+        var zkette;
+        if(window.JSON){
+            zkette = JSON.stringify(dacia);
+            alert(zkette);
+        }else{
+            zkette = '{"farbe":"rot", "geschwindigkeit"="50"}';
+        }
+        document.write("2: " + zkette + "<br>");
+    </script>
+</body>
+</html>

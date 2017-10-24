@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+        <p>Eingabe-Test</p>
+        
+        <script>
+            function einlesenEingabe(){
+                var posten = document.getElementById("posten").value;
+                var betrag = document.getElementById("betrag").value;
+                console.log(posten + " " + betrag);
+                
+                var position = posten + " " + betrag;
+                
+                document.getElementById("ausgabe").innerHTML = position;
+            }
+        </script>
+        
+        <form id="eingabeFormular">
+            <label>Posten</label>
+            <input type="text" id="posten">
+            <br>
+            <label>Betrag</label>
+            <input type="text" id="betrag">
+        </form>
+        
+        <button type="button" onclick="einlesenEingabe();">Klick mich!</button>
+        <br>
+        <span id="ausgabe"></span>
+    </body>
+</html>

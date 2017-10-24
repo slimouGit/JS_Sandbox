@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>2 Dimenisonales Array</title>
+    <meta charset="utf-8"/>
+    <script src="bib.js"></script>
+</head>
+<body>
+<script>
+    var gehaltArray = new Array();
+
+    var people = [
+        ["Joseph", 27, "United States", ["blue", "black"], 1800],
+        ["Maria", 21, "Uruguay", ["brown", "green"], 1300],
+        ["Brian", 35, "United Kingdom", ["green", "red"], 1500],
+        ["Susan", 42, "Australia", ["blue", "blond"], 1600],
+        ["Diana", 28, "Deutschland", ["grüen", "brunette"], 3800]
+    ];
+
+    //people[2][3][1] = "brown";
+    //document.write(people[2][3][1]);
+
+    for(var i=0;i<people.length;i++){
+        document.write("<b>Person " + (i+1) + "</b><br>");
+        /*
+         for(var details in people[i]){
+         document.write(people[i][details]+"<br>");
+         }
+         */
+        //----------------------------------------------
+        //bei jedem Schleifendurchlauf wird die Variable "gehaltTemp" mit dem Wert
+        //des Indexes "people[i][4]" initialisiert
+        /*
+         var gehaltTemp = parseFloat(people[i][4]);
+         //anschliessend wird dem globalen Array "gehaltArray" der Wert hinzugefuegt
+         gehaltArray.push(gehaltTemp);
+         */
+        //----------------------------------------------
+        ergaenzeArray(people[i][4], gehaltArray);
+
+
+        //----------------------------------------------
+
+        document.write("Name: " + people[i][0] + "<br>");
+        document.write("Alter: " + people[i][1] + "<br>");
+        document.write("Land: " + people[i][2] + "<br>");
+        document.write("Augenfarbe: " + people[i][3][0] + "<br>");
+        document.write("Haarfarbe: " + people[i][3][1] + "<br>");
+        document.write("Gehalt: " + people[i][4] + " Euro" + "<br>");
+        var deleting = people[i];
+        //document.write("Delete " + pop.(deleting));
+        alert(deleting);
+        //pop.people;
+        //people.shift();
+        document.write("<hr>");
+    }
+    //----------------------------------------------
+    document.write("Anzahl Mitarbeiter: " + people.length);
+    document.write("<br>");
+
+    document.write(rechneSumme(gehaltArray));
+    //rechneSumme(gehaltArray);
+
+
+    /*
+     var summe = 0;
+     for (var i = 0; i < gehaltArray.length; i++){
+     summe = summe + gehaltArray[i];
+     }
+     document.write("Gesamt-Gehalt: " + summe + " Euro");
+     */
+</script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8"/>
+        <script src="lib/eh.js"></script>
+        <style>
+            .error{color:red;}
+        </style>
+    </head>
+    <body>
+        <p>Eingabe-Test</p>
+        
+        <script>
+        
+        var position;
+        var posten; 
+        var betrag;
+
+        //-------------------------------------------------------------------------------------------
+        //-------------------------------------------------------------------------------------------
+                        
+            function einlesenEingabe(){
+                posten = document.getElementById("posten").value;
+                betrag = document.getElementById("betrag").value;
+                console.log(posten + " " + betrag);
+                
+                testenEingabe(posten, betrag);
+                betrag.value="";
+            }//ENDE einlesenEingabe
+
+        //-------------------------------------------------------------------------------------------
+        //-------------------------------------------------------------------------------------------
+            
+            function testenEingabe(){
+
+                //-------------------------------------------------------------------------------------------
+
+                //Regulaerer Ausdruck fuer eingegebenen Betrag
+                var pattern_Betrag = /^([1-9]{1}[0-9]*)(,?)([0-9]*)$/;
+
+                //-------------------------------------------------------------------------------------------
+
+                //Formular wird auf Vollständigkeit geprueft
+
+                if(posten === ""){
+                    document.getElementById("postenError").innerHTML = " Bitte geben Sie eine Position an";
+                    var errorPosten = 0;
+                }else{
+                    document.getElementById("postenError").innerHTML = "";
+                    var errorPosten = 1;
+                }
+
+                if(betrag === ""){
+                    document.getElementById("betragError").innerHTML = " Bitte geben Sie einen Betrag an";
+                    var errorBetrag = 0;
+                }
+                else if(!(betrag.match(pattern_Betrag))){//es wird geprueft, ob das Muster auf die Eingabe passt
+                    document.getElementById("betragError").innerHTML = " Diese Eingabe kann nicht verarbeitet werden";
+                    var errorBetrag = 0;
+                }else{
+                    document.getElementById("betragError").innerHTML = "";
+                    var errorBetrag = 1;
+                }
+
+
+                //es wird geprueft, ob kein Fehler bei der Eingabe aufgetreten ist
+                if(!(errorPosten && errorBetrag)==0) {
+
+                    //-------------------------------------------------------------------------------------------
+
+                    //es wird nach einem Komma gesucht
+                    var komma = betrag.search(",");
+
+                    //-------------------------------------------------------------------------------------------
+
+                    //ist kein Komma gefunden worden, wird ",00" angehangen
+                    if (komma === -1) {
+                        console.log("kein Komma da");
+                        betrag = betrag.concat(",00");
+                        console.log(betrag + " das fehlende Komma wurde ergänzt");
+                    }
+
+                    //-------------------------------------------------------------------------------------------
+
+                    //die Stellen vor dem Komma werden an "betrag_vorKomma" uebergeben
+                    var komma_betrag = betrag.indexOf(",");// & betrag.indexOf(".");//Index des Kommas oder des Punktes ermitteln
+                    var betrag_vorKomma = parseInt(betrag.substring(0, komma_betrag));
+
+                    //die Stellen nach dem Komma werden an "betrag_nachKomma" uebergeben
+                    var komma_betrag = betrag.lastIndexOf(",");
+                    var betrag_nachKomma = (betrag.substring(komma_betrag + 1));
+
+                    //die Stellen nach dem Komma werden auf 2 reduziert
+                    betrag_nachKomma = parseInt(betrag_nachKomma.substr(0, 2));
+
+                    betrag = betrag_vorKomma + "." + betrag_nachKomma;
+                    betrag = parseFloat(betrag);
+
+                    position = posten + " " + (betrag * 1).toFixed(2) + " Euro";
+
+                    console.log(position + " mit Punkt");
+
+                    position = position.replace(".", ",");
+
+                    console.log(position + " mit Komma");
+
+                    ausgebenEingabe(position);
+
+                }//ENDE if(!(errorPosten && errorBetrag)==0) {
+            }//ENDE testenEingabe
+
+        //-------------------------------------------------------------------------------------------
+        //-------------------------------------------------------------------------------------------
+
+        function ausgebenEingabe(){
+            document.getElementById("ausgabe").innerHTML = position;
+            formularLeeren();
+        }//ENDE ausgebenEingabe
+
+        //-------------------------------------------------------------------------------------------
+        //-------------------------------------------------------------------------------------------
+
+        function formularLeeren(){
+            document.getElementById("eingabeFormular").reset();
+            //Falls Fehlermeldungen angezeigt werden, auch diese entfernen
+            document.getElementById("postenError").innerHTML = "";
+            document.getElementById("betragError").innerHTML = "";
+        }//ENDE formularLeeren
+
+        //-------------------------------------------------------------------------------------------
+        //-------------------------------------------------------------------------------------------
+        </script>
+
+        <!------------------------------------------------------------------------------------------->
+
+        <form id="eingabeFormular">
+            <label>Posten</label>
+            <input type="text" id="posten"><span class="error" id="postenError"></span>
+            <br>
+            <label>Betrag</label>
+            <input type="text" id="betrag" placeholder="XXX,XX"><span class="error" id="betragError"></span>
+        </form>
+
+        <!------------------------------------------------------------------------------------------->
+
+        <button type="button" id="Eintrage_Button">eintragen</button>
+        <button type="button" id="Reset_Button">Eingabe leeren</button>
+        <br>
+        <span id="ausgabe"></span>
+
+        <!------------------------------------------------------------------------------------------->
+
+        <script>
+            meinHandler("Eintrage_Button", "click", einlesenEingabe);
+            meinHandler("Reset_Button", "click", formularLeeren);
+        </script>
+        
+    </body>
+</html>

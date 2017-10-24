@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+    <head>
+        <title>frame</title>
+        <meta charset="utf-8"/>
+        <script>
+            var x = 12;
+            function fu1() {
+                var x = 13;
+                return x;
+            }
+            
+            function fu2() {
+                return frames[1].x;
+            }
+        </script>
+    </head>
+    <frameset rows="10 %,90 %">
+        <frame src="frame_oben.html">
+            <frameset cols="20 %,80 %">
+            <frame src="frame_links.html">
+            <frame src="frame_rechts.html">
+        </frameset>
+    </frameset>
+    <!--
+    Innerhalb einer Frame-Seite kann es mehrere Variablen oder Funktionen mit demselben Namen geben. 
+    Da sie sich jeweils in unterschiedlichen Frames befinden, haben sie einen eindeutigen Gültigkeitsbereich.
+    
+    Nach Aufruf der Funktion ausgabe() werden der Reihe nach die folgenden Werte ermittelt und ausgegeben:
+    - Der Wert der Variablen x aus der Frame-Hauptseite.
+    - Der Rückgabewert der Funktion fu1() aus der Frame-Hauptseite.
+    - Der Rückgabewert der Funktion fu2() aus der Frame-Hauptseite. Dieser entspricht
+        dem Wert der Variablen x aus dem linken Frame. Innerhalb von fu2() wird diese
+        Variable ohne Angabe von parent angesprochen, da wir uns bereits innerhalb der
+        Frame-Hauptseite befinden.
+    - Der Wert der Variablen x aus dem linken Frame. Diesmal muss sie mit Hilfe von
+        parent angesprochen werden, da wir uns nicht innerhalb der Frame-Hauptseite befinden.
+    - Der Rückgabewert der Funktion fu1() aus dem oberen Frame.
+    - Der Wert der Variablen x aus diesem Frame.
+    - Der Wert des DOM-Elements mit der ID idOben aus dem oberen Frame.
+    -->
+</html>

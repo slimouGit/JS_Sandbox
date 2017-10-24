@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>regexp_negation</title>
+</head>
+<body>
+    <script>
+        var aus = "";
+        if("xy".match(/[^x]/)) aus += "1: xy<br>";
+        if("xxx".match(/[^x]/)) aus += "1: xxx<br>";
+        if("15a".match(/[^0-9]/)) aus += "2: 15a<br>";
+        if("78B".match(/[^0-9]/)) aus += "2: 78B<br>";
+        if("64".match(/[^0-9]/)) aus += "2: 64<br>";
+        document.write(aus);
+    </script>
+</body>
+</html>

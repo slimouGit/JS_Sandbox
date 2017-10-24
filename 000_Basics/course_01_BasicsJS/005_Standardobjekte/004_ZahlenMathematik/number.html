@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>number</title>
+</head>
+<body>
+    <script>
+        var zahl = Number.MIN_VALUE;
+        document.write("Zahl mit dem kleinsten Betrag: " + zahl + "<br>");
+        document.write(zahl + " finit: " + isFinite(zahl) + "<br>");
+
+        zahl = zahl * 0.5;
+        document.write(zahl + " finit: " + isFinite(zahl) + "<br>");
+
+        zahl = zahl + 1;
+        document.write(zahl + " finit: " + isFinite(zahl) + "<br>");
+
+        document.write("<br>");
+
+        zahl = Number.MAX_VALUE;
+
+        document.write("Zahl mit dem größten Betrag: " + zahl + "<br>");
+        document.write(zahl + " finit: " + isFinite(zahl) + "<br>");
+
+        zahl = zahl * 1.1;
+        document.write(zahl + " finit: " + isFinite(zahl) + "<br>");
+
+        zahl = zahl / 1.1;
+        document.write(zahl + " finit: " + isFinite(zahl) + "<br>");
+
+        document.write("<br>");
+
+        zahl = 1000 / 7;
+        document.write("Zahl: " + zahl + "<br>");
+        document.write("Als ganze Zahl: " + zahl.toFixed(0) + "<br>");
+        document.write("Auf zwei Stellen: " + zahl.toFixed(2) + "<br>");
+        document.write("Als Exponentialzahl: " + zahl.toExponential());
+
+        /**
+         * Es wird die Zahl mit dem kleinsten Betrag gespeichert und ausgegeben. Die Funktion
+         isFinite() stellt fest, dass diese Zahl noch gültig ist. Die Zahl wird halbiert. Der Betrag
+         der daraus resultierenden Zahl ist zu klein für JavaScript und wird daher nur noch als
+         die Zahl 0 erkannt. Es ist aber nach wie vor eine gültige Zahl. Dies zeigt die Addition
+         von 1, siehe Abbildung 6.25.
+         Es wird die größte Zahl gespeichert und ausgegeben. Die Funktion isFinite() stellt
+         fest, dass diese Zahl noch gültig ist. Die Zahl wird vergrößert. Die resultierende Zahl
+         ist zu groß für JavaScript und wird daher nur noch als Infinity (deutsch: Unendlichkeit)
+         erkannt. Es ist keine gültige Zahl mehr. Dies zeigt der Versuch, mit ihr weiterzurechnen,
+         siehe ebenfalls Abbildung 6.25.
+         Es wird der Wert von 1000 / 7 berechnet. Dies ist mathematisch der Wert
+         142.857142857142857142..., also 142 mit der Periode 857142. JavaScript macht daraus den
+         Wert 142.85714285714286, da es Zahlen nur auf 14–15 Stellen genau berechnet.
+         Die Darstellung mit toFixed(0) ergibt die Rundung auf eine ganze Zahl. Mit Hilfe von
+         toFixed(2) wird zur Darstellung auf zwei Nachkommastellen gerundet. Manche
+         Browser nehmen auch negative Werte als Parameter an, zur Rundung auf eine
+         bestimmte Anzahl an Stellen vor dem Komma. Die Methode toExponential() führt
+         zur Darstellung mit Exponent. Beide Methoden werden direkt auf die Variablen
+         angewendet, ohne die Nennung des Number-Objekts.
+         */
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>fixkosten_abrufen</title>
+    <script>
+        var selected;
+        var posten;
+        var betrag;
+        
+        function anfordern(x) {
+            req = new XMLHttpRequest();
+            req.open("get", "fixkosten.xml", true);
+            req.onreadystatechange = function(e) { auswerten(e, x); };
+            req.send();
+        }
+        function auswerten(e, x) {
+            if (e.target.readyState == 4 && e.target.status == 200) {
+                var antwort = e.target.responseXML;
+                posten = antwort.getElementsByTagName("posten")[x];
+                betrag = antwort.getElementsByTagName("betrag")[x];
+                
+                posten = posten.firstChild.nodeValue;
+                betrag = betrag.firstChild.nodeValue;
+                
+                alert(posten + " " + betrag + " Euro");
+
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <div id="fixkostenEbene">
+        Fixkosten:
+        <select id="fixkostenWaehlen" onchange="meineFixkosten()">
+            <option value="" selected="selected">bitte wählen</option>
+            <option id="idLink0" value="Miete">Miete</option>
+            <option id="idLink1" value="Strom">Strom</option>
+            <option id="idLink2" value="Fahrkarte">Fahrkarte</option>
+        </select>
+    </div>
+    
+    <script src="../lib/eh.js"></script>
+
+    <script>
+        function meineFixkosten() {
+            
+            var x = document.getElementById("fixkostenWaehlen").value;
+            //document.getElementById("demo").innerHTML = "You selected: " + x;
+            selectedIndex = fixkostenWaehlen.selectedIndex;
+            
+            if(selectedIndex === 0 ){
+                alert("STOPP");
+                return;
+            }
+            
+            console.log("You selected: " + x + " " + (selectedIndex-1));
+            anfordern(selectedIndex-1);
+        }
+    </script>
+
+
+</body>
+</html>

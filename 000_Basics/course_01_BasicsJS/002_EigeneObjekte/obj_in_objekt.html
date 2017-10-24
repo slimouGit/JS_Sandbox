@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Objekt in Objekt</title>
+        <meta charset="utf-8"/>
+        <script>
+
+            //---------------------------------
+
+            function Fahrzeug(n, f, g, m, a) {
+                this.name = n;
+                this.farbe = f;
+                this.geschwindigkeit = g;
+                this.motor = m;
+                this.ausstattung = a;
+                this.toString = fahrzeugAusgeben;
+                //----------------------------
+                function fahrzeugAusgeben() {
+                    return this.name + ", Farbe: " + this.farbe + ", Geschwindigkeit: "
+                            + this.geschwindigkeit + " km/h" + ", Motor-Daten: " + this.motor + ", " + this.ausstattung;
+                }
+            }
+
+            //---------------------------------
+
+            function Motor(l, z, k) {
+                this.leistung = l;
+                this.zylinder = z;
+                this.kraftstoff = k;
+                this.tunen = motorTunen;
+                this.toString = motorAusgeben;
+                //----------------------------
+                function motorTunen(x) {
+                    this.leistung += x;
+                }
+                //----------------------------
+                function motorAusgeben() {
+                    return "Leistung: " + this.leistung + " PS , Zylinder: "
+                    + this.zylinder + ", Kraftstoff: " + this.kraftstoff;
+                    }
+            }
+
+            //---------------------------------
+
+            function Sonderausstattung(f, r){
+                this.felgen = f;
+                this.reifen = r;
+                this.pimpen = pimpeFahrzeug;
+                this.toString = ausstattungAusgeben;
+                //-----------------------------------
+                function pimpeFahrzeug(wert){
+                    this.reifen += wert;
+                }
+                //-----------------------------------
+                function ausstattungAusgeben(){
+                    return "Felgen: " + this.felgen + ", Reifen: " + this.reifen + " Zoll" + "<br><br>";
+                }
+            }
+
+            //---------------------------------
+
+        </script>
+    </head>
+    <body>
+        <script>
+            var dacia = new Fahrzeug("Dacia", "rot", 50 , new Motor(180, 4, "Diesel"), new Sonderausstattung("Stahl", 150));
+            dacia.motor.tunen(10);
+            document.write(dacia);
+            dacia.motor.leistung = 200;
+            dacia.motor.zylinder = 6;
+            dacia.motor.kraftstoff = "Benzin";
+            document.write(dacia);
+            document.write("<hr>");
+            //-------------------------------
+            var mercedes = new Fahrzeug("Mercedes", "schwarz", 150, new Motor(250, 8, "Benzin"), new Sonderausstattung("Datens", 200));
+            document.write(mercedes);
+            mercedes.motor.tunen(50);
+            mercedes.farbe = "gold";
+            mercedes.ausstattung.pimpen(20);
+            document.write(mercedes);
+            document.write("<hr>");
+            //-------------------------------
+            var simple = new Fahrzeug("Simple-Car", "weiss", 50, new Motor(50, 2, "Benzin"), new Sonderausstattung("Holz", 60));
+            document.write(simple)
+        </script>
+    </body>
+</html>

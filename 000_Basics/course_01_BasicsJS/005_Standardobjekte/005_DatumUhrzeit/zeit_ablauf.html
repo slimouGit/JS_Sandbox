@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>zeit_ablauf</title>
+        <meta charset="utf-8"/>
+        <script type="text/javascript" src="lib/number.js"></script>
+        <script type="text/javascript" src="lib/date.js"></script>
+        <!--
+        Die Methode setInterval() sorgt für den automatischen wiederholten Aufruf von
+        Anweisungen nach einer bestimmten Zeit. Die Methode clearInterval() sorgt
+        ebenfalls bei Bedarf dafür, dass der betreffende Aufruf nicht mehr erfolgen kann.
+        Diese Methoden ermöglichen Ihnen, Abläufe zeitlich zu steuern, wie sie zum Beispiel
+        bei Spielen oder Simulationen erforderlich sind. Im vorliegenden Programm werden
+        die Methoden setInterval() und clearInterval() genutzt, um eine permanent
+        aktuelle Digitaluhr und einen Countdown über 10 Sekunden anzuzeigen.
+        -->
+        <script>
+            function datumUhrzeit() {
+                var d = new Date();
+                document.getElementById("idZeit").firstChild.nodeValue = "Datum und Uhrzeit: " + d.dateFormat("d. S y h:m:s");
+            }
+            
+            function countdown() {
+                var zeitB = new Date();
+                var diff = (zeitB - zeitA) / 1000;
+                diff = 10 - diff;
+                document.getElementById("idCount").firstChild.nodeValue = "Countdown: " + diff.toFixed(1);
+                if(diff < 0.06) {
+                    window.clearInterval(intervallVerweis);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <p id="idZeit">Datum und Uhrzeit:</p>
+        <p id="idCount">Countdown:</p>
+        <script>
+            window.setInterval(datumUhrzeit, 100);//Die Funktion datumUhrzeit wird alle 100 Millisekunden aufgerufen
+        
+            var zeitA = new Date(); // Startzeit, für Zeitdifferenz
+            var intervallVerweis = window.setInterval(countdown, 100);
+            
+            /**
+            Im body des Dokuments stehen die beiden Absätze für die Ausgaben von Datum und
+            Uhrzeit bzw. Countdown.
+            
+            Darunter wird zunächst die Methode setInterval() aufgerufen. Im ersten Parameter
+            wird ein Verweis auf eine Funktion notiert, die automatisiert aufgerufen werden soll.
+
+            Dabei kann es sich auch um eine anonyme Funktion handeln. Der zweite Parameter
+            enthält die Zeit in Millisekunden, nach der die Anweisungen wiederholt aufgerufen
+            werden. Hier wird damit die Funktion datumUhrzeit() aufgerufen.
+
+            Innerhalb dieser Funktion wird ein Date-Objekt mit der aktuellen Systemzeit erzeugt
+            und formatiert im ersten Absatz ausgegeben.
+
+            Zur Vorbereitung des Countdowns wird ein erstes Date-Objekt (zeitA) mit der aktuellen
+            Systemzeit erschaffen. Dann wird die Methode setInterval() aufgerufen, die für
+            einen Aufruf der Funktion countdown() sorgt.
+
+            Innerhalb der Funktion countdown() wird ein zweites Date-Objekt mit der aktuellen
+            Systemzeit erzeugt. Es wird die Zeitdifferenz zum ersten Date-Objekt ermittelt und in
+            Sekunden ungerechnet. Diese Differenz wird immer größer. Der Wert wird nun von
+            10 abgezogen, damit der ausgegebene Wert für den Countdown immer kleiner wird,
+            von 10 bis 0. Falls der Wert kleiner als 60 Millisekunden ist, dann wird der automatische
+            Aufruf der Funktion countdown() abgebrochen. Die Ausgabe bleibt dann bei 0.
+            */
+            </script>
+    </body>
+</html>

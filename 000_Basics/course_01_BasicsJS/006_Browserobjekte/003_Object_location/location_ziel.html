@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>location_ziel</title>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+        <p>
+            <script>
+                document.write("href: " + location.href + "<br>");
+                document.write("search: " + location.search + "<br>");
+                var suchfeld = location.search.split("&");
+                for(var i=0; i<suchfeld.length; i++) {
+                    if(i==0) {
+                        suchfeld[0] = suchfeld[0].substr(1);
+                    }
+                    var teile = suchfeld[i].split("=");
+                    document.write(teile[0] + ": " + teile[1] + "<br>");
+                }
+            </script>
+        </p>
+        <p>
+            <a name="ende">Anker Ende</a>
+        </p>
+        <p>
+            <input id="idZurueck" type="button" value="zurück">
+        </p>
+        
+        <script src="../../lib/eh.js"></script>
+        
+        <script>
+            meinHandler("idZurueck", "click", function() { history.back(); } );
+        </script>
+    </body>
+    <!--
+    Die vollständige Adresse sehen Sie im Adressfeld in Abbildung 7.8. Zur Kontrolle wird
+    sie noch einmal im Dokument ausgegeben, mit Hilfe der Eigenschaft href. 
+    Die Eigenschaft search enthält den für uns interessanten Teil. Die Suchzeichenkette wird mit
+    der String-Methode split() zu einem Feld von Einzelinformationen zerlegt.
+    Im ersten Feldelement steckt noch das Fragezeichen. Sie können es mit der String-Methode substr() eliminieren. 
+    Anschließend wird jede Einzelinformation in zwei Teile zerlegt, 
+    wiederum mit Hilfe von split(). Nun stehen uns die Eigenschaft-Wert-Paare zur Verfügung.
+    -->
+</html>

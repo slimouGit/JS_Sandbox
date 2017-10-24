@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jq_selektieren</title>
+        <meta charset="utf-8"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("#idLink1").click(function(){
+                    $("div").css({"width":"300px"}); 
+                });
+                
+                /**
+                Im vorliegenden Programm sind die Hyperlinks und die zugehörigen Klick-Methoden
+                alle gleichartig aufgebaut. Nachfolgend werde ich nur noch die Auswirkung des
+                jeweiligen Klicks beschreiben:
+                */
+                
+                //Hyperlink 2 ändert das Element mit der ID idHell:
+                //$("#idHell").css({"width":"350px"});
+                $("#idHell").css({"background-color":"#f0f0f0", "width":"500px"});
+                
+                //Hyperlink 3 ändert alle Elemente mit der CSS-Klasse dunkel:
+                $(".dunkel").css({"width":"400px"});
+                
+                //Sie können mehrere Selektoren in einer Collection zusammenfassen: 
+                //Hyperlink 4 ändert das Element mit der ID idHell und alle Elemente mit der CSS-Klasse dunkel:
+                $("#idHell, .dunkel").css({"width":"450px"});
+                
+                //Die Methode html() dient dem Ändern des Textes inklusive des HTML-Codes; 
+                //Hyperlink 6 sorgt für einen neuen Text in Fettdruck für das Element mit der ID idHell:
+                $("#idHell").html("<b>HTML neu<\/b>");
+                
+                //Die Methode text() dient dem Ändern des Textes, ohne Berücksichtigung des HTML-Codes:
+                //Hyperlink 7 dient dazu, einen neuen Text in das Element mit der ID idHell zu schreiben. 
+                //Versehentlich enthaltene HTML-Elemente werden ebenfalls als Text ausgegeben:
+                $("#idHell").text("<b>Text neu<\/b>");
+                
+                //Durch Verkettung können Sie mehrere Methoden für einen Selektor direkt nacheinander ausführen.
+                //Außerdem können Sie einen CSS-Wert relativ verändern mit Hilfe der beiden Operatoren += und -=: 
+                //Hyperlink 8 führt die Methoden css() und html()für das Element mit der ID idHell aus.
+                //In der Methode css() wird die Breite bei jedem Klick um 20 Pixel erhöht:
+                $("#idHell").css({"width":"+=20px"}).html("CSS und HTML neu");
+                });
+        </script>
+        
+        <script>
+            
+        </script>
+        
+        <style type="text/css">
+            div {width:250px; height:50px; background-color:#b0b0b0;}
+            #idHell {width:250px; height:50px; background-color:#d0d0d0;}
+            .dunkel {width:250px; height:50px; background-color:#909090;}
+        </style>
+    </head>
+    <body>
+        <!--
+        Es gibt vier div-Elemente:
+        - Das erste Element hat keine ID. Ihm wird keine CSS-Klasse zugeordnet.
+        - Das zweite Element hat die ID idHell.
+        - Dem dritten und dem vierten Element wird jeweils die CSS-Klasse dunkel zugeordnet.
+        
+        Darüber sehen Sie die CSS-Vorgabe für die Darstellung der Elemente:
+        - div-Elemente allgemein haben eine Größe von 250 × 50 Pixeln und sind mittelgrau.
+        - Das Element mit der ID idHell ist hellgrau.
+        - Alle Elemente der CSS-Klasse dunkel sind dunkelgrau.
+        
+        Es folgt die Auswirkung der Betätigung der Hyperlinks. Ein Klick auf den ersten
+        Hyperlink führt zu diesem Code:
+        
+        $("#idLink1").click(function(){
+            $("div").css({"width":"300px"}); });
+            
+        Es wird die Methode css() für alle div-Elemente ausgeführt. Diese Methode ändert
+        CSS-Eigenschaften. Hier wird der Eigenschaft width der Wert 300 Pixel zugewiesen.
+        
+        Es gibt verschiedene Schreibweisen für die Angabe der CSS-Eigenschaft und des zugehörigen Werts.
+        Hier wird einheitlich die folgende verwendet: Eigenschaft und Wert in geschweiften Klammern, 
+        durch Doppelpunkt getrennt, jeweils in Anführungszeichen.Keine Regel ohne Ausnahme: Ein boolescher Wert,
+        ein Variablenname oder ein reiner Zahlenwert (ohne px) wird nicht in Anführungsstriche gesetzt.
+        -->
+        
+        <div>div-Element, ohne id, ohne class</div>
+        <div id="idHell">Element mit id 'hell'</div>
+        <div class="dunkel">1. div-Element mit class 'dunkel'</div>
+        <div class="dunkel">2. div-Element mit class 'dunkel'</div>
+        <p><a id="idLink1" href="#"> 1: CSS für div-Elemente</a><br>
+    </body>
+</html>

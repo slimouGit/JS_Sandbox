@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>css_aendern</title>
+        <meta charset="utf-8"/>
+        <style>
+            p {font-size:12pt; font-family:Arial}
+            .rand {border:1px solid #000000; width:100px}
+            .fett {font-weight:bold}
+        </style>
+        <script>
+            function styleId() {
+                document.getElementById("idAbsatz1").style.fontFamily = "Courier New";
+            }
+            
+            function styleTag() {
+                var ab = document.getElementsByTagName("p");
+                    for(var i=0; i<ab.length; i++)
+                        ab[i].style.fontSize = "18pt";
+            }
+            
+            function klasseAendern() {
+                document.getElementById("idAbsatz2").className = "fett";
+            }
+            
+            function klasseHinzu() {
+                document.getElementById("idAbsatz3").className += " fett";
+            }
+        </script>
+        
+    </head>
+    <body>
+        <p>
+            <input id="idStyle" type="button" value="Style ändern über ID">
+            <input id="idTag" type="button" value="Style ändern über Tag">
+        </p>
+        <p>
+            <input id="idKlasse" type="button" value="Klasse ändern">
+            <input id="idHinzu" type="button" value="Klasse hinzufügen">
+        </p>
+        
+        <p id="idAbsatz1">Absatz 1</p>
+        <p id="idAbsatz2" class="rand">Absatz 2</p>
+        <p id="idAbsatz3" class="rand">Absatz 3</p>
+        
+        <script src="../../lib/eh.js"></script>
+        
+        <script>
+            meinHandler("idStyle", "click", styleId );
+            meinHandler("idTag", "click", styleTag );
+            meinHandler("idKlasse", "click", klasseAendern );
+            meinHandler("idHinzu", "click", klasseHinzu );
+        </script>
+        
+        <!--
+        Es gibt ein Style Sheet, das für alle Absätze gilt, und die beiden Klassen rand und fett.
+        Die drei Absätze haben jeweils eine ID. Außerdem wird den beiden letzten Absätzen
+        die Klasse rand zugewiesen.
+        
+        In der Funktion styleId() wird der Untereigenschaft fontFamily der Eigenschaft
+        style des ersten Absatzes ein neuer Wert zugewiesen. Mehr zu den Namen der Eigenschaften
+        folgt in Abschnitt 9.3.3, »Name der Eigenschaften für CSS und JavaScript«.
+        
+        In der Funktion styleTag() wird der Untereigenschaft fontSize der Eigenschaft style
+        aller drei Absätze ein neuer Wert zugewiesen.
+        
+        In der Funktion klasseAendern() erhält die Eigenschaft className des zweiten Absatzes
+        einen neuen Wert. Damit wird die Zuordnung von einer Klasse zu einer anderen
+        Klasse vorgenommen. Es gelten dann die CSS-Angaben der neuen Klasse und nicht
+        mehr die der alten Klasse.
+        
+        In der Funktion klasseHinzu() wird der Wert der Eigenschaft className des dritten
+        Absatzes geändert. Aus der Zeichenkette rand wird mit Hilfe des Operators += die Zeichenkette
+        rand fett. Beachten Sie dabei das Leerzeichen vor fett. Es gelten dann die
+        CSS-Angaben beider Klassen.
+        -->
+    </body>
+</html>

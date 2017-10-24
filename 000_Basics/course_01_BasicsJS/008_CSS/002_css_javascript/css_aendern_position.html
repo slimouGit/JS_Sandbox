@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>css_aendern_position</title>
+        <meta charset="utf-8"/>
+        <script>
+            function aendernPosition() {
+                document.getElementById("idParadies").style.top = "130px";
+            }
+            https://filemanager.one.com/#oussayfi@gmail.com/slimou.de/files/__Einstieg_inJavaScript/008_CSS/002_css_javascript/css_aendern_position.html
+            function aendernZIndex() {
+                document.getElementById("idParadies").style.zIndex = 3;
+            }
+            
+            function aendernAusschnitt() {
+                document.getElementById("idSofi").style.clip = "rect(auto 80px auto auto)";
+            }
+            
+            function aendernTransparenz() {
+                document.getElementById("idSofi").style.opacity = 0.3;
+                document.getElementById("idSofi").style.filter = "alpha(opacity=30)";
+            }
+            
+            function aendernFarbe() {
+                document.getElementById("idRect").style.backgroundColor = "rgb(96, 96, 96)";
+            }
+        </script>
+    </head>
+    <body>
+        <div id="idRect" style="position:absolute; width:80px; height:60px; top:50px; left:10px; background-color:rgb(192,192,192)"></div>
+        <div id="idParadies" style="position:absolute; top:50px; left:150px; z-index:1"><img src="weltall.jpg" alt="Paradies"></div>
+        <div id="idSofi" style="position:absolute; top:100px; left:250px; z-index:2; clip:rect(auto auto 60px auto)">
+            <img src="karibik.jpg" alt="Urlaub">
+        </div>
+        <p>
+            <input id="idPosition" type="button" value="Position"> 
+            <input id="idZIndex" type="button" value="Z-Index">
+            <input id="idAusschnitt" type="button" value="Ausschnitt">
+            <input id="idTransparenz" type="button" value="Transparenz">
+            <input id="idFarbe" type="button" value="Farbe">
+        </p>
+        
+        <script type="text/javascript" src="../../lib/eh.js"></script>
+        
+        <script type="text/javascript">
+            meinHandler("idPosition", "click", aendernPosition);
+            meinHandler("idZIndex", "click", aendernZIndex);
+            meinHandler("idAusschnitt", "click", aendernAusschnitt);
+            meinHandler("idTransparenz", "click", aendernTransparenz);
+            meinHandler("idFarbe", "click", aendernFarbe);
+        </script>
+        
+        <!--
+        Der Wert der Eigenschaft top des linken Bilds ändert sich von 50 Pixel in 130 Pixel.
+        
+        Dadurch bewegt es sich nach unten. Der Wert der Eigenschaft z-index dieses Bilds
+        ändert sich von 1 in 3. Da der Ausschnitt des rechten Bilds weiterhin einen Wert von
+        2 hat, rückt das linke Bild in z-Richtung von hinten nach vorn.
+        
+        Beim rechten Bild wurde mit Hilfe der Eigenschaft clip zunächst der untere Rand bei
+        60 Pixeln abgeschnitten. Per JavaScript wird nun der rechte Rand bei 80 Pixeln abgeschnitten.
+        
+        Die Transparenz dieses Bilds ändert sich mit Hilfe der Eigenschaft opacity von 1.0 in
+        0.3 bzw. der Eigenschaft filter von 100 in 30. Damit wird es fast durchsichtig. 
+        Wie bei den CSS-Eigenschaften wird die jeweils nicht zutreffende Anweisung zur Änderung
+        der Transparenz ignoriert.
+        
+        Als Letztes wird die Hintergrundfarbe geändert. Der Wert der Eigenschaft backgroundColor
+        besteht aus einer Zeichenkette, die die Funktion rgb() und drei neue Farbanteile enthält.
+        -->
+    </body>
+</html>

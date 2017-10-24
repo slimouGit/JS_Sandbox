@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>location</title>
+        <meta charset="utf-8"/>
+        <!--
+        Das location-Objekt besitzt unter anderem die folgenden Member:
+        - Die Eigenschaft href enthält die vollständige Adresse des URI.
+        - Die Eigenschaft protocol speichert nur das Protokoll der Adresse; bei Zugriff auf
+            einen HTTP-Server (ob lokal oder im Internet) den Wert http:, beim Zugriff auf
+            eine lokale Festplattendatei den Wert file:.
+        - Die Eigenschaften host und hostname enthalten nur den Namen des HTTP-Servers der Adresse. 
+            Dabei umfasst host auch die Portnummer. 
+            Bei einem lokalen Zugriff haben host und hostname keinen Wert.
+        - Die Eigenschaft pathname speichert nur den Verzeichnispfad der Adresse. Bei
+            Zugriff über einen HTTP-Server ist dies der Pfad hinter der Domainangabe.
+            Bei lokalem Zugriff ist dies der Pfad auf der Festplatte.
+        - Die Eigenschaft hash enthält den Namen eines Ankers inklusive des Hash-Zeichens #. 
+            Dies gilt nur, falls der Anker zur Adresse gehört, also falls zu einem Ziel innerhalb
+            der Datei gesprungen wird.
+        - Die Methode reload() dient zum erneuten Laden der aktuellen Seite, 
+            entweder aus dem Browser-Cache oder gänzlich neu vom Server.
+        - Die Methode replace() löscht die aktuelle Seite aus der History und ersetzt sie
+            gleichzeitig durch eine andere Seite.
+        -->
+        <script>
+            function ausgabe() {
+                var tx = "";
+                tx += "hash: " + location.hash + "\n";
+                tx += "host: " + location.host + "\n";
+                tx += "hostname: " + location.hostname + "\n";
+                tx += "href: " + location.href + "\n";
+                tx += "pathname: " + location.pathname + "\n";
+                tx += "protocol: " + location.protocol + "\n";
+                tx += "search: " + location.search + "\n";
+                alert(tx);
+            }
+        </script>
+    </head>
+    <body>
+        <p>
+            Member: <input id="idAusgeben" type="button" value="ausgeben">
+            <input id="idAendern" type="button" value="ändern">
+        </p>
+        <p>
+            Andere Seite: <input id="idLaden" type="button" value="laden">
+            <input id="idLoeschen" type="button" value="... und location.htm aus History löschen">
+        </p>
+        <p>
+            Diese Seite neu laden:
+            <input id="idCache" type="button" value="vom Cache">
+            <input id="idServer" type="button" value="vom Server">
+        </p>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <p>
+            <a name="ende">Anker Ende</a>
+        </p>
+        
+        <script src="../../lib/eh.js"></script>
+        <script>
+            meinHandler("idAusgeben", "click", ausgabe);
+            meinHandler("idAendern", "click", function() { location.hash = "#ende"; } );
+            meinHandler("idLaden", "click", function() { location.href = "../002_Object_history/history.html"; } );
+            meinHandler("idLoeschen", "click", function() { location.replace("../002_Object_history/history.html"); } );
+            meinHandler("idCache", "click", function() { location.reload(); } );
+            meinHandler("idServer", "click", function() { location.reload(true); } );
+        </script>
+        <!--
+        Ein Klick auf den Button ausgeben ruft die Funktion ausgabe() auf. 
+        In Abbildung 7.6 sehen Sie die Werte der location-Eigenschaften.
+        
+        Die Betätigung des Buttons ändern führt dazu, dass der Wert der Eigenschaft hash geändert wird.
+        Dies verursacht unmittelbar einen Sprung innerhalb des Programms zum genannten Anker. 
+        Die Auswirkungen sieht man natürlich nur in einer längeren Datei.
+        
+        Ein Klick auf den Button laden ändert den Wert der Eigenschaft href. 
+        Dies verursacht unmittelbar einen Sprung zu einer anderen Seite.
+        
+        Die Betätigung des Buttons aus history löschen verursacht ebenfalls einen
+        Sprung zu einer anderen Seite. Anschließend ist die Seite location.html nicht mehr
+        über die History zu erreichen.
+        
+        Die beiden Buttons vom Cache und vom Server laden location.html neu. 
+        Falls Sie als Parameter true angeben, dann wird dabei der Inhalt des Browser-Caches ignoriert
+        und die Seite gänzlich neu geladen.
+        -->
+    </body>
+</html>

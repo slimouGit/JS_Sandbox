@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>window_1</title>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+        <p>Das ist die Datei window_1.htm</p>
+        <p><input id="idSchliessen" type="button" value="Schließen"></p>
+        <script src="../../lib/eh.js"></script>
+        <script>
+            meinHandler("idSchliessen", "click", function() { window.close(); } );
+        </script>
+        
+        <!--
+        Beim Klick auf den Button Schliessen wird auch hier die Methode close() zum
+        Schließen des Fensters aufgerufen. Da wir uns innerhalb des Fensters befinden, handelt
+        es sich um das aktuelle window-Objekt, das ohne weitere Bezeichnung davor
+        erreichbar ist.
+        -->
+    </body>
+</html>

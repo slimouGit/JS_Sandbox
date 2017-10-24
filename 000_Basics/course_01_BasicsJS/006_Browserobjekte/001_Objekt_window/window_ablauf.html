@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>window_ablauf</title>
+        <meta charset="utf-8"/>
+        <script>
+            var intervallVerweis, timeoutVerweis;
+            var intervallAktiv = false, timeoutAktiv = false;
+            
+            //-------------------------------------------------------------------
+
+            function intervallFuellen() {
+                document.getElementById("idIntAusgabe").firstChild.nodeValue += "x";
+            }
+            function intervallStarten() {
+                if(intervallAktiv){
+                    alert("intervallAktiv ist: " + intervallAktiv);
+                    return;
+                }else{
+                    intervallAktiv = true;
+                    intervallVerweis = window.setInterval(intervallFuellen, 500);
+                }
+            }
+            function intervallStoppen() {
+                intervallAktiv = false;
+                window.clearInterval(intervallVerweis);
+            }
+            
+            //-------------------------------------------------------------------
+            
+            function timeoutFuellen() {
+                document.getElementById("idTimAusgabe").firstChild.nodeValue += "x";
+                timeoutVerweis = window.setTimeout(timeoutFuellen, 500);
+            }
+            function timeoutStarten() {
+                if(timeoutAktiv) {
+                    alert("timeoutAktiv ist: " + timeoutAktiv);
+                    return;
+                }else {
+                    timeoutAktiv = true;
+                    timeoutVerweis = window.setTimeout(timeoutFuellen, 500);
+                }
+            }
+            function timeoutStoppen() {
+                timeoutAktiv = false;
+                window.clearTimeout(timeoutVerweis);
+            }
+            
+            /**
+             * Der Verweis intervallVerweis wird nach dem Start eines Ablaufs gesetzt und zum
+                Beenden des Ablaufs benötigt. Die Variable intervallAktiv wird nach dem Start
+                eines Ablaufs auf true gesetzt, damit der Ablauf nicht versehentlich zweimal gestartet
+                werden kann.
+
+                Nach Betätigung des Buttons Intervall starten wird die Funktion intervallStarten()
+                aufgerufen. Falls der Ablauf bereits gestartet wurde, dann wird die Funktion
+                abgebrochen. Ansonsten wird mit Hilfe der Methode setInterval() automatisch alle
+                0.5 Sekunden die Funktion intervallFuellen() aufgerufen. Nach Betätigung des Buttons
+                Intervall stoppen wird die Variable intervallAktiv auf false gesetzt, damit
+                ein erneuter Start wieder möglich wird. Die Methode clearInterval() dient zum
+                Beenden des Ablaufs.
+
+                Nach Betätigung der Buttons Timeout starten und Timeout stoppen passieren
+                im Prinzip dieselben Dinge, gesteuert durch den Verweis timeoutVerweis und die
+                Variable timeoutAktiv. Der einzige Unterschied: In der Funktion timeoutFuellen()
+                wird die Methode setTimeout() erneut aufgerufen, da die Anweisungen ansonsten
+                nur einmalig ausgeführt werden
+             */ 
+        </script>
+    </head>
+    <body>
+        <p>
+            <input id="idIntStarten" type="button" value="Intervall starten">
+            <input id="idIntStoppen" type="button" value="Intervall stoppen">
+            <span id="idIntAusgabe">Ausgabe: </span>
+        </p>
+        <p>
+            <input id="idTimStarten" type="button" value="Timeout starten">
+            <input id="idTimStoppen" type="button" value="Timeout stoppen">
+            <span id="idTimAusgabe">Ausgabe: </span>
+        </p>
+        
+        <script src="../../lib/eh.js"></script>
+        <script>
+            meinHandler("idIntStarten", "click", intervallStarten);
+            meinHandler("idIntStoppen", "click", intervallStoppen);
+            meinHandler("idTimStarten", "click", timeoutStarten);
+            meinHandler("idTimStoppen", "click", timeoutStoppen);
+        </script>
+        
+        <!--
+        In jedem der beiden Absätze werden zwei Buttons angezeigt, zum Starten und Stoppen
+        des Ablaufs. Nach dem Betätigen des Buttons Intervall starten oder Timeout
+        starten wird in der zugehörigen Zeile alle 0.5 Sekunden ein x hinzugefügt.
+        Eine weitere Betätigung des Buttons bewirkt nichts, der Ablauf kann also nicht versehentlichmehrmals aktiviert werden.
+        Nach dem Betätigen des Buttons Intervall stoppen bzw. Timeout stoppen endet der Ablauf. Es kommt kein weiteres x hinzu. 
+        Nun kann wieder der jeweilige Button zum Starten betätigt werden.
+        -->
+    </body>
+</html>

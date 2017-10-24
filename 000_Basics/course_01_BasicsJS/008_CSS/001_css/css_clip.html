@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>css_clip</title>
+        <meta charset="utf-8"/>
+        <!--
+        Die Eigenschaft clip dient dazu, nur einen Ausschnitt eines Elements darzustellen.
+        
+        Als Wert der Eigenschaft clip wird rect verwendet, gefolgt von vier Größenangaben
+        in runden Klammern. Dies sorgt für einen rechteckigen Ausschnitt (englisch: rectangle
+        = Rechteck). Die Klammern enthalten die vier Abstände der Ränder des Ausschnitts
+        von den Rändern des Elements in Pixeln. Die folgende Reihenfolge der Abstände ist zu beachten:
+        
+        - oberer Rand des Ausschnitts zum oberen Rand des Elements
+        - rechter Rand des Ausschnitts zum linken Rand des Elements
+        - unterer Rand des Ausschnitts zum oberen Rand des Elements
+        - linker Rand des Ausschnitts zum linken Rand des Elements
+        
+        Es sollten keine widersprüchlichen Werte auftreten. Der Wert auto für einen der vier
+        Abstände bedeutet, dass das Bild an dem betreffenden Rand nicht ausgeschnitten wird.
+        -->
+    </head>
+    <body>
+        <div style="position:absolute; top:0px; left:0px; clip:rect(110px 190px auto auto)">
+            <img src="http://lorempixel.com/900/700" alt="Bild1">
+        </div>
+        <div style="position:absolute; top:0px; left:0px; clip:rect(auto auto 190px 210px)">
+            <img src="http://lorempixel.com/400/400" alt="Bild2">
+        </div>
+        
+        <!--
+        Dasselbe Bild wird zweimal dargestellt, jeweils einen div-Container füllend.
+        Die Eigenschaften top und left haben in beiden Fällen den Wert 0px. Ohne diese Angaben
+        hätte das Bild einen kleinen Abstand zur linken oberen Ecke.
+        
+        Der erste Ausschnitt (unten links) beginnt in y-Richtung 110 Pixel vom oberen Rand
+        entfernt und erstreckt sich bis zum unteren Rand des Bildes (Wert auto). In x-Richtung
+        beginnt der Ausschnitt am linken Rand des Bildes (Wert auto) und rechts endet nach 190 Pixeln.
+        
+        Der zweite Ausschnitt (oben rechts) beginnt in x-Richtung 210 Pixel vom linken Rand
+        entfernt und erstreckt sich bis zum rechten Rand des Bildes (Wert auto). In y-Richtung
+        beginnt der Ausschnitt am oberen Rand des Bildes (Wert auto) und endet unten
+        nach 190 Pixeln.
+        
+        Die Eigenschaften top oder left können auch einen negativen Wert haben. Dies ist sinnvoll, 
+        wenn Sie zum Beispiel den rechten unteren Ausschnitt eines Bildes in der linken oberen Ecke des Dokuments haben möchten.
+        -->
+    </body>
+</html>

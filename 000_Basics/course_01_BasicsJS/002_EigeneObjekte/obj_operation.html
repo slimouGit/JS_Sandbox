@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Operationen mit Objekten</title>
+        <meta charset="utf-8"/>
+        <script>
+            function Fahrzeug(f, g){
+                this.farbe = f;
+                this.geschwindigkeit = g;
+                this.lackieren = fahrzeugLackieren;
+                this.beschleunigen = fahrzeugBeschleunigen;
+                this.toString = fahrzeugAusgeben;
+                //----------------------------
+                function fahrzeugLackieren(f){
+                    this.farbe = f;
+                }
+                //----------------------------
+                function fahrzeugBeschleunigen(wert){
+                    this.geschwindigkeit += wert;
+                }
+                //----------------------------
+                function fahrzeugAusgeben(){
+                    return "Farbe: " + this.farbe
+                    + ", Geschwindigkeit: " + this.geschwindigkeit + " km/h" + "<br>";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <script>
+            var dacia = new Fahrzeug("rot", 50);
+            //----------------------------
+            document.write("mit Punkt: " + dacia.farbe + " "
+            + dacia.geschwindigkeit + "<br>");
+            //----------------------------
+            document.write("mit [ ... ]: " + dacia["farbe"] + " "
+            + dacia["geschwindigkeit"] + "<br>");
+            //----------------------------
+            document.write("mit toString(): " + dacia + "<br>");
+            //----------------------------
+            //Instanzen pruefen
+            if(dacia instanceof Fahrzeug){
+                document.write("'instanceof': Objekt dacia hat den "
+                + " Prototyp Fahrzeug<br><br>");
+            }
+            //----------------------------
+            //Typ ermitteln
+            document.write("'typeof': "
+            + "typeof \"Fahrzeug\": " + typeof Fahrzeug + "<br>"
+            + "typeof \"dacia\": " + typeof dacia + "<br>"
+            + "typeof \"dacia.farbe\": " + typeof dacia.farbe + "<br>"
+            + "typeof \"dacia.geschwindigkeit\": " + typeof dacia.geschwindigkeit + "<br>"
+            + "typeof \"dacia.beschleunigen\": " + typeof dacia.beschleunigen + "<br>"
+            + "typeof \"dacia.lackieren\": " + typeof dacia.lackieren + "<br><br>");
+            //----------------------------
+            //Member pruëfen
+            if("farbe" in dacia){
+                document.write("'in': farbe ist "
+                        + " Member des Objekts 'dacia'<br>");
+            }else{
+                document.write("'in': farbe ist kein Member");
+            }
+
+            if("geschwindigkeit" in dacia){
+                document.write("'in': geschwindigkeit ist "
+                        + " Member des Objekts 'dacia'<br>");
+            }else{
+                document.write("'in': farbe ist kein Member");
+            }
+
+            if("beschleunigen" in dacia){
+                document.write("'in': beschleunigen ist "
+                + " Member des Objekts 'dacia'<br>");
+            }else{
+                document.write("'in': beschleunigen ist kein Member");
+            }
+
+            if("tanken" in dacia){
+                document.write("'in': tanken ist "
+                + " Member des Objekts 'dacia'<br>");
+            }else{
+                document.write("'in': tanken ist kein Member");
+            }
+            //-------------------------------
+            //Kompakter Zugriff auf Member
+            with(dacia)
+            {
+                farbe = "gelb";
+                beschleunigen(10);
+                document.write("'with': " + farbe + " " + geschwindigkeit + "<br>");
+            }
+            document.write(dacia);
+            //-------------------------------
+            //Zugriff auf alle Member
+            document.write("<br>'for-in', Member mit Werten:<br>");
+            for(var m in dacia)
+                document.write(m + ": " + dacia[m] + "<br>");
+            document.write("<br>");
+            //------------------------------
+            //Member loeschen
+            delete dacia.geschwindigkeit;
+            delete dacia.lackieren;
+            if(dacia.lackieren)
+                dacia.lackieren("blau");
+            document.write("Eigenschaftswerte: " + dacia.farbe + " "
+                    + dacia.geschwindigkeit + " " + dacia.leistung + "<br>");
+
+
+            //-------------------------------
+            document.write("<hr>")
+            //-------------------------------
+            //Verweise auf Objekte
+            var renault = dacia;
+            //----------------------------
+            document.write("Zweiter Verweis renault: "
+            + renault + "<br>");
+            //----------------------------
+            //Instanzen pruefe
+            if(renault instanceof Fahrzeug){
+                document.write("'instanceof': Verweis renault hat den "
+                + " Prototyp Fahrzeug<br><br>");
+            }
+        </script>
+    </body>
+</html>

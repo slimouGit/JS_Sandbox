@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>array_zahlen</title>
+        <meta charset="utf-8"/>
+        <script>
+            function aufwaerts(x, y) {
+                if(x > y) return 1;
+                else return -1;
+            }
+            function abwaerts(x, y) {
+                if(y > x) return 1;
+                else return -1;
+            }
+            function maxi(feld) {
+                var maximum = feld[0];
+                for(var i=1; i<feld.length; i++)
+                    if(feld[i] > maximum)
+                    maximum = feld[i];
+                return maximum;
+            }
+            function mini(feld) {
+                var minimum = feld[0];
+                for(var i=1; i<feld.length; i++)
+                    if(feld[i] < minimum)
+                    minimum = feld[i];
+                return minimum;
+            }
+        </script>
+    </head>
+    <body>
+        <p>
+            <script>
+                var zahlenArray = new Array(3, 28, 2, 14);
+                document.write("Unsortiert: " + zahlenArray + "<br>");
+                document.write("Maximum: " + maxi(zahlenArray) + "<br>");
+                document.write("Minimum: " + mini(zahlenArray) + "<br>");
+                zahlenArray.sort();
+                document.write("Nach Zeichen sortiert: " + zahlenArray + "<br>");
+                zahlenArray.sort(aufwaerts);
+                document.write("Nach Zahlen aufwärts sortiert: " + zahlenArray + "<br>");
+                zahlenArray.sort(abwaerts);
+                document.write("Nach Zahlen abwärts sortiert: " + zahlenArray);
+            </script>
+        </p>
+    </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ajax_json_einzel</title>
+        <meta charset="utf-8"/>
+        <script>
+            function anfordern() {
+                req = new XMLHttpRequest();
+                req.open("get", "ajax_json_einzel.txt", true);
+                req.onreadystatechange = auswerten;
+                req.send();
+            }
+            
+            function auswerten(e) {
+                if(e.target.readyState == 4 && e.target.status == 200) {
+                        var antwort;
+                        if(window.JSON) 
+                            antwort = JSON.parse(e.target.responseText);
+                        else
+                            antwort = eval("(" + e.target.responseText + ")");
+                    
+                    document.getElementById("idAusgabe").firstChild.nodeValue = 
+                    "Farbe: " + antwort.farbe + ", Geschwindigkeit: "
+                    + antwort.geschwindigkeit;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <p>Fahrzeugdaten:</p>
+        <p><a id="idLink" href="#">Dacia</a></p>
+        <p id="idAusgabe">&nbsp;</p>
+        
+        <script type="text/javascript" src="../lib/eh.js"></script>
+        
+        <script>
+            meinHandler("idLink", "click", anfordern);
+        </script>
+        
+        <!--
+        In der Funktion anfordern() eröffnet die Methode open() die Kommunikation mit der antwortenden Textdatei. 
+        Es wird ein Text angefordert, daher steht in der Funktion auswerten() die Antwort in der Eigenschaft responseText.
+        Falls der Browser das JSON-Objekt kennt, dann wird die Zeichenkette mit Hilfe der Methode parse() in ein Objekt umgewandelt. 
+        Falls nicht, dann wird das Objekt mit Hilfe der Funktion eval() erzeugt. Die Zeichenkette muss dabei von zusätzlichen
+        runden Klammern umrahmt werden. Die Werte der Eigenschaften des Objekts werden ausgegeben.
+        -->
+    </body>
+</html>

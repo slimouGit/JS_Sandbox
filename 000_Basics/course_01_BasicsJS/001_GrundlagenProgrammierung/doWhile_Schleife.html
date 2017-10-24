@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        var zufall = Math.random() * 100 + 1;
+        var zGanz = Math.floor(zufall);
+        var eingabe;
+        var anzahl = 0;
+
+        do
+        {
+            anzahl++;
+            eingabe = parseInt(prompt("Zahl von 1 bis 100 eingeben"));
+            //document.write("Zufall: " + zGanz + " ");
+            if(eingabe < zGanz)
+                document.write("Versuch " + anzahl + ": " + eingabe + " ist zu klein<br>");
+            else if(eingabe > zGanz)
+                document.write("Versuch " + anzahl + ": " + eingabe + " ist zu groß<br>");
+            else
+                document.write(zGanz + " ist richtig, sie haben " + anzahl + " Versuche benötigt");
+        }
+        while(eingabe != zGanz);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

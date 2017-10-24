@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>zeit_rechnen</title>
+    <script type="text/javascript" src="lib/number.js"></script>
+    <script type="text/javascript" src="lib/date.js"></script>
+    <!--
+    Sie können mit Hilfe des Date-Objekts auch Zeitangaben miteinander verrechnen.
+    Das folgende Programm enthält dazu vier Beispiele:
+
+    - Berechnen der Zeitdifferenz zwischen zwei Zeitangaben
+    - Berechnen der zeitlichen Dauer eines Programmteils
+    - Berechnen des Alters einer Person
+    - Addieren einer Zeitdifferenz zu einer Zeitangabe mit Hilfe der selbstdefinierten Methode dateAdd() des Date-Objekts
+    -->
+</head>
+<body>
+    <script>
+        //Berechnen der Zeitdifferenz
+
+        var zeitA = new Date(2013, 0, 15, 23, 59, 20);
+        var zeitB = new Date(2013, 0, 16, 0, 1, 50);
+
+        document.write("1: " + zeitA.dateFormat("d. S y h:m:s") + "<br>");
+        document.write("2: " + zeitB.dateFormat("d. S y h:m:s") + "<br>");
+
+        var diff = zeitB - zeitA;
+
+        document.write("Diff. in min.: " + (diff/60000) + "<br><br>");
+
+        /**
+         * Es werden zwei Zeitangaben erzeugt, jeweils mit vorgegebenen Daten für Datum und
+         Uhrzeit. Zur Berechnung der Differenz können Sie sie einfach voneinander abziehen.
+         Eine Zeitangabe ist intern als reiner Zahlenwert gespeichert, der die Anzahl der Millisekunden
+         seit dem Nullpunkt repräsentiert, also seit dem 1. Januar 1970 0:00 Uhr.
+         Die Differenz ist daher ebenfalls ein Zahlenwert in Millisekunden. Zur Darstellung in
+         Minuten wird er durch 60000 geteilt.
+         */
+
+
+        //---------------------------------------------------------------------
+        document.write("<hr>");
+        //---------------------------------------------------------------------
+
+
+        //Berechnen der Zeitdauer eines Programmteils
+
+        zeitA = new Date();
+        var a = 1;
+        for(var i=0; i<5e7; i++) a = a * -1; // Warteschleife
+
+        zeitB = new Date();
+
+        document.write("1: " + zeitA.dateFormat("h:m:s,i") + "<br>");
+        document.write("2: " + zeitB.dateFormat("h:m:s,i") + "<br>");
+
+        diff = zeitB - zeitA;
+
+        document.write("Diff. in msec.: " + diff + "<br><br>");
+
+        /**
+         * Auch hier werden zwei Zeitangaben erzeugt, diesmal jeweils mit der aktuellen Systemzeit.
+         Einmal geschieht dies vor einem Programmteil, einmal danach. Es wird also
+         die Zeitdauer berechnet, die der Rechner für die Bearbeitung dieses Programmteils
+         benötigt. Auf meinem Rechner werden bei diesem Aufruf 125 Millisekunden benötigt.
+         Dieser Wert ist abhängig von der Leistung und der Auslastung des Rechners
+         sowie anderen Faktoren.
+         */
+
+
+        //---------------------------------------------------------------------
+        document.write("<hr>");
+        //---------------------------------------------------------------------
+
+
+        //Berechnen des Alters einer Person
+
+        zeitA = new Date(1979, 2, 16);
+        zeitB = new Date();
+        var diff = zeitB.getFullYear() - zeitA.getFullYear();
+        //----------------------------------------------------------------
+        // Innere Klammern eigentlich unnötig, aber zum besseren Verständnis
+        if(( zeitB.getMonth() < zeitA.getMonth() ) ||
+                ( zeitB.getMonth() == zeitA.getMonth() && zeitB.getDate() < zeitA.getDate() ) )
+            diff = diff - 1;
+        //----------------------------------------------------------------
+        document.write("1: " + zeitA.dateFormat("d.M.y") + "<br>");
+        document.write("2: " + zeitB.dateFormat("d.M.y") + "<br>");
+        document.write("Alter: " + diff + "<br><br>");
+
+        /**
+         * Es werden wiederum zwei Zeitangaben erzeugt, einmal mit einem Geburtsdatum,
+         einmal mit der aktuellen Systemzeit. Das Alter wird wie folgt berechnet:
+         Das Alter einer Person entspricht zunächst der Differenz der Jahre aus den beiden
+         Zeitangaben. Als Nächstes werden die Monate aus den beiden Zeitangaben verglichen.
+         Falls der Geburtsmonat aktuell noch nicht erreicht wird oder falls es sich aktuell
+         um den Geburtsmonat handelt und der Geburtstag noch nicht erreicht wird, dann
+         wird der Wert 1 abgezogen.
+         */
+
+
+        //---------------------------------------------------------------------
+        document.write("<hr>");
+        //---------------------------------------------------------------------
+
+
+        //Addieren bzw. Subtrahieren eines Zeitwerts
+
+        zeitA = new Date(2013, 0, 31, 17, 55, 30);
+        zeitB = zeitA.dateAdd(0, 0, 3, 6, 10, 0);
+        document.write("1: " + zeitA.dateFormat("d.M.y h:m:s") + "<br>");
+        document.write("3 Tage, 6 Stunden und 10 Minuten später:<br>");
+        document.write("2: " + zeitB.dateFormat("d.M.y h:m:s"));
+    </script>
+</body>
+</html>

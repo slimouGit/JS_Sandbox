@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>array_methoden</title>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+        <script>
+            var stadtArray = new Array("Berlin", "Rom", "Bern");
+            document.write("Array: " + stadtArray + "<br>");
+            
+            var nochEinArray = new Array("Brüssel", "Madrid", "London");
+            stadtArray = stadtArray.concat(nochEinArray);
+            document.write("concat: " + stadtArray + "<br>");
+            
+            stadtArray.splice(2, 0, "Frankfurt");
+            document.write("splice: " + stadtArray + "<br>");
+            
+            stadtArray.sort();
+            document.write("sort: " + stadtArray + "<br>");
+            
+            stadtArray.reverse();
+            document.write("reverse: " + stadtArray + "<br>");
+            
+            var einText = stadtArray.join(", ");
+            document.write("join: " + einText + "<br><br>");
+            
+            var neuerArray = stadtArray.slice(2);
+            document.write("slice, bis Ende: " + neuerArray + "<br>");
+
+            neuerArray = stadtArray.slice(-2); 
+            document.write("slice, ab Ende gerechnet: " + neuerArray + "<br>");
+            
+            neuerArray = stadtArray.slice(2, 5, "Frankfurt");
+            document.write("slice, bis Element: " + neuerArray + "<br>");
+            
+            neuerArray = stadtArray.slice(2, -2);
+            document.write("slice, bis Element, ab Ende gerechnet: " + neuerArray);
+        </script>
+    </body>
+</html>

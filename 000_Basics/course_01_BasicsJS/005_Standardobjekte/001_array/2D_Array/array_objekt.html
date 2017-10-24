@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>array_objekt</title>
+        <meta charset="utf-8"/>
+        <script>
+            function Fahrzeug(f, g) {
+                this.farbe = f;
+                this.geschwindigkeit = g;
+                this.toString = fahrzeugAusgeben;
+                    
+                function fahrzeugAusgeben() { 
+                    return this.farbe + " " + this.geschwindigkeit; 
+                }
+            }
+            
+            function abwaerts(x, y) {
+                if(y.geschwindigkeit > x.geschwindigkeit) return 1;
+                else return -1;
+            }
+        </script>
+    </head>
+    <body>
+        <script>
+            var fahrzeugArray = [
+                new Fahrzeug("rot", 50),
+                new Fahrzeug("blau", 85), 
+                new Fahrzeug("gelb", 65)
+            ];
+            
+            document.write("unsortiert: " + fahrzeugArray + "<br>");
+            
+            fahrzeugArray.sort(abwaerts);
+            
+            document.write("nach Geschwindigkeit sortiert: " + fahrzeugArray);
+        </script>
+    </body>
+</html>

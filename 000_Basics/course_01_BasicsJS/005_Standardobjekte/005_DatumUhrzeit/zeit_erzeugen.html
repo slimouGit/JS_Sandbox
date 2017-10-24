@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>zeit_erzeugen</title>
+    <!--
+    In diesem Abschnitt sehen Sie verschiedene Möglichkeiten, ein Date-Objekt mit Hilfe von new zu erzeugen:
+       -   Ohne Parameter: Es wird ein Date-Objekt mit der Systemzeit des PCs erzeugt, also
+            mit dem aktuellen Datum und der aktuellen Uhrzeit.
+       -   Mit einem Parameter: Der Wert wird für die Millisekunden seit dem Nullpunkt
+            (1. Januar 1970 um 0:00 Uhr) übernommen.
+        -   Mit drei Parametern: Dies sind Werte für Jahr, Monat und Tag.
+        -   Mit sechs Parametern: Dies sind Werte für Jahr, Monat, Tag, Stunde, Minute und Sekunde.
+    -->
+</head>
+<body>
+    <script>
+        var zeitA = new Date();
+        document.write("Aktuelles Datum: " + zeitA + "<br>");
+        document.write("<br>");
+
+        var zeitB = new Date(2013, 2, 10);
+        document.write("Mit drei Werten: " + zeitB + "<br>");
+        document.write("<br>");
+
+        var zeitC = new Date(2013, 2, 10, 17, 8, 3);
+        document.write("Mit sechs Werten: " + zeitC + "<br>");
+        document.write("<br>");
+
+        var zeitD = new Date(2013, 1, 30, 17, 68, -3);
+        document.write("Mit Werten zum Umrechnen: " + zeitD + "<br>");
+        document.write("<br>");
+
+        var zeitE = new Date(90000);
+        document.write("Mit einem Wert: " + zeitE + "<br>");
+
+        document.write("<br>");
+        var zeitF = new Date(-90000);
+        document.write("Mit negativem Wert: " + zeitF);
+
+        /**
+         * Die erzeugten Date-Objekte werden im Standardformat ausgegeben. Weitere Ausgabemöglichkeiten
+         für Date-Objekte sehen Sie im nächsten Abschnitt. Das Standardformat
+         enthält den abgekürzten englischen Namen des Wochentages und des Monats,
+         außerdem Tag des Monats, Jahr und Uhrzeit. Manche Browser geben das Jahr erst am
+         Ende aus.
+
+         Die Angabe GMT+0200 bedeutet, dass die lokale Uhrzeit aktuell zwei Stunden vor
+         GMT liegt: eine Stunde Zeitverschiebung gegenüber London-Greenwich und eine
+         Stunde aufgrund der Sommerzeit.
+
+         Die restlichen Zeitangaben werden mit Hilfe von übergebenen Werten erzeugt. Dabei
+         bleibt die Sommerzeitverschiebung unberücksichtigt. Aus den drei Angaben 2013, 2,
+         10 wird der 10. März 2013, die Uhrzeit wird mit 0:00 Uhr besetzt.
+
+         Es folgen einige Werte zum Umrechnen: Aus dem 30. Februar 2013 wird der 2. März
+         2013. Aus 17:68 Uhr wird 18:08 Uhr. Addieren wir –3 Sekunden, dann wird daraus
+         18:07:57 Uhr.
+
+         90000 Millisekunden entsprechen 90 Sekunden, also ergibt sich die Uhrzeit
+         00:01:30 Uhr. Aufgrund der Zeitverschiebung ist dann bei uns bereits 01:01:30 Uhr.
+         Ziehen wir die 90000 Millisekunden von 01:00:00 Uhr ab, dann erhalten wir bei uns
+         00:58:30 Uhr.
+         */
+    </script>
+</body>
+</html>

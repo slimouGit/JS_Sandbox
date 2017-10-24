@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>event_eigenschaft</title>
+        <meta charset="utf-8"/>
+        <script>
+            function geladen() { 
+                alert("Dokument wurde geladen"); 
+            }
+            
+            function senden() {
+                return confirm("Wollen Sie das Formular wirklich absenden?");
+            }
+            
+            function reset() {
+                return confirm("Wollen Sie das Formular wirklich zurücksetzen?");
+            }
+            
+            function geclickt(id) {
+                alert("Element geclickt mit ID: " + id);
+                //document.getElementById(id).onclick = null;
+            }
+            
+            function wechsel(id) {
+                alert("Element geändert mit ID: " + id + "\nName: " + document.getElementById(id).name
+                + "\nWert: " + document.getElementById(id).value);
+            }
+            
+            function taste(id) {
+                alert("Taste heruntergedrückt in Element mit ID: " + id);
+            }
+            
+            function maus(id) {
+                var infoTxt = ("Maus hineinbewegt in Element mit ID: " + id + "<br>Bilddatei: " + document.getElementById(id).src
+                + "<br>Beschreibung: " + document.getElementById(id).alt + "<br>Titel: " + document.getElementById(id).title);
+                
+                document.getElementById("idBild_Info").innerHTML = infoTxt;
+            }
+            
+            function reset(){
+                location.reload();
+            }
+        </script>
+    </head>
+    <body>
+        <form id="idForm" method="post" action="event_eigenschaft.html">
+            
+            <p><input id="idButton" type="button" value="Button 1"></p>
+            
+            <p><input id="idNachname" name="nachname" size="20"> Nachname</p>
+            
+            <p><input id="idStadt" name="stadt" size="20"> Stadt</p>
+            
+            <p>
+                <input type="submit">
+                <input type="reset">
+            </p>
+        </form>
+        
+        <p><a id="idLink" href="#">Hier steht ein Hyperlink</a></p>
+        
+        <p><img id="idBild" src="http://lorempixel.com/350/200/" alt="Paradies" title="Der Titel des Bildes"></p>
+        
+        <div id="idBild_Info"></div>
+        
+        <p><button id="reload">neu laden</button></p>
+        
+        <script>
+            document.body.onload = geladen;
+            
+            document.getElementById("idForm").onsubmit = function() { 
+                return senden(); 
+            };
+            
+            document.getElementById("idForm").onreset = function() { 
+                reset(); 
+            };
+            
+            document.getElementById("idButton").onclick = function() { 
+                geclickt("idButton"); 
+            };
+            
+            document.getElementById("idNachname").onchange = function() { 
+                wechsel("idNachname"); 
+            };
+            
+            document.getElementById("idStadt").onkeydown = function() { 
+                taste("idStadt"); 
+            };
+            
+            document.getElementById("idLink").onclick = function() { 
+                geclickt("idLink"); 
+            };
+            
+            document.getElementById("idBild").onmouseover = function() { 
+                maus("idBild"); 
+            };
+            
+            document.getElementById("reload").onclick = function(){
+                return reset();
+            }
+        </script>
+    </body>
+</html>

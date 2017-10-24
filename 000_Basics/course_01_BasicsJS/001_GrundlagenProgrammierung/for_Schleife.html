@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        var i;
+        // 1: Aufwärts
+        document.write("<p>1: ");
+        for(i=1; i<=5; i++)
+            document.write(i + " ");
+        // 2: Abwärts
+        document.write("<br>2: ");
+        for(i=20; i>=10; i--)
+            document.write(i + " ");
+        // 3: Mit Dezimalzahl
+        document.write("<br>3: ");
+        for(i=3; i<=4; i+=0.2)
+            document.write(i.toFixed(3) + " ");
+        // 4: Mit Dezimalzahl, optimiert
+        document.write("<br>4: ");
+        for(i=3; i<=4.1; i+=0.2)
+            document.write(i.toFixed(1) + " ");
+        // 5: Mit break und continue
+        document.write("<br>5: ");
+        for(var k=10; k<=50; k++)
+        {
+            if(k>=16 && k<=24)
+                continue;
+            if(k==30)
+                continue;
+            if(k>=44)
+                break;
+            document.write(k + " ");
+        }
+        document.write("<\/p>");
+    </script>
+</head>
+<body>
+
+</body>
+</html>

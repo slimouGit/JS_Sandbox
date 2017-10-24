@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>array_erzeugen</title>
+</head>
+<body>
+    <script>
+        var personArray = ["Mimi", "Illmi", "Süß-Bums"];
+
+        document.write("for-Schleife:<br>");
+
+        for(var i =0;i<personArray.length;i++){
+            document.write((i+1) + ": " + personArray[i] + " ");
+            document.write("<br>");
+        }
+
+        //-----------------------------------------------
+
+        document.write("<br>");
+
+        document.write(personArray[0] + " " + personArray[1]);
+
+        //-----------------------------------------------
+
+        document.write("<br><br>");
+
+        var auchPersonArray = personArray;
+        document.write("Zweiter Verweis, toString(): " + auchPersonArray + "<br>");
+
+        //-----------------------------------------------
+
+        document.write("<br>");
+
+        var landArray = new Array();
+        landArray[0] = "Frankreich";
+        landArray[1] = "Spanien";
+        landArray[4] = "Italien";
+
+        document.write("Mit Lücken: " + landArray + "<br><br>");
+
+        //-----------------------------------------------
+
+        document.write("<br>");
+
+        var obstArray = new Array(6);
+        obstArray[0] = "Apfel";
+        obstArray[1] = "Birne";
+        document.write("Geplant: " + obstArray + "<br>");
+        document.write("aktuelle Groesse: " + obstArray.length + "<br>");
+        obstArray[8] = "Blaubeere";
+
+        document.write("Aktuell: " + obstArray + "<br>");
+        document.write("aktuelle Groesse: " + obstArray.length + "<br>");
+        document.write("Element 2: " + obstArray[2] + "<br>");
+        document.write("Element 9: " + obstArray[9] + "<br>");
+        document.write("aktuelle Groesse: " + obstArray.length);
+
+        //-----------------------------------------------
+
+        document.write("<br><br>");
+        
+        var tempArray = [[22.3, 18.5], [21.6, 19.7], [24.6, 20.1]];
+        
+        document.write("Mehrdimensionales Array:<br>");
+        document.write("Ausgabe mit Schleife<br>");
+        document.write("Länge des ausseren Arrays: " + tempArray.length + "<br>");//3
+        
+        for(var i = 0; i<tempArray.length; i++){
+            
+            for(k = 0;k<tempArray[i].length;k++){
+                document.write(i + "/" + k + ": " + tempArray[i][k] + " ");
+            //document.write("<br>");
+            }
+            document.write("____ Länge des inneren Arrays: " + tempArray[i].length + "<br>");
+        }
+        document.write("Ausgabe gesamt:<br>" + tempArray);
+        
+        //-----------------------------------------------
+            
+            document.write("<br><br>");
+            
+            var ausgabenArray = [["Miete", 760], ["Strom", 55], ["Adobe", 29.75]];
+            
+            for(var i = 0; i<ausgabenArray.length; i++){
+                document.write("- ");
+                for(k = 0;k<ausgabenArray[i].length; k++){
+                    
+                    document.write(ausgabenArray[i][k] + " ");
+                }
+                document.write(" Euro");
+                document.write("<br>");
+            }
+            
+            //-----------------------------------------------
+    </script>
+</body>
+</html>

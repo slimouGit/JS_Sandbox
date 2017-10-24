@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>location_quelle</title>
+        <meta charset="utf-8"/>
+        <!--
+        In folgendem Programm kann der Benutzer zwei Informationen in einem Formular eintragen, 
+        siehe Abbildung 7.7. Diese werden zu einer Suchzeichenkette zusammengefasst,
+        damit an eine zweite Datei übermittelt und dort wieder als einzelne Informationen weiterverarbeitet,
+        -->
+        <script>
+            function senden() {
+                location.href = "location_ziel.html?v=" 
+                + document.getElementById("idVorname").value + "&n=" 
+                + document.getElementById("idNachname").value + "#ende";
+            }
+        </script>
+    </head>
+    <body>
+        <p><input id="idVorname" size="10"> Vorname</p>
+        <p><input id="idNachname" size="10"> Nachname</p>
+        <p><input id="idSenden" type="button" value="senden"></p>
+        <script src="../../lib/eh.js"></script>
+        <script>
+            meinHandler("idSenden", "click", senden);
+        </script>
+        <!--
+        Nach dem Eintragen und dem Betätigen des Buttons senden wird die Funktion senden() aufgerufen. 
+        Darin bekommt die Eigenschaft href einen neuen Wert. 
+        Mit Hilfe der Zeichen ? und & sowie der Inhalte der Formularfelder wird die Suchzeichenkette zusammengesetzt. 
+        Falls innerhalb der Zieldatei ein Anker als Ziel dient, gehört er ganz ans Ende der Adresse.
+        -->
+    </body>
+</html>

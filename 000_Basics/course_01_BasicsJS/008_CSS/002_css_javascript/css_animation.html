@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--
+        Die Änderung der Position mit Hilfe eines automatischen Ablaufs lässt den Eindruck
+        eines animierten Films entstehen. Im Beispielprogramm css_animieren.htm werden
+        mit Hilfe von fünf Buttons fünf verschiedene Animationen durchgeführt:
+        - Ein Element bewegt sich innerhalb des Dokuments.
+        - Der Ausschnitt eines Elements verändert sich.
+        - Ein Element wird immer durchsichtiger.
+        - Zwei Elemente werden gegeneinander ausgetauscht, indem ein Element eingeblendet
+            wird, während ein anderes Element ausgeblendet wird.
+        - Die Hintergrundfarbe eines Elements ändert sich langsam von einer Startfarbe bis zu einer Endfarbe.
+        
+        Ich teile das Programm zur besseren Übersicht über fünf Abschnitte auf.
+        
+        Anschließend folgt eine Animation, bei der eine Kugel in Richtung eines Zieles geworfen wird. 
+        Dabei kann der Benutzer den Winkel und die Geschwindigkeit zu Beginn des Wurfs einstellen. 
+        Die Schwerkraft wird berücksichtigt, so dass die Flugbahn einer Wurfparabel entspricht.
+        -->
+        <title>css_animation</title>
+        <meta charset="utf-8"/>
+        <style>
+        
+        </style>
+        <script>
+            /**
+             * Alle vier Animationen sind nach dem gleichen Prinzip aufgebaut.
+             * Die Variable positionVerweis dient zur Steuerung des automatischen Ablaufs. In positionTop ist der Zahlenanteil des Werts gespeichert, den die Eigenschaft top zu
+             * Beginn hat, also die Zahl 50 des Werts 50px. Der Button Position ruft die Funktion animierePosition() auf. Darin sorgt die Methode setInterval() alle 20 Millisekunden für einen
+             * Aufruf der Funktion aendernPosition(). Sobald die Endposition erreicht wird, wird der Ablauf mit Hilfe der Methode clearInterval() beendet. Falls die Endposition noch nicht
+             * erreicht wurde dann wird die Hilfsvariable positionTop um den Wert 1 vergrößert. An diese Zahl wird noch die Einheit px angehängt. Dies führt zur Verschiebung um 1 Pixel nach
+             * unten.
+             */
+            var positionVerweis, positionTop = 50;
+            
+            function aendernPosition() {
+                if (positionTop >= 130)
+                    window.clearInterval(positionVerweis);
+                else {
+                    positionTop += 1;
+                    document.getElementById("idParadies").style.top = positionTop + "px";
+                    }
+                }
+                
+            function animierePosition() {
+                positionVerweis = window.setInterval(aendernPosition, 20);
+            }
+            //------------------------------------------------------------------------------------------------------
+            
+            /**
+             * Der automatische Ablauf wird hier mit der Variablen ausschnittVerweis gesteuert.  In den Hilfsvariablen clipBottom und clipRight sind die Zahlenanteile der beiden Werte
+             * gespeichert, die sich während der Animation des Ausschnitts verändern. Der untere Rand des Ausschnitts startet bei der halben Höhe des Bildes, bei 60 Pixeln. Der rechte
+             * Rand des Ausschnitts startet am rechten Rand des Bildes, bei 160 Pixeln. Alle 20 Millisekunden wird der untere Rand um 1 Pixel nach unten und der rechte
+             * Rand um 4/3 Pixel nach links verschoben. Die Endposition ist bei der vollen Höhe des Bildes erreicht, also wenn der untere Rand bei 120 Pixeln liegt. Gleichzeitig hat sich
+             * der rechte Rand des Ausschnitts auf die halbe Breite des Bildes verschoben, auf 80 Pixel.
+             */ 
+            var ausschnittVerweis, clipBottom = 60, clipRight = 160;
+            
+            function aendernAusschnitt() {
+                if (clipBottom >= 120)
+                    window.clearInterval(ausschnittVerweis);
+                else {
+                    clipBottom += 1;
+                    clipRight -= 4.0/3.0;
+                    document.getElementById("idSofi").style.clip = "rect(auto " + clipRight + "px " + clipBottom + "px auto)";
+                }
+            }
+            
+            function animiereAusschnitt() {
+                ausschnittVerweis = window.setInterval(aendernAusschnitt, 20);
+            }
+            //------------------------------------------------------------------------------------------------------
+            
+            /**
+             * Die Variable transparenzWert enthält den Startwert für die Transparenz des Bildes, also 1.0. Alle 20 Millisekunden verkleinert sich die Transparenz um 0.01. Der Endwert
+             * ist bei 0.3 erreicht. Für den Wert der Eigenschaft filter muss transparenzWert mit 100 multipliziert werden.
+             */ 
+            var transparenzVerweis, transparenzWert = 1;
+            
+            function aendernTransparenz() {
+                if (transparenzWert <= 0.3)
+                    window.clearInterval(transparenzVerweis);
+                else {
+                    transparenzWert -= 0.01;
+                    document.getElementById("idSofi").style.opacity = transparenzWert;
+                    document.getElementById("idSofi").style.filter = "alpha(opacity=" + (transparenzWert * 100) + ")";
+                }
+            }
+            
+            function animiereTransparenz() {
+                transparenzVerweis = window.setInterval(aendernTransparenz, 20);
+            }
+            //------------------------------------------------------------------------------------------------------
+            
+            /**
+             * Die Variable farbeWert enthält den Startwert für alle drei Farbanteile: 192. Alle 20 Millisekunden
+             * vermindert sich der Wert um 1. Der Endwert ist bei 96 erreicht.
+             */ 
+            var farbeVerweis, farbeWert = 192;
+            
+            function aendernFarbe() {
+                if (farbeWert <= 96)
+                    window.clearInterval(farbeVerweis);
+                else {
+                    farbeWert -= 1;
+                    document.getElementById("idRect").style.backgroundColor = "rgb(" + farbeWert + "," + farbeWert + "," + farbeWert + ")";
+                }
+            }
+            
+            function animiereFarbe() {
+                farbeVerweis = window.setInterval(aendernFarbe, 20);
+            }
+            //------------------------------------------------------------------------------------------------------
+            
+            /**
+             * Auch hier startet die Hilfsvariable bildwechselWert für die Transparenz des Bildes mit
+             * 1.0 und verkleinert sich alle 20 Millisekunden um 0.01. Der Endwert ist allerdings erst
+             * bei einer Transparenz von 0.0 erreicht. Der Wert von bildwechselWert wird auf das Bild angewendet, das langsam ausgeblendet wird. Auf das Bild, das langsam eingeblendet
+             * wird, wird die umgekehrte Transparenz angewendet, also: (1 – bildwechsel-Wert). Für den Wert der Eigenschaft filter muss auch dieser Wert mit 100 multipliziert werden.
+             * Die Animationen aus diesem Abschnitt können für neuere Browser teilweise auch mit Hilfe von CSS3-Transitions erfolgen.
+             */ 
+            var bildwechselVerweis, bildwechselWert = 1;
+            
+            function aendernBildwechsel() {
+                if (bildwechselWert <= 0)
+                    window.clearInterval(bildwechselVerweis);
+                else {
+                    bildwechselWert -= 0.01;
+                    document.getElementById("idWelle").style.opacity = bildwechselWert;
+                    document.getElementById("idWelle").style.opacity = 1 - bildwechselWert;
+                    document.getElementById("idWelle").style.filter = "alpha(opacity=" + (bildwechselWert * 100) + ")";
+                    document.getElementById("idWelle").style.filter = "alpha(opacity=" + (100 - bildwechselWert * 100) + ")";
+                }
+            }
+            
+            function animiereBildwechsel() {
+                bildwechselVerweis = window.setInterval(aendernBildwechsel, 20);
+            }
+            //------------------------------------------------------------------------------------------------------
+        </script>
+    </head>
+    <body>
+        <div id="idRect" style="position:absolute; width:80px; height:60px; top:200px; left:10px; background-color:rgb(192,192,192)"></div>
+        <div id="idParadies" style="position:absolute; top:50px; left:50px">
+            <img src="weltall.jpg" alt="Paradies">
+        </div>
+        <div id="idSofi" style="position:absolute; top:100px; left:150px; clip:rect(auto auto 60px auto)"><img src="karibik.jpg" alt="Sofi"></div>
+        <div id="idWinter" style="position:absolute; top:50px; left:350px">
+            <img src="sonne.jpg" alt="Winter">
+        </div>
+        <div id="idWelle" style="position:absolute; top:50px; left:350px; opacity:0.0; filter:alpha(opacity=0)">
+            <img src="karibik.jpg" alt="Welle">
+        </div>
+        <p>
+            <input id="idPosition" type="button" value="Position">
+            <input id="idAusschnitt" type="button" value="Ausschnitt">
+            <input id="idTransparenz" type="button" value="Transparenz">
+            <input id="idFarbe" type="button" value="Farbe">
+            <input id="idBildwechsel" type="button" value="Bildwechsel">
+        </p>
+        
+        <script type="text/javascript" src="../../lib/eh.js"></script>
+
+        <script type="text/javascript">
+            meinHandler("idPosition", "click", animierePosition);
+            meinHandler("idAusschnitt", "click", animiereAusschnitt);
+            meinHandler("idTransparenz", "click", animiereTransparenz);
+            meinHandler("idFarbe", "click", animiereFarbe);
+            meinHandler("idBildwechsel", "click", animiereBildwechsel);
+        </script>
+    </body>
+</html>

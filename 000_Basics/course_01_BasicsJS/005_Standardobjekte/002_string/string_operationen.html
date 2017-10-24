@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>string_operationen</title>
+        <meta charset="utf-8"/>
+        <script>
+            
+        </script>
+    </head>
+    <body>
+        
+        <script>
+            var tx = "info@lehre.rz.uni-bonn.de";
+            document.write("Text: " + tx + "<br>");
+            document.write("Länge: " + tx.length + "<br>");
+            document.write("Länge: " + "uni-bonn".length + "<br>");
+            document.write("Zeichen: ");
+
+            for(var i=0; i<5; i++) {
+                document.write(i + ":" + tx.charAt(i) + " ");
+            }
+                document.write("...<br><br>");
+            
+            //---------------------------
+            document.write("<hr><br>");
+            //---------------------------
+            
+            document.write("Erster Punkt: " + tx.indexOf(".") + "<br>");
+            document.write("Letzter Punkt: " + tx.lastIndexOf(".") + "<br>");
+            document.write("Alle Punkte: ");
+
+            var pos = tx.indexOf(".");
+            while(pos != -1) {
+                document.write(pos + " ");
+                pos = tx.indexOf(".", pos+1);
+            }
+            document.write("<br><br>");
+            
+            //---------------------------
+            document.write("<hr><br>");
+            //---------------------------
+            
+            document.write("Von 4 bis Ende mit substring(4): " + tx.substring(4) + "<br>");
+            document.write("Von 4 bis vor 7 mit substring(4,7): " + tx.substring(4,7) + "<br>");
+            document.write("Von 4, Länge 5 mit substr(4,5): " + tx.substr(4,5) + "<br><br>");
+            
+            //---------------------------
+            document.write("<hr><br>");
+            //---------------------------
+            
+            document.write("Feld: ");
+            var feld = tx.split(".");
+            
+            for(var i=0; i<feld.length; i++)
+                document.write(i + ":" + feld[i] + " ");
+                document.write("<br><br>");
+
+            var tg = tx.toUpperCase();
+            document.write("Alles groß: " + tg + "<br>");
+            document.write("Alles klein: " + tg.toLowerCase() + "<br><br>");
+            document.write("Unicode-Nummern: ");
+
+            for(var i=0; i<5; i++)
+                document.write(i + ":" + tx.charCodeAt(i) + " ");
+                document.write("...<br>");
+
+            document.write("Text aus Unicode-Zeichen: ");
+            document.write(String.fromCharCode(105, 110, 102, 111, 64));
+            
+            //---------------------------
+            document.write("<hr><br>");
+            //---------------------------
+            
+            
+
+        </script>
+    </body>
+</html>

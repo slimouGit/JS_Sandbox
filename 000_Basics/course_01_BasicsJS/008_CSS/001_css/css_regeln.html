@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>css_regeln</title>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" type="text/css" href="css_extern.css">
+        <style>
+            i {text-decoration:underline}
+        </style>
+    </head>
+    <body>
+        <p>Der <i>erste</i> Absatz</p>
+        <p>Der <i style="text-decoration:line-through">zweite</i> Absatz</p>
+        <p>Der <i style="font-weight:bold">dritte</i> Absatz</p>
+    </body>
+    
+    <!--
+    Zunächst werden die externen Style Sheets aus der Datei css_extern.css eingebunden,
+    die Sie bereits aus Abschnitt 9.1.1, »Orte und Selektoren«, kennen. Dort wird definiert,
+    dass kursive Bereiche überstrichen werden.
+    
+    Eingebettet im Kopf des Dokuments wird dieselbe Eigenschaft für denselben Selektor definiert,
+    aber mit einem anderen Wert überlagert. Damit gilt innerhalb dieses Dokuments,
+    dass kursive Bereiche unterstrichen werden, wie Sie dies beim ersten Absatz sehen.
+    
+    Innerhalb des zweiten Absatzes wird eine dritte Definition für dieselbe Eigenschaft,
+    wiederum für einen kursiven Bereich, vorgenommen. Es kommt wieder zu einer Überlagerung,
+    und dieser Bereich wird durchgestrichen. Die Inline-Angabe hat den Vorrang vor der eingebetteten Angabe.
+    
+    Im dritten Absatz kommt es innerhalb des kursiven Bereichs zu einer Kaskadierung von Eigenschaften. 
+    Zur Unterstreichung kommt eine andere Eigenschaft hinzu: der Fettdruck.
+    -->
+    
+</html>

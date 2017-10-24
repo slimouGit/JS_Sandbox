@@ -1,0 +1,27 @@
+<meta charset="utf-8"/>
+<script>
+    function fehlerbehandlung(fehler, datei, zeile)
+    {
+        alert("Fehler: " + fehler + "\nDatei: " + datei + "\nZeile: " + zeile);
+    }
+    //----------------------------------------------------------------
+    window.onerror = fehlerbehandlung;
+    //----------------------------------------------------------------
+    
+    var wert = parseFloat(prompt("Bitte eine Zahl > 5 eingeben"));
+    
+    try{
+        if(isNaN(wert)){
+            throw wert + " ist keine gültige Zahl";
+        }
+        if(wert<5){
+            throw wert + " liegt nicht über 5";
+        }
+        else{
+            document.write("Die Zahl lautet: " + wert);
+        }
+        
+    }catch(fehlerObjekt){
+        document.write(fehlerObjekt);
+    }
+</script>

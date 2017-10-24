@@ -1,0 +1,5 @@
+[ {"name":"Miete", "art_position":"Ausgabe", "betrag":"760,00"},
+{"name":"Fahrkarte", "art_position":"Ausgabe", "betrag":"86,50"},
+{"name":"Strom", "art_position":"Ausgabe", "betrag":"55,00"},
+{"name":"Gehalt", "art_position":"Einnahme", "betrag":"4887,50"}
+ ]

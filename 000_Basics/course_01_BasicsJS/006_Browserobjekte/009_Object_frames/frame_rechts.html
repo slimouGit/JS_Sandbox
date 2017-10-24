@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>frame_rechts</title>
+        <meta charset="utf-8"/>
+        <script>
+            var x = 16;
+            
+            function ausgabe() {
+                var tx = "Variable aus Frame-Hauptseite: " + parent.x + "\n";
+                tx += "Funktion aus Frame-Hauptseite: " + parent.fu1() + "\n";
+                tx += "Variable aus anderem Frame: " + parent.fu2() + "\n";
+                tx += "Variable aus anderem Frame: " + parent.frames[1].x + "\n";
+                tx += "Funktion aus and. Frame: " + parent.frames[0].fu1() + "\n";
+                tx += "Variable aus diesem Frame: " + x + "\n";
+                tx += "DOM-Element aus and. Frame: " + parent.frames[0].document.getElementById("idOben").firstChild.nodeValue + "\n";
+                alert(tx);
+            }
+        </script>
+    </head>
+    <body>
+        <p>rechts</p>
+        <p><input id="idAusgabe" type="button" value="Ausgabe"></p>
+        
+        <script src="../../lib/eh.js"></script>
+        
+        <script>
+            meinHandler("idAusgabe", "click", ausgabe );
+        </script>
+    </body>
+</html>

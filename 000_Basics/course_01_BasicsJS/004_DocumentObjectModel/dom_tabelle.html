@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript">
+            function tabelleErzeugen(){
+                var tabellenrumpf = document.createElement("tbody");
+                
+                for(var z=1; z<=3; z++){
+                    var zeile = document.createElement("tr");
+                    
+                    for(var s=1; s<=20; s++){
+                        var text = document.createTextNode("Zelle " + z + "/" + s);
+                        var zelle = document.createElement("td");
+                        zelle.appendChild(text);
+                        zeile.appendChild(zelle);
+                    }
+                tabellenrumpf.appendChild(zeile);
+                
+                }
+                
+                var tabelle = document.createElement("table");
+                tabelle.border = 1;
+                tabelle.appendChild(tabellenrumpf);
+                document.body.appendChild(tabelle);
+            }
+        
+        </script>
+    </head>
+    <body>
+        <p><input id="idTabelle" type="button" value="Tabelle"></p>
+        
+        <script type="text/javascript" src="eh.js"></script>
+        
+        <script type="text/javascript">
+            meinHandler("idTabelle", "click", tabelleErzeugen);
+        </script>
+    </body>
+</html>

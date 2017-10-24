@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>links</title>
+    <script>
+        function ausgabe()
+        {
+            var tx = "";
+            for(var i=0; i<document.links.length; i++)
+            {
+                tx += i + ": Verweisziel: " + document.links[i].href + "\n";
+                tx += "Text: " + document.links[i].firstChild.nodeValue + "\n";
+                tx += "Zielfenster: " + document.links[i].target + "\n";
+                tx += "Suche: " + document.links[i].search + "\n\n";
+            }
+            alert(tx);
+        }
+        function aendern()
+        {
+            document.links[2].href = "http://www.spiegel.de";
+            document.links[2].firstChild.nodeValue = "Spiegel";
+            document.links[2].target = "zehn";
+            document.links[2].search = "?q=Berlin";
+        }
+    </script>
+</head>
+<body>
+    <p>
+        <input id="idAusgeben" type="button" value="Member ausgeben">
+        <input id="idAendern" type="button" value="Member ändern">
+    </p>
+    <p><a href="#ende">Zum Ende</a></p>
+    <p><a href="http://www.yahoo.de" target="acht">Yahoo</a></p>
+    <p><a href="http://www.google.de?q=Bonn">Google</a></p>
+    <p><a name="ende">Ende</a></p>
+
+    <script src="../../../lib/eh.js"></script>
+    <script>
+        meinHandler("idAusgeben", "click", ausgabe );
+        meinHandler("idAendern", "click", aendern );
+    </script>
+    <!--
+    In der Funktion ausgabe() wird die for-Schleife mit Hilfe der Anzahl der Hyperlinks gesteuert.
+    Der Zugriff auf einen einzelnen Hyperlink gelingt über den Index.
+    Dies gilt auch für die Funktion aendern().
+    Innerhalb der Hyperlinks wird teilweise das Attribut target eingesetzt.
+    Zur erfolgreichen Validierung muss daher die DTD für HTML 4.01 Transitional genutzt werden,
+    wie zum Beispiel auch in Abschnitt 7.1.2, »Fenster öffnen und schließen«.
+    -->
+</body>
+</html>

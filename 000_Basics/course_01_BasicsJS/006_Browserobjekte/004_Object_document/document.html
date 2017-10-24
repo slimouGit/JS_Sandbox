@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>document</title>
+        <meta charset="utf-8"/>
+        <!--
+        Im folgenden Programm wird der Titel des Dokuments mit Hilfe der Eigenschaft title geändert, 
+        und Datum und Uhrzeit der letzten Dokumentänderung werden mit Hilfe der Eigenschaft lastModified ausgegeben. 
+        Dabei wird das Datumsformat MM-DDYYYY verwendet.
+    -->
+    </head>
+    <body>
+        <p><input id="idTitel" type="button" value="Titel ändern"></p>
+        <script type="text/javascript" src="../../lib/eh.js"></script>
+        <script>
+            document.write("Datum: " + document.lastModified);
+            meinHandler("idTitel", "click",function() { document.title = "Neuer Titel"; } );
+        </script>
+    </body>
+</html>

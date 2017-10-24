@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vererbung</title>
+        <meta charset="utf-8"/>
+        <script>
+            //-------------------------------------------
+            function Fahrzeug(f, g) {
+                this.farbe = f;
+                this.geschwindigkeit = g;
+                this.beschleunigen = fahrzeugBeschleunigen;
+                this.toString = fahrzeugAusgeben;
+                //----------------------------
+                function fahrzeugBeschleunigen(wert){
+                    this.geschwindigkeit += wert;
+                }
+                //----------------------------
+                function fahrzeugAusgeben(){
+                    return "Farbe: " + this.farbe
+                    + ", Geschwindigkeit: " + this.geschwindigkeit + " km/h" + "<br>";
+                }
+            }
+            //-------------------------------------------
+
+
+            //-------------------------------------------
+            function Lastwagen(f, g, n){
+                this.constructor(f, g);
+                this.nutzlast = n;
+                this.beladen = lastwagenBeladen;
+                this.toString = lastwagenAusgeben;
+                //----------------------------
+                function lastwagenBeladen(wert){
+                    this.nutzlast += wert;
+                }
+                //----------------------------
+                function lastwagenAusgeben(){
+                    return "Farbe: " + this.farbe + ", Geschwindigkeit: "
+                    + this.geschwindigkeit + " km/h" + ", Nutzlast: " + this.nutzlast + " t" + "<br>";
+                }
+            }
+            Lastwagen.prototype = new Fahrzeug();
+            //-------------------------------------------
+
+
+            //-------------------------------------------
+            function Flugzeug(f, g, h){
+                this.constructor(f, g);
+                this.hoehe = h;
+                this.boost = anfeuernFlieger;
+                this.toString = flugzeugAusgeben;
+                //-------------------------------
+                function anfeuernFlieger(wert){
+                    this.hoehe += wert;
+                }
+                //-------------------------------
+                function flugzeugAusgeben(){
+                    return "Farbe: " + this.farbe + " , Geschwindigkeit: "
+                    + this.geschwindigkeit  + " km/h" +  ", Hoehe: " + this.hoehe + "m" + "<br>";
+                }
+            }
+            Flugzeug.prototype = new Fahrzeug();
+            //-------------------------------------------
+        </script>
+    </head>
+    <body>
+        <script>
+            var porsche = new Fahrzeug("rot", 280);
+            document.write(porsche);
+            porsche.beschleunigen(15);
+            document.write(porsche);
+            //-------------------------------------------
+            document.write("<hr>");
+            //-------------------------------------------
+            var truck = new Lastwagen("grau", 120, 200);
+            document.write(truck);
+            truck.beladen(-150);
+            truck.beschleunigen(40);
+            document.write(truck);
+            document.write("<hr>");
+            //-------------------------------------------
+            var jumbo = new Flugzeug("pink", 800, 5000);
+            document.write(jumbo);
+            jumbo.boost(1000);
+            document.write(jumbo);
+        </script>
+    </body>
+</html>

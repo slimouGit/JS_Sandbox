@@ -1,0 +1,30 @@
+<script>
+    var gruss = function() { 
+        document.write("Hallo Welt<br>"); 
+    };
+    
+    var abschied = function() {
+        document.write("Machs gut<br>");
+    }
+    
+    var summe = function(a,b)
+    {
+        var s = a + b;
+        return s;
+    };
+    
+    function oskar(begruessung) {
+        begruessung();
+    }
+    
+    gruss();
+    oskar(gruss);
+    
+    oskar(abschied);
+
+    var ergebnis = summe(35, 7);
+    document.write(ergebnis + "<br>");
+    
+    var addieren = summe;
+    document.write(addieren(45, 17));
+</script>

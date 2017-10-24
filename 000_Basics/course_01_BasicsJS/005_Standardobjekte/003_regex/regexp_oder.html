@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>regexp_oder</title>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+        <script>
+        /*
+        - Alternativen für einzelne Zeichen, mit Hilfe der eckigen Klammern
+        - mehrere Möglichkeiten für Zeichenfolgen, in runden Klammern, getrennt durch das Zeichen |
+        - die Unabhängigkeit von der Groß- und Kleinschreibung, mit Hilfe von i
+        */
+            var aus = "";
+            
+            if("ist keiner".match(/[km]eine/)) aus += "1: ist keiner<br>";
+            
+            if("ist meiner".match(/[km]eine/)) aus += "1: ist meiner<br>";
+            
+            if("ist seiner".match(/[km]eine/)) aus += "1: ist seiner<br>";
+            
+            if("ist an".match(/(an|aus)/)) aus += "2: ist an<br>";
+            
+            if("ist aus".match(/(an|aus)/)) aus += "2: ist aus<br>";
+            
+            if("ist nicht".match(/(an|aus)/)) aus += "2: ist nicht<br>";
+            
+            if("ist An".match(/ist an/i)) aus += "3: ist An<br>";
+            
+            if("ist An".match(/ist an/)) aus += "3: ist An<br>";
+            
+            if("Ist an".match(/ist an/i)) aus += "3: Ist an<br>";
+            
+            if("ist Aus".match(/ist an/i)) aus += "3: ist Aus<br>";
+            
+            document.write(aus);
+        </script>
+    </body>
+</html>

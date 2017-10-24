@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fahrzeug-Objekt</title>
+        <meta charset="utf-8"/>
+        <script>
+            function Fahrzeug(n, f, g){
+                this.name = n;
+                this.farbe = f;
+                this.geschwindigkeit = g;
+                //----------------------------
+                this.beschleunigen = fahrzeugBeschleunigen;
+                //----------------------------
+                this.lackieren = function(f) { 
+                    this.farbe = f; 
+                };
+                //----------------------------
+                this.toString = fahrzeugAusgeben;
+                //----------------------------
+                function fahrzeugBeschleunigen(wert){
+                    this.geschwindigkeit += wert;
+                }
+                //----------------------------
+                function fahrzeugAusgeben(){
+                    return "Autoname: " + this.name + ", Farbe: " + this.farbe
+                    + ", Geschwindigkeit: " + this.geschwindigkeit + "<br>";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <script>
+            var dacia = new Fahrzeug("Dacia", "rot", 50);
+            document.write(dacia);
+            dacia.beschleunigen(50);
+            dacia.lackieren("blau");
+            document.write(dacia);
+            //----------------------------
+            var mercedes = new Fahrzeug("Mercedes", "schwarz", 250);
+            document.write(mercedes);
+        </script>
+    </body>
+</html>

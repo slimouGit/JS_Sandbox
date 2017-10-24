@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jq_ereignis</title>
+        <meta charset="utf-8"/>
+        <!--
+        Bisher haben wir lediglich das Klick-Ereignis zum Starten von jQuery-Code genutzt.
+        In diesem Abschnitt werden wir weitere Ereignisse einsetzen.
+        In Abbildung 10.6 sehen Sie ein div-Element, darunter eine Reihe von Hyperlinks.
+        Das Auslösen eines der Ereignisse auf dem jeweiligen Link führt jedes Mal zu einer
+        animierten Verbreiterung des Elements. Dabei kommt die Methode animate() zum
+        Einsatz. Sie erzeugt durch eine Abfolge von Einzelbildern den Eindruck eines gleichmäßigen
+        Ablaufs, wie in einem Film. Mehr zu animate() erfahren Sie im nächsten Abschnitt.
+        -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script type="text/javascript">
+        
+            $(document).ready(function() {
+                $("#idLink1").click(function(){
+                    $("#idRect").animate({"width":"+=20px"}); });
+                
+                /**
+                * Das div-Element hat die ID idRect, eine Größe von 200 × 100 Pixeln und eine graue Farbe. 
+                * Die Ereignisse haben die folgenden Auswirkungen:
+                * Die Ihnen bereits bekannte Methode click() wird einmalig durch einen einfachen
+                * Klick auf den Link ausgelöst. Das Element wird 20 Pixel breiter.
+                */ 
+                $("#idLink1").click(function(){
+                    $("#idRect").animate({"width":"+=20px"}); });    
+    
+            });
+        </script>
+        <style type="text/css">
+            a {background-color:#f0f0f0; line-height:150 %}
+        </style>
+    </head>
+    <body>
+        <div id="idRect" style="width:200px; height:100px; background-color:#aaaaaa">Rechteck</div>
+        <p><a id="idLink1" href="#"> 1: click</a><br>
+    </body>
+</html>

@@ -1,0 +1,12 @@
+<script>
+    function fehlerbehandlung(fehler, datei, zeile)
+    {
+        alert("Fehler: " + fehler + "\nDatei: " + datei + "\nZeile: " + zeile);
+    }
+    //----------------------------------------------------------------
+    window.onerror = fehlerbehandlung;
+    //----------------------------------------------------------------
+    var y = 42;
+    document.write(x + "<br>");
+    document.write(y + "<br>");
+</script>

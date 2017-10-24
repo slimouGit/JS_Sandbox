@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>history</title>
+        <meta charset="utf-8"/>
+        <!--
+        Das Objekt history liegt in der Objekthierarchie unterhalb des Objekts window. 
+        Es arbeitet mit der Historie des Browsers. Sie können:
+        - mit der Methode back() die vorherige Seite anzeigen lassen,
+        - mit der Methode forward() die nächste Seite anzeigen lassen, falls Sie sich schon
+            in der Historie bewegt haben, und
+        - mit der Methode go() zu einer beliebigen Seite in der Historie springen, dabei mit
+        einem negativen Wert als Parameter zu einer der vorherigen Seiten und mit
+        einem positiven Wert zu einer der nächsten Seiten.
+        -->
+    </head>
+    <body>
+        <p>
+            <input id="idVorwaerts" type="button" value="Eine Seite vor">
+            <input id="idZurueck" type="button" value="Eine Seite zurück">
+            <input id="idGo" type="button" value="Drei Seiten zurück">
+        </p>
+        <p>
+            <input id="idLaenge" type="button" value="Länge der Historie">
+        </p>
+        
+        <script src="../../lib/eh.js"></script>
+        
+        <script>
+            meinHandler("idVorwaerts", "click", function() { history.forward(); } );
+            meinHandler("idZurueck", "click", function() { history.back(); } );
+            meinHandler("idGo", "click", function() { history.go(-3); } );
+            meinHandler("idLaenge", "click", function() { alert(history.length); } );
+            
+            /*
+            Es werden die oben genannten Methoden aufgerufen und die Werte der Eigenschaft abgerufen. 
+            Der Aufruf von go(-3) führt in der Historie drei Seiten zurück.
+            */
+        </script>
+    </body>
+</html>

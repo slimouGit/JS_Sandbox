@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>css_transparenz</title>
+        <meta charset="utf-8"/>
+        <style>
+            div {position:absolute; width:100px; height:100px;
+            background-color:#c0c0c0; font-size:14pt}
+        </style>
+    </head>
+    <body>
+        <div style="top:50px; left:0px; width:450px; height:20px">
+            Der Text hinter den Elementen ist teilweise erkennbar
+        </div>
+        
+        <div style="top:10px; left:10px; opacity:1.0; filter:alpha(opacity=100)">
+            1.0
+        </div>
+        
+        <div style="top:10px; left:160px; opacity:0.5; filter:alpha(opacity=50)">
+            0.5
+        </div>
+        
+        <div style="top:10px; left:310px; opacity:0.2; filter:alpha(opacity=20)">
+            0.2
+        </div>
+    </body>
+    <!--
+    Zunächst werden einige gemeinsame Eigenschaften für alle div-Container eingestellt.
+
+    Die drei quadratischen div-Container haben eine Transparenz von 1.0, 0.5 bzw.
+    0.2. Es ist nicht notwendig, eine Browserweiche zu entwickeln. 
+    Jeder Browser interpretiert die für ihn passenden Angaben und ignoriert die anderen Angaben.
+    
+    Der div-Container mit der Transparenz von 0.2 ist schon fast nicht mehr zu erkennen.
+    Die dahinterliegende Schrift ist daher schon deutlich zu lesen.
+    -->
+</html>

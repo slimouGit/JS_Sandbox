@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript">
+            function textAendern(id){
+                var absatz = document.getElementById(id);
+                if(absatz.hasChildNodes()){
+                    absatz.firstChild.nodeValue = "Geänderter Inhalt in " + id;
+                    alert("Knoten mit ID " + id + " wurde geändert");
+                }
+                else {
+                    var text = document.createTextNode("Erzeugter Inhalt in " + id);
+                    absatz.appendChild(text);
+                }
+            }
+            function htmlAendern(){
+                var absatz = document.getElementById("a4");
+                absatz.innerHTML = "Geänderter <i>Inhalt<\/i> in a4";
+            }
+            function umgeben(){
+                var absatz = document.getElementById("a3");
+                var kursiv = document.createElement("i");
+                var ersetzt = absatz.replaceChild(kursiv, absatz.firstChild);
+                kursiv.appendChild(ersetzt);
+            }
+            function klonen(){
+                var absatz = document.getElementById("a3");
+                var kopie = absatz.cloneNode(true);
+                document.body.appendChild(kopie);
+            }
+        </script>
+    </head>
+    <body>
+        <p id="a1">Erster Absatz</p>
+        <p id="a2"></p>
+        <p id="a3"><b>Dritter</b> Absatz</p>
+        <p id="a4">Vierter Absatz</p>
+        
+        <p>
+            <input id="idText1" type="button" value="Text ändern">
+            <input id="idText2" type="button" value="Text erzeugen">
+            <input id="idHtml" type="button" value="Text und HTML ändern">
+        </p>
+        
+        <p>
+            <input id="idUmgeben" type="button" value="Knoten mit HTML umgeben">
+            <input id="idKlonen" type="button" value="Knoten klonen">
+        </p>
+        
+        <script type="text/javascript" src="eh.js"></script>
+        
+        <script type="text/javascript">
+            meinHandler("idText1", "click", function() { textAendern("a1"); });
+            meinHandler("idText2", "click", function() { textAendern("a2"); });
+            meinHandler("idHtml", "click", htmlAendern);
+            meinHandler("idUmgeben", "click", umgeben);
+            meinHandler("idKlonen", "click", klonen);
+        </script>
+    </body>
+</html>

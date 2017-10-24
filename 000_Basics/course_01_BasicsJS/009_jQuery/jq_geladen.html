@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jq_geladen</title>
+        <meta charset="utf-8"/>
+        <!--
+        Anhand eines ersten Beispiels erläutere ich verschiedene Möglichkeiten, 
+        jQuery zu nutzen. Abbildung 10.1 stellt eine Datei mit einem div-Element und drei Hyperlinks
+        -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("#idAbsatz").html("<i>Änderung nach Laden<\/i>");
+                $("#idLink1").click(function() { 
+                    $("#idAbsatz").html("<b>Änderung nach Click 1<\/b>"); });
+            });
+        </script>
+        
+    </head>
+    <body>
+        <p id="idAbsatz" style="background-color:#e0e0e0; width:300px">Hallo</p>
+        <p><a id="idLink1" href="#">Click 1</a></p>
+        <p><a id="idLink2" href="#">Click 2</a></p>
+        <p><a id="idLink3" href="#">Click 3</a></p>
+        
+        <script type="text/javascript">
+            $("#idLink2").click(function(){
+                $("#idAbsatz").html("Änderung nach Click 2"); });
+                jQuery("#idLink3").click(function(){
+                    jQuery("#idAbsatz").html("<b><i>Änderung nach Click 3<\/i><\/b>"); 
+            });
+        </script>
+        <!--
+        Im body des Dokuments steht ein div-Element mit dem Beispieltext Hallo. Darunter sehen Sie die drei Hyperlinks.
+        Im JavaScript-Bereich wird die Methode ready() aufgerufen. Der jQuery-Code soll erst dann starten können, 
+        wenn die Datei mit allen Elementen im Browser des Benutzers geladen wurde und das Objekt document vollständig zur Verfügungsteht.
+        Dafür sorgt die Methode ready(). Ansonsten könnte es vorkommen, dass mit dem jQuery-Code auf ein Element zugegriffen wird,
+        dass noch nicht existiert.
+        
+        Innerhalb der Methode ready() finden Sie zwei verschiedene Abläufe. Im ersten Teil wird die Methode html() für das Element mit der ID
+        idAbsatz aufgerufen. Diese Methode ändert den HTML-Inhalt des betroffenen Elements. Daher erscheint sofort nach dem Laden des Dokuments der
+        kursive Text Änderung nach Laden im div-Element.
+        
+        Im zweiten Teil wird die Methode click() für das Element mit der ID Link1 aufgerufen.Dies sorgt dafür, dass ein Klick auf den Hyperlink zur
+        Ausführung der angegebenen Aktion führt. Nach dem Klick erscheint der fett gedruckte Text Änderung nach Click 1 im div-Element.
+        
+        Am Ende des Dokuments stehen zwei weitere Aktionen, die nach Betätigung des zweiten bzw. dritten Hyperlinks ausgeführt werden.
+        Hier ist die Methode ready() nicht mehr notwendig, da alle bedienbaren oder veränderbaren Elemente des Dokuments bereits geladen sind. 
+        Eine jQuery-Anweisung wird entweder mit Hilfe der $-Funktion oder der jQuery-Funktion aufgerufen. Beide Schreibweisen führen zum
+        selben Ergebnis.
+        
+        Die Methoden werden für die im Selektor genannten Elemente durchgeführt. Häufig handelt es sich dabei um CSS-Selektoren. Aufgrund der
+        vielen Klammerebenen in jQuery-Anweisungen empfehle ich die hier verwendete kompakte Schreibweise. 
+        
+        Beachten Sie bei Ihren eigenen Programmen auch die häufig notwendigen Anführungszeichen.
+        -->
+    </body>
+</html>

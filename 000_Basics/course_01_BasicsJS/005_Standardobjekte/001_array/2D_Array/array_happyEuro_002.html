@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>new happy Euro</title>
+        <meta charset="utf-8"/>
+        <script src="lib/bib_document_load.js"></script>
+        <script src="lib/bib_array_berechnen.js"></script>
+        <script>
+            function function_X(){
+                ausgabenArrayErzeugen();
+                }
+        </script>
+    </head>
+    <body>
+        
+        <form id="eingabe">
+            <div>
+                <label>Posten:</label>
+                <input type="text" class="big_input" id="Eingabe_Posten" placeholder="Posten">
+            </div>
+    
+            <div>
+                <label>Betrag:</label>
+                <input type="number" class="small_input" id="Eingabe_Euro" placeholder="Euro">
+                <span class="komma">,</span>
+                <input type="number" class="small_input" id="Eingabe_Cent" placeholder="Cent">
+            </div>
+
+        <input type="submit" value="Eintragen" id="Eintrage_Button">
+        </form>
+        <script>
+        
+            //----------------------------------------------
+
+            var ausgaben = new Array();
+            var ausgabenPosten;
+            var ausgabenName;
+            var ausgabenBetrag;
+
+            //----------------------------------------------
+
+            function ausgabenArrayErzeugen(){
+                var ausgaben = [
+                    ["Miete", 760.00],
+                    ["Strom", 55.00],
+                    ["Fahrkarte", 78.50]
+                    ];
+                
+                ausgabenArrayAusgeben(ausgaben);
+            }
+
+            //----------------------------------------------
+
+            function ausgabenArrayAusgeben(ausgaben) {
+                for (var i = 0; i < ausgaben.length; i++) {
+                    //document.write("<b>Posten " + (i + 1) + "</b><br>");
+                    var ausgabenId = i + 1;
+                    alert("ID: " + ausgabenId);
+                    //----------------------------------------------
+                    //Aufruf der externen Funktion aus bib.js zum ergaenzen des Arrays
+                    ergaenzeArray(ausgaben[i][1], a);
+                    //----------------------------------------------
+                    
+                    //document.write("Position: " + ausgaben[i][0] + "<br>");
+                    //document.write("Summe: " + (ausgaben[i][1]).toFixed(2) + " Euro" + "<br>");
+                    
+                    ausgabenName = ausgaben[i][0];
+                    ausgabenBetrag = (ausgaben[i][1]).toFixed(2);
+                    ausgabenPosten = ausgabenName + " " + ausgabenBetrag + " Euro";
+                    
+                    erstelleListe();
+                    
+                    alert(ausgabenPosten);
+                    
+                }
+                    
+                    //----------------------------------------------
+                    /**/
+                function erstelleListe() {    
+                    ausgabenListe = document.getElementById("ausgabenPosten");
+                    while (ausgabenListe.firstChild)
+                        ausgabenListe.removeChild(ausgabenListe.firstChild);
+                        
+                        for (var i = 0; i<ausgaben.length; i++) {
+                            ausgabenName = ausgaben[i][0];
+                            ausgabenBetrag = (ausgaben[i][1]).toFixed(2);
+                            ausgabenPosten = ausgabenName + " " + ausgabenBetrag + " Euro";
+                            
+                            var li = document.createElement("li");
+                            li.appendChild(document.createTextNode(ausgabenPosten));
+                            ausgabenListe.appendChild(li);
+                        }
+                    /**/
+                    //----------------------------------------------
+                }
+                    
+                
+                ausgabenArrayErgebnis(ausgaben);
+            }
+
+            //----------------------------------------------
+
+            function ausgabenArrayErgebnis(ausgaben) {
+                //----------------------------------------------
+                //Ausgabe Anzahl der Groesse des Arrays
+                //document.write("Anzahl Posten Ausgabe: " + ausgaben.length);
+                //document.write("<br>");
+                //----------------------------------------------
+
+                //---------------------------------------------
+                //Aufruf der externen Funktion aus bib.js zum summieren
+                //document.write("Gesamt-Betrag: " + (rechneSumme(a)).toFixed(2) + " Euro");
+                document.getElementById("ausgabenGesamt").innerHTML = "Gesamt-Betrag: " + (rechneSumme(a)).toFixed(2) + " Euro";
+                var gesamtAusgaben = ("Gesamt-Betrag: " + (rechneSumme(a)).toFixed(2) + " Euro");
+                //alert(gesamtAusgaben);
+                //---------------------------------------------
+            }
+
+            //----------------------------------------------
+
+        </script>
+        
+        <div id="ausgaben">
+            <div id="ausgabenPosten"></div>
+            <div id="ausgabenGesamt"></div>
+        </div>
+    </body>
+</html>

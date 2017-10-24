@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript">
+            function knotenLoeschen(){
+                var absatz = document.getElementById("a2");
+                document.body.removeChild(absatz);
+            }
+            function attributLoeschen(){
+                var absatz = document.getElementById("a3");
+                absatz.removeAttribute("style");
+            }
+        </script>
+    </head>
+    <body>
+        <p id="a1">Erster Absatz</p>
+        <p id="a2">Zweiter Absatz</p>
+        <p id="a3" style="text-align:left;">Dritter Absatz</p>
+        
+        <p>
+            <input id="idKnoten" type="button" value="Knoten löschen">
+            <input id="idAttribut" type="button" value="Attribut löschen">
+        </p>
+    
+        <script type="text/javascript" src="eh.js"></script>
+    
+        <script type="text/javascript">
+            meinHandler("idKnoten", "click", knotenLoeschen);
+            meinHandler("idAttribut", "click", attributLoeschen);
+        </script>
+    </body>
+</html>

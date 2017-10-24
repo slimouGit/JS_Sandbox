@@ -1,0 +1,14 @@
+<script>
+    function summe(){
+        var ergebnis = 0;
+        for(var i=0; i<arguments.length; i++){
+            ergebnis += arguments[i];
+            return ergebnis;
+            }
+        }
+    
+    var x = 12;
+    document.write("Summe: " + summe(3*x, 3.5) + "<br>");
+    document.write("Summe: " + summe(-9, 3, x, 5.5) + "<br>");
+    document.write("Summe: " + summe());
+</script>

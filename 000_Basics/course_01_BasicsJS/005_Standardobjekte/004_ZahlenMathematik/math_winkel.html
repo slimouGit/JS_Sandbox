@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>math_winkel</title>
+        <!--
+         In diesem Abschnitt stellen wir eine Tabelle mit den Werten der Winkelfunktionen
+         Sinus, Kosinus und Tangens für die Winkel von 0 bis 90 Grad dar, in Schritten von 15
+         Grad. Die Methoden Math.sin(), Math.cos() und Math.tan() berechnen die Werte,
+         allerdings basierend auf einem Winkel im Bogenmaß. Daher muss der Winkel in
+         Grad zunächst durch 180 geteilt und mit dem Wert der Kreiszahl Pi multipliziert
+         werden.
+         -->
+</head>
+<body>
+    <script>
+        document.write("<table border='1'>");
+        document.write("<tr><td>Winkel<\/td>");
+        document.write("<td>Bogenmass<\/td>");
+        document.write("<td>Math.sin()<\/td>");
+        document.write("<td>Math.cos()<\/td>");
+        document.write("<td>Math.tan()<\/td><\/tr>");
+        for(var i=0; i<=90; i+=15)
+        {
+            var bm = i / 180 * Math.PI;
+            document.write("<tr><td>" + i + "<\/td><td>"
+                    + bm.toFixed(3) + "<\/td><td>"
+                    + Math.sin(bm).toFixed(3) + "<\/td><td>"
+                    + Math.cos(bm).toFixed(3) + "<\/td><td>"
+                    + Math.tan(bm).toFixed(3) + "<\/td><\/tr>");
+        }
+        document.write("<\/table>");
+
+        /**
+         * Jeder Winkel in Grad wird zunächst ins Bogenmaß umgerechnet. Die Ergebnisse werden
+         auf drei Nachkommastellen gerundet. Leider ist die Umrechnung von 90 Grad
+         (= Pi / 2) ins Bogenmaß hier nicht mathematisch exakt, daher ergibt sich für den Tangens
+         von 90 Grad nicht der Wert unendlich.
+         */
+    </script>
+</body>
+</html>

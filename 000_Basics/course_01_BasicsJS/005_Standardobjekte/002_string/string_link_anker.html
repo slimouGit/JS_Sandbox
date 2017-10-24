@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>string_link_anker</title>
+        <meta charset="utf-8"/>
+        <script>
+            
+        </script>
+    </head>
+    <body>
+        
+        <script>
+            var linktext = "Zu anderer Datei";
+            var linkziel = "string_ziel.html";
+            var link = linktext.link(linkziel);
+
+            document.write("<p>" + link + "<\/p>");
+
+            document.write("<p>Zur Zeile 20".link("#z20") + "<\/p>");
+
+            for(var i=1; i<=20; i++) {
+                document.write("<p>" + ("Zeile "+i).anchor("z"+i) + "<\/p>");
+            }
+        </script>
+    </body>
+</html>

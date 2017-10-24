@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>regexp_position</title>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+        <script>
+            /*
+            - irgendwo im Text vorkommt, wie in den bisherigen Beispielen
+            - am Anfang des Textes vorkommt, mit Hilfe des Zeichens ^
+            - am Ende des Textes vorkommt, mit Hilfe des Zeichens $
+            - genau dem Text entspricht, also sowohl am Anfang als auch am Ende des Textes vorkommt, mit Hilfe der Zeichen ^ und $
+            */
+            var aus = "";
+            if("keiner".match(/ein/)) aus += "1: keiner<br>";
+            if("beide".match(/ein/)) aus += "1: beide<br>";
+            if("eine".match(/^ein/)) aus += "2: eine<br>";
+            if("kein".match(/^ein/)) aus += "2: kein<br>";
+            if("kein".match(/ein$/)) aus += "3: kein<br>";
+            if("eine".match(/ein$/)) aus += "3: eine<br>";
+            if("ein".match(/^ein$/)) aus += "4: ein<br>";
+            if("kein".match(/^ein$/)) aus += "4: kein<br>";
+            if("eine".match(/^ein$/)) aus += "4: eine<br>";
+            document.write(aus);
+        </script>
+    </body>
+</html>

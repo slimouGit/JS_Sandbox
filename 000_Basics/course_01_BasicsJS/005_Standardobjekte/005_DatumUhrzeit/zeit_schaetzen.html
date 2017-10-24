@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>zeit_schaetzen</title>
+
+    <script>
+    
+    
+        var zeitA;
+
+        //-------------------------------------------------
+        /**
+         * Nach Betätigung des Buttons Start wird dem ersten Date-Objekt die aktuelle Systemzeit
+         zugewiesen. Außerdem wird die Anzeige geleert, in der eventuell noch das
+         Ergebnis des letzten Versuchs steht.
+         */
+        function starten() {
+            alert("Start");
+            document.getElementById("idErgebnis").firstChild.nodeValue = "";
+            zeitA = new Date();
+        }
+
+        //-------------------------------------------------
+        /**
+             * Nach Betätigung des Buttons Stop wird dem zweiten Date-Objekt die aktuelle Systemzeit
+             zugewiesen. Daraus wird die zeitliche Differenz zwischen den beiden Klicks
+             ermittelt, der Istwert. Dieser Wert liegt in Millisekunden vor. Der Sollwert für die Zeit
+             stammt aus dem Eingabefeld und liegt in Sekunden vor. Es wird die Differenz zwischen
+             Sollwert und Istwert berechnet.
+             * @type {Date}
+             */
+        function stoppen() {
+            alert("Stop");
+            
+            var zeitB = new Date();
+            var istZeit = (zeitB - zeitA) / 1000;
+
+            var sollZeit = document.getElementById("idSollZeit").value;
+
+            var differenz = sollZeit - istZeit;
+            var betrag = Math.abs(differenz);
+
+            var tx = "Das waren " + istZeit.toFixed(2) + " sec., also " + betrag.toFixed(2) + " sec. zu ";
+
+            //-------------------------------------------------
+            /**
+             * Nun kann ermittelt werden, ob Sie zu schnell oder zu langsam waren. Dies wird Ihnen
+             mitgeteilt, zusammen mit der absoluten Zeitdifferenz.
+             */
+            if(differenz > 0) {
+                tx += "schnell";
+            }
+            else tx += "langsam";
+
+            //-------------------------------------------------
+            /**
+             * Als Letztes wird die relative Abweichung berechnet. Nehmen wir an, Sie machen zwei
+             Versuche. Beim ersten Versuch sollen Sie 10 Sekunden schätzen und klicken bereits
+             nach 9.5 Sekunden. Beim zweiten Versuch sollen Sie 5 Sekunden schätzen und klicken
+             bereits nach 4.5 Sekunden. In beiden Fällen beträgt die absolute Abweichung
+             0.5 Sekunden. Bei der Berechnung der relativen Abweichung wird die absolute
+             Abweichung aber auf unterschiedliche Sollwerte bezogen. Dies ergibt beim ersten
+             Versuch 5%, beim zweiten Versuch 10 %. Beim ersten Versuch ist die relative Abweichung
+             geringer; die Schätzung ist also besser.
+             * @type {number}
+             */
+            var rel = betrag / sollZeit * 100;
+
+            //-------------------------------------------------
+
+            document.getElementById("idErgebnis").firstChild.nodeValue = tx + ", das ist eine Abweichung von " + rel.toFixed(1) + "%";
+            console.log(rel);
+        }
+    </script>
+</head>
+<body>
+    <p>Können Sie Zeiten schätzen?</p>
+
+    <p>Stellen Sie eine Zeit ein, drücken Sie auf "Start" und<br>
+    am Ende des Ablaufs der geschätzten Zeit auf "Stop".</p>
+
+    <p>
+        <input id="idSollZeit" value="5">
+        <input id="idStart" type="button" value="Start">
+        <input id="idStop" type="button" value="Stop">
+    </p>
+
+    <p id="idErgebnis">&nbsp;</p>
+
+    <script src="lib/eh.js"></script>
+    <script>
+        meinHandler("idStart", "click", starten);
+        meinHandler("idStop", "click", stoppen);
+    </script>
+</body>
+</html>

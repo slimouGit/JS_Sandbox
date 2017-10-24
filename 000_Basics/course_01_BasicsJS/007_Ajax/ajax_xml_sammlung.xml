@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<sammlung>
+    <fahrzeug>
+        <farbe>rot</farbe>
+        <geschwindigkeit>50</geschwindigkeit>
+        <leistung hubraum="1600" zylinder="4">75</leistung>
+    </fahrzeug>
+    <fahrzeug>
+        <farbe>gelb</farbe>
+        <geschwindigkeit>65</geschwindigkeit>
+        <leistung hubraum="1800" zylinder="4">85</leistung>
+    </fahrzeug>
+</sammlung>
+
+<!--
+In der folgenden XML-Datei sehen Sie eine Sammlung von gleichartig aufgebauten
+Objekten. Mit Hilfe von Ajax werden auch Inhalte dieser XML-Datei in eine Internetseite
+eingebaut.
+-->

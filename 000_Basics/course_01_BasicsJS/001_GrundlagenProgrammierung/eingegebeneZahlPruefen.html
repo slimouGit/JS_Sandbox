@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        //Zufallswert und Eingabe
+        var zufall = Math.random();
+        var eingabe = prompt("Geben Sie eine Zahl von 0 bis 1 ein, ohne 1");
+        var zahl = parseFloat(eingabe);
+
+        //Auswertung
+        if(eingabe == null) {
+            document.write("Sie haben Abbrechen gedrückt");
+        }
+        else if(eingabe == ""){
+            document.write("Sie haben nichts eingegeben");
+        }
+        else if(isNaN(eingabe)){
+            document.write("Sie haben keine gültige Zahl eingegeben");
+        }
+        else if(zahl < 0 || zahl > 1){
+            document.write("Sie haben keine Zahl im gültigen Bereich eingegeben");
+        }
+        else if(Math.abs(zufall - zahl)<0.1){
+            document.write("Sie sind nah dran");
+        }
+        else{
+            document.write("Sie sind weit weg");
+        };
+
+        //Kontrolle
+        document.write("<br><br>Zufall: " + zufall + "<br>Eingabe: " + eingabe
+        + "<br>isNaN(): " + isNaN(eingabe) + "<br>Differenz: " + (zufall-zahl)
+        + "<br>Betrag: " + Math.abs(zufall-zahl));
+    </script>
+</head>
+<body>
+    <p>
+    <button onclick="location.reload(); ">neu laden</button>
+    </p>
+</body>
+</html>

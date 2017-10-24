@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>localStorage Einkaufszettel</title>
+    <script src="lib/bib_array_berechnen.js"></script>
+</head>
+
+<style>
+    label {display:block;}
+    .button {display:block;}
+    .big_input{width: 100px;}
+    .small_input{width: 50px;}
+    label{width:130px;}
+    #ausgabe{font-size: 20px}
+</style>
+
+
+
+
+<body>
+<form id="eingabe">
+    <div>
+        <label>Posten:</label>
+        <input type="text" class="big_input" id="Eingabe_Posten" placeholder="Posten">
+    </div>
+
+    <div>
+        <label>Betrag:</label>
+        <input type="number" class="small_input" id="Eingabe_Euro" placeholder="Euro">
+        <span class="komma">,</span>
+        <input type="number" class="small_input" id="Eingabe_Cent" placeholder="Cent">
+    </div>
+
+    <input type="submit" value="Eintragen" id="Eintrage_Button">
+</form>
+
+
+<button onclick="reset_localStorage()" class="button">Löschen</button>
+
+<div id="ausgabe"></div>
+<div id="ausgabenGesamt"></div>
+
+<script>
+
+    var ausgaben = new Array();
+    var gesamtBetrag;
+
+    //-------------------------------------------------------
+
+    window.addEventListener("load", init);
+
+    //-------------------------------------------------------
+
+    function init(){
+        document.getElementById("Eintrage_Button").addEventListener("click", berechne_Position);
+        schreibeListe();
+        //gesamtBetragAusgeben();
+    }
+
+    //-------------------------------------------------------
+
+    function berechne_Position(){
+        var postenFeld  = document.getElementById("Eingabe_Posten");
+        var euroFeld  = document.getElementById("Eingabe_Euro");
+        var centFeld  = document.getElementById("Eingabe_Cent");
+
+        var posten = postenFeld.value;
+        var euro = euroFeld.value;
+        var cent = centFeld.value;
+        var betrag = euro + "," + cent;
+
+        gesamtBetrag = (((parseInt(euro)*100)+(parseInt(cent)))/100);
+        alert("Eintrag: " + (gesamtBetrag/2));
+        /*
+        gesamtBetrag = parseFloat(gesamtBetrag);
+         */
+        ausgaben.push(gesamtBetrag);
+        alert(ausgaben);
+
+
+
+        ausgeben_Position(posten, betrag);
+
+        schreibeListe();
+    }
+
+    //-------------------------------------------------------
+
+    function ausgeben_Position(posten, betrag){
+        localStorage[posten] = betrag;
+    }
+
+    //-------------------------------------------------------
+
+    function schreibeListe(event){
+        //leereAusgabe();
+
+        var ausgabe = document.getElementById("ausgabe");
+
+        while (ausgabe.firstChild)
+            ausgabe.removeChild(ausgabe.firstChild);
+
+        for (var i = 0; i < localStorage.length; i++){
+            var key = localStorage.key(i);
+            var li = document.createElement("li");
+            li.appendChild(document.createTextNode(key + " " + localStorage[key]));
+            ausgabe.appendChild(li);
+        }
+        ausgaben = 30;
+       // gesamtBetragAusgeben(ausgaben);
+    }
+
+    //-------------------------------------------------------
+
+    function reset_localStorage(){
+        localStorage.clear();
+        location.reload();
+    }
+
+    //-------------------------------------------------------
+
+</script>
+
+</body>
+</html>

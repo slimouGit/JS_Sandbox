@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>event_extern</title>
+        <meta charset="utf-8"/>
+        <script>
+            function geclickt() {
+                alert("Click auf Button");
+            }
+            function klickDuSau() {
+                alert("Sau hat geklickt");
+            }
+        </script>
+    </head>
+    <body>
+        <p><input id="idButton" type="button" value="Click"></p>
+        <p><input id="idButtonNeu" type="button" value="Klick mich Du Sau"></p>
+        <script src="eh.js"></script>
+        <script>
+            meinHandler("idButton", "click", geclickt);
+            meinHandler("idButtonNeu", "click", klickDuSau);
+        </script>
+    </body>
+</html>

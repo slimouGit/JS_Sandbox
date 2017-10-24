@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>form_text</title>
+        <meta charset="utf-8"/>
+        <script>
+            function pruefen(idFeld){
+                var idFeldMeldung = idFeld + "Meldung";
+                var fehler = false;
+                if(document.getElementById(idFeld).value == ""){
+                    document.getElementById(idFeldMeldung).firstChild.nodeValue = "(Bitte etwas eintragen)";
+                    fehler = true;
+                }
+                else
+                    document.getElementById(idFeldMeldung).firstChild.nodeValue = "";
+                    return fehler;
+                }
+              
+            function senden(e) {
+                var p1 = pruefen("idNachname");
+                var p2 = pruefen("idVorname");
+                if(p1 || p2){
+                    if(e.preventDefault) e.preventDefault();
+                    
+                else window.event.returnValue = false;
+                return false;
+                }
+                else
+                    return true;
+            }
+               
+            function aendern() {
+                document.getElementById("idNachname").value = "Wagner";
+                document.getElementById("idVorname").value = "Peter";
+                document.getElementById("idBemerkung").value = "Zeile 1\nZeile 2";
+                }
+        </script>
+        <!--
+        Innerhalb der Funktion senden() wird für jedes Formularelement, das geprüft werden soll, die Funktion pruefen() aufgerufen.
+        Falls in der Funktion pruefen() festgestellt wird, dass im betreffenden Element nichts eingetragen wurde, dann erscheint
+        eine Fehlermeldung. Außerdem wird dann die Variable fehler mit dem Wert true zurückgesendet.
+        Falls etwas eingetragen wurde, dann wird die Fehlermeldung wieder gelöscht.
+        -->
+    </head>
+    <body>
+        <form id="idForm" method="post" action="#">
+            <p>
+                <input id="idNachname" size="30" name="nn" value="Wagner">Nachname (*) 
+                <span id="idNachnameMeldung">&nbsp;</span>
+            </p>
+            <p>
+                <input id="idVorname" size="30" name="vn"> Vorname (*) 
+                <span id="idVornameMeldung">&nbsp;</span></p>
+            <p>
+                <textarea rows="3" cols="25" id="idBemerkung" name="bem">Hier steht etwas</textarea> Bemerkung
+            </p>
+            <p>
+                <input id="idPasswort" size="30" name="pw" type="password">Passwort
+            </p>
+            <p>
+                <input id="idAendern" type="button" value="Formular ändern">
+            </p>
+            <p>
+                <input type="submit"><input type="reset">
+            </p>
+            <p>(*) = Pflichtfeld</p>
+        </form>
+        
+        <script type="text/javascript" src="../../lib/eh.js"></script>
+        <script>
+            meinHandler("idForm", "submit", function(e) { return senden(e); } );
+            meinHandler("idAendern", "click", aendern );
+        </script>
+    </body>
+</html>

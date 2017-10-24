@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>suchergebnisse_abrufen</title>
+    <script>
+        var name;
+        var foundName;
+        var foundBetrag;
+
+        function anfordernErgebnis() {
+            req = new XMLHttpRequest();
+            req.open("get", "suchergebnisse.txt", true);
+            req.onreadystatechange = auswertenErgebnis;
+            req.send();
+        }
+        function auswertenErgebnis(e) {
+            if(e.target.readyState == 4 && e.target.status == 200) {
+                var absatz = document.getElementById("idAbsatz");
+                
+                while(absatz.childNodes.length > 2)
+                    absatz.removeChild(absatz.lastChild);
+                
+                if(document.getElementById("posten").value == "")
+                    return;
+                
+                if(window.JSON)
+                    var antwort = JSON.parse(e.target.responseText);
+                else
+                        antwort = eval("(" + e.target.responseText + ")");
+                
+                var nameAlle = antwort.getElementsByTagName("name");
+                var suche = document.getElementById("posten").value;
+                for(var i=0; i<nameAlle.length; i++) {
+                    name = nameAlle[i].firstChild.nodeValue;
+                    if(suche == name.substr(0,suche.length)) {
+                        var art_position = antwort.getElementsByTagName("art_position")[i].firstChild.nodeValue;
+                        var betrag = antwort.getElementsByTagName("betrag")[i].firstChild.nodeValue;
+                        var text = document.createTextNode(name + ", " + betrag + " Euro, " + art_position);
+                        var div = document.createElement("div");
+                        div.appendChild(text);
+                        absatz.appendChild(div);
+                        foundName = name;
+                        foundBetrag = betrag;
+                    }
+                }
+            }
+        }
+        function myFunction(event) {
+            var x = event.which || event.keyCode;
+            if(x === 13){
+                //alert(name);
+                document.getElementById("posten").value = foundName;
+                document.getElementById("betrag").value = foundBetrag;
+            }
+        }
+
+    </script>
+</head>
+<body>
+
+<p id="idAbsatz">
+    <input id="posten" onkeypress="myFunction(event)">
+</p>
+<p>
+    <input id="betrag" onkeypress="myFunction(event)">
+</p>
+
+<script type="text/javascript" src="../lib/eh.js"></script>
+
+<script type="text/javascript">
+    meinHandler("posten", "keypress", anfordernErgebnis);
+</script>
+</body>
+</html>

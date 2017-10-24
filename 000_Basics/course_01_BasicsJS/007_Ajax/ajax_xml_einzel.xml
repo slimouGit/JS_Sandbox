@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<fahrzeug>
+    <farbe>rot</farbe>
+    <farbe>grün</farbe>
+    <geschwindigkeit>50</geschwindigkeit>
+    <geschwindigkeit>150</geschwindigkeit>
+    <leistung hubraum="1600" zylinder="4">75</leistung>
+    <leistung hubraum="2500" zylinder="8">250</leistung>
+</fahrzeug>
+
+<!--
+Die erste Zeile kennzeichnet den Inhalt als XML. Mit der anschließenden Zeichenkodierung
+wird der genutzte Zeichensatz genannt, wie für HTML-Dateien. In jeder XMLDatei
+gibt es ein Hauptelement bzw. einen Wurzelknoten. Sie können die Namen der
+einzelnen Knoten selbst frei wählen, solange Sie sich an die XML-Regeln halten und
+Ihrem eigenen Aufbau treu bleiben.
+Der Wurzelknoten ist hier das Element fahrzeug. Ein fahrzeug hat drei Eigenschaften
+mit Werten, die als Kindknoten definiert werden. Der dritte Kindknoten hat zwei
+Attribute, jeweils mit Werten.
+-->

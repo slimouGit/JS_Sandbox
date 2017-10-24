@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bilder</title>
+    <script>
+        function ausgabe()
+        {
+            var tx = "";
+            for(var i=0; i<document.images.length; i++)
+            {
+                var bild = document.images[i];
+                tx += i + ": Quelle: " + bild.src + "\n";
+                tx += "Höhe/Breite: " + bild.height + " / " + bild.width + "\n";
+                tx += "geladen: " + bild.complete + "\n\n";
+            }
+            alert(tx);
+        }
+        function aendern()
+        {
+            var bild = document.getElementsByTagName("img")[1];
+            bild.height = 350;
+            bild.width = 220;
+        }
+    </script>
+</head>
+<body>
+    <p>
+        <input id="idAusgeben" type="button" value="Member ausgeben">
+        <input id="idAendern" type="button" value="Member ändern">
+    </p>
+    <p>
+        <img id="idBild0" src="img/piggy.jpg" alt="Bild">
+        <img id="idBild1" src="img/beaker.jpg" alt="Bild1" height="175" width="110">
+    </p>
+
+    <script type="text/javascript" src="../../lib/eh.js"></script>
+    <script>
+        var gonzo = new Image(), 
+        grobi = new Image();
+        
+        gonzo.src = "img/gonzo.jpg";
+        grobi.src = "img/grobi.jpg";
+        
+        var bilder = document.images;
+
+        //----------------------------------
+
+        meinHandler("idAusgeben", "click", ausgabe);
+        meinHandler("idAendern", "click", aendern);
+        
+        meinHandler("idBild0", "mouseover", function() {bilder[0].src = "img/beaker.jpg";} );
+        meinHandler("idBild0", "mouseout", function() {bilder[0].src = "img/piggy.jpg";} );
+        
+        meinHandler("idBild1", "mouseover", function() {bilder[1].src = gonzo.src;} );
+        meinHandler("idBild1", "mouseout", function() {bilder[1].src = grobi.src;} );
+</script>
+
+<!--
+Bei den HTML-Markierungen für die Bilder werden unterschiedliche Attribute verwendet.
+Darunter werden zwei Image-Objekte erzeugt. Die Eigenschaft src wird
+jeweils mit einem Wert besetzt. Dies führt zum Vorladen der Bilder.
+
+Der Variablen bilder wird ein Verweis auf das images-Objekt übergeben. 
+Die Ereignisse mouseover und mouseout führen jeweils zu einem Bildwechsel, indem die Eigenschaft
+src des Feldelements einen neuen Wert erhält. 
+
+Beim ersten Bild wird auf die Bilddateien zugegriffen. 
+Falls sie bisher noch nicht im Dokument genutzt werden, werden sie jetzt erst geladen. 
+Beim zweiten Bild wird mit den bereits vorgeladenen Image-Objekten gearbeitet.
+
+In der Funktion ausgabe() wird die for-Schleife mit Hilfe der Anzahl der Bilder
+gesteuert. Der Variablen bild wird jeweils ein Verweis auf ein Element des images-
+Feldes zugewiesen. In der Funktion aendern() wird der Variablen bild ebenfalls ein
+Verweis auf ein Feldelement übergeben.
+-->
+</body>
+</html>

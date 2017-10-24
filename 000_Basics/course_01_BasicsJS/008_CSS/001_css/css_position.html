@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>css_position</title>
+        <meta charset="utf-8"/>
+        <!--
+        Das Bild wird in einem positionierten div-Container nach dem ersten Absatz notiert.
+        
+        Seine linke obere Ecke befindet sich 30 Pixel vom oberen Rand und 100 Pixel vom
+        linken Rand des Dokuments entfernt. Der zweite und der dritte Absatz folgen dem normalen Textfluss, 
+        unabhängig von der Position des Bildes oder der Position anderer positionierter Elemente.
+        
+        Der div-Container für den Text hat eine Breite von 150 Pixeln. Die Höhe ist nicht
+        angegeben und richtet sich daher nach dem Inhalt. Der hellgraue Hintergrund dient
+        zur Verdeutlichung. Die Farbe können Sie mit Hilfe eines hexadezimalen Werts für
+        die CSS-Eigenschaft background-color bestimmen. Der div-Container für den Text
+        wird im Dokument nach dem div-Container für das Bild definiert, also liegt er
+        optisch vor dem Bild.
+        -->
+        <style>
+            
+        </style>
+    </head>
+    <body>
+        <p>Erster Absatz außerhalb der positionierten Elemente</p>
+        
+        <div style="position:absolute; top:30px; left:100px">
+            <img src="paradies.jpg" alt="Paradies">
+        </div>
+        
+        <p>Zweiter Absatz außerhalb der positionierten Elemente</p>
+        
+        <div style="position:absolute; top:100px; left:50px; width:150px; background-color:#e0e0e0">
+            Zeile 1<br>Zeile 2<br>Zeile 3<br>Zeile 4
+        </div>
+        
+        <p>Dritter Absatz außerhalb der positionierten Elemente</p>
+    </body>
+</html>

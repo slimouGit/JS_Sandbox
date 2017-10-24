@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>form_select</title>
+        <meta charset="utf-8">
+        <script>
+            function senden() {
+                var tx = "Land 1: " + document.getElementById("idEinfach").value + "\n";
+                
+                var optMehrfach = document.getElementById("idMehrfach").options;
+                    for(var i=0; i<optMehrfach.length; i++)
+                        if(optMehrfach[i].selected)
+                            tx += "Land " + (i+2) + ": " + optMehrfach[i].value + "\n";
+                    alert(tx);
+                    return true;
+            }
+            
+            function aendern() {
+                var selEinfach = document.getElementById("idEinfach");
+                selEinfach.value = "Romania";
+                document.getElementById("idMehrfach").options[1].selected = true;
+                    if(selEinfach.options.length == 3) {
+                        var neu = document.createElement("option");
+                        neu.value = "Bulgaria";
+                        var text = document.createTextNode("Bulgarien");
+                        neu.appendChild(text);
+                        selEinfach.appendChild(neu);
+                    }
+            }
+            
+            /*
+            In der Funktion senden() wird beim einfachen Auswahlmenü nur der Wert der Eigenschaf value benötigt.
+            Beim mehrfachen Auswahlmenü muss der Wert der Eigenschaft selected jeder einzelnen Option geprüft werden.
+            
+            In der Funktion aendern() wird der Wert des einfachen Auswahlmenüs über die Eigenschaft value festgelegt.
+            Beim mehrfachen Auswahlmenü wird der Wert der Eigenschaft selected einer einzelnen Option geändert.
+            
+            Falls es bisher drei Optionen gibt, dann wird anschließend eine weitere Option hinzugefügt.
+            Sie erhält einen Wert für die Eigenschaft value und einen Kindknoten für den sichtbaren Text.
+*/
+        </script>
+    </head>
+    <body>
+        <form id="idForm" method="post" action="#">
+            <p>
+                Land 1: 
+                <select id="idEinfach" name="land1">
+                    <option value="Italia" selected="selected">Italien</option>
+                    <option value="Spain">Spanien</option>
+                    <option value="Romania">Rumänien</option>
+                </select>
+            </p>
+            <p>
+                Land 2 bis 4:
+                <select id="idMehrfach" name="land2bis4[]" multiple="multiple">
+                    <option value="Belgium" selected="selected">Belgien</option>
+                    <option value="Netherlands">Niederlande</option>
+                    <option value="Luxembourg" selected="selected">Luxemburg</option>
+                </select>
+            </p>
+            <p><input id="idAendern" type="button" value="Formular ändern"></p>
+            <p><input type="submit"><input type="reset"></p>
+        </form>
+        
+        <!--
+        Beachten Sie den Namen des mehrfachen Auswahlmenüs. Die beiden eckigen Klammern
+        werden für die Antwort des Webservers benötigt, damit innerhalb des PHPProgramms
+        ein Feld mit allen ausgewählten Optionen zur Verfügung steht.
+        -->
+        
+        <script type="text/javascript" src="../../lib/eh.js"></script>
+        
+        <script>
+            meinHandler("idForm", "submit", function() { return senden(); } );
+            meinHandler("idAendern", "click", aendern );
+        </script>
+    </body>
+</html>

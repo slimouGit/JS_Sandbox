@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax_parameter</title>
+    <!--
+    Zunächst zur Datei ajax_parameter.htm. Durch Betätigung eines der beiden Hyperlinks
+    wird die Funktion anfordern() aufgerufen. Dabei werden zwei Parameter übermittelt:
+    eine Zahl und eine Zeichenkette.
+
+    Mit Hilfe der Methode setRequestHeader() des XMLHttpRequest-Objekts wird festgelegt,
+    in welcher Form diese Daten übermittelt werden. In diesem Falle: angehängt an
+    die Adresse der Seite. Der Parameter der Methode send() des XMLHttpRequest-Objekts
+    entspricht dem Inhalt der Suchzeichenkette, wie Sie sie bereits in Abschnitt 7.3.2,
+    »Senden von Datei zu Datei«, gesehen haben. Die einzelnen Teile werden mit dem
+    Zeichen & voneinander getrennt. Im Falle des ersten Hyperlinks lautet die Suchzeichenkette:
+    pnr=6714&umfang=alle.
+    -->
+    <script>
+        function anfordern(personalnummer, umfang){
+            var req = new XMLHttpRequest();
+            req.open("get", "ajax_parameter.php?pnr=" + personalnummer + "&umfang=" + umfang, true);
+            req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            req.onreadystatechange = auswerten;
+            req.send();
+        }
+        function auswerten(e){
+            if(e.target.readyState == 4 && e.target.status == 200)
+                document.getElementById("idAbsatz").firstChild.nodeValue = e.target.responseText;
+        }
+    </script>
+</head>
+<body>
+    <p>Personalnummer:</p>
+    <p>
+        <a id="idLink0" href="#">6714</a><br>
+        <a id="idLink1" href="#">81343</a><br>
+        <a id="idLink2" href="#">333</a>
+    </p>
+    <p id="idAbsatz">&nbsp;</p>
+
+    <script src="../lib/eh.js"></script>
+    <script type="text/javascript">
+        meinHandler("idLink0", "click", function() { anfordern(6714, "alle"); } );
+        meinHandler("idLink1", "click", function() { anfordern(81343, "nicht alle"); } );
+        meinHandler("idLink2", "click", function() { anfordern(333, "alle"); } );
+    </script>
+</body>
+</html>

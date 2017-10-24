@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>regexp_gruppe</title>
+        <meta charset="utf-8"/>
+        <script>
+            
+        </script>
+    </head>
+    <body>
+        <script>
+        /*
+        - Die Gruppe aller Zeichen; es kann also ein beliebiges Zeichen vorkommen. Dies wird mit einem Punkt gekennzeichnet.
+        - Eine Gruppe von kleinen Buchstaben, ohne deutsche Umlaute oder das ß. 
+            Eine solche Gruppe wird zum Beispiel mit [a-z] oder [f-p] dargestellt.
+        - Eine Gruppe von großen Buchstaben, ebenfalls ohne deutsche Umlaute. 
+            Eine solche Gruppe geben Sie zum Beispiel mit [A-Z]oder [F-P] an.
+        - Eine Gruppe von Ziffern. Eine solche Gruppe ist zum Beispiel mit [0-9]oder [3-7] dargestellt.
+        */
+            var aus = "";
+            
+            if("ist mein".match(/ist .ein/)) aus += "1: ist mein<br>";
+
+            if("ist sein".match(/ist .ein/)) aus += "1: ist sein<br>";
+            
+            if("ist ein".match(/ist .ein/)) aus += "1: ist ein<br>";
+
+            if("kleiner".match(/[a-z]eine/)) aus += "2: kleiner<br>";
+
+            if("Leinen".match(/[a-z]eine/)) aus += "2: Leinen<br>";
+
+            if("Leinen".match(/[A-Z]eine/)) aus += "3: Leinen<br>";
+
+            if("kleiner".match(/[A-Z]eine/)) aus += "3: kleiner<br>";
+
+            if("Hauptstr. 7a".match(/[0-9]/)) aus += "4: Hauptstr. 7a<br>";
+
+            if("Hauptstr. 3a".match(/[0-27-9]/)) aus += "4: Hauptstr. 7a<br>";
+
+            if("Hauptstr.".match(/[0-9]/)) aus += "4: Hauptstr.<br>";
+
+            document.write(aus);
+        </script>
+    </body>
+</html>

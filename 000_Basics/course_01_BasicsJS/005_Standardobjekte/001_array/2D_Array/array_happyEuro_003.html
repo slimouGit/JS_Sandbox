@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>new happy Euro</title>
+        <meta charset="utf-8"/>
+        <script src="lib/bib_document_load.js"></script>
+        <script src="lib/bib_array_berechnen.js"></script>
+        <script>
+            function function_X(){
+                einnahmenArrayErzeugen();
+                ausgabenArrayErzeugen();
+                rechenGesamtErgebnis();
+                }
+        </script>
+        <style>
+            #eingabeFormular{padding:10px 0px;}
+            
+            #einnahmenPosten{border-top: 1px solid #000;width:250px;margin-top: 10px;padding-top: 10px;}
+            #einnahmenGesamt{font-weight:bold;border-top: 1px solid #000;width:250px;margin-top: 10px;padding-top: 10px;}
+            
+            #ausgabenPosten{border-top: 1px solid #000;width:250px;margin-top: 10px;padding-top: 10px;}
+            #ausgabenGesamt{font-weight:bold;border-top: 1px solid #000;width:250px;margin-top: 10px;padding-top: 10px;}
+            
+            #ergebnisGesamt{font-weight:bold;width:250px;margin-top: 10px;padding-top: 10px;}
+            
+            li{ list-style: none }
+        </style>
+    </head>
+    <body>
+        
+        <!---------------------------------------------------------------------------------------------------------->
+        <!--
+        <div id="eingabeFormular">
+            <form id="eingabe">
+                <div>
+                    <label>Posten:</label>
+                    <input type="text" class="big_input" id="Eingabe_Posten" placeholder="Posten">
+                </div>
+    
+                <div>
+                    <label>Betrag:</label>
+                    <input type="number" class="small_input" id="Eingabe_Euro" placeholder="Euro">
+                    <span class="komma">,</span>
+                    <input type="number" class="small_input" id="Eingabe_Cent" placeholder="Cent">
+                </div>
+
+                <input type="submit" value="Eintragen" id="Eintrage_Button">
+            </form>
+        </div>
+        -->
+        <!---------------------------------------------------------------------------------------------------------->
+        
+        <script>
+        
+            //----------------------------------------------
+
+            var einnahmen = new Array();
+            var einnahmenPosten;
+            var einnahmenName;
+            var einnahmenBetrag;
+            var einnahmenGesamtBetrag;
+            
+            //----------------------------------------------
+            
+            var ausgaben = new Array();
+            var ausgabenPosten;
+            var ausgabenName;
+            var ausgabenBetrag;
+            var ausgabenGesamtBetrag
+            
+            //----------------------------------------------
+            
+            
+            //------------------------------------------------------------------------------------------------------------------
+            
+            
+            //----------------------------------------------
+            
+            function einnahmenArrayErzeugen(){
+                
+                einnahmen = [
+                    ["Gehalt", 5677.00],
+                    ["Gutschrift", 82.00]
+                    ];
+                
+                einnahmenArrayAusgeben(einnahmen);
+            }
+            
+            //----------------------------------------------
+            
+            function ausgabenArrayErzeugen(){
+                
+                ausgaben = [
+                    ["Miete", 760.00],
+                    ["Strom", 55.00],
+                    ["Fahrkarte", 78.50],
+                    ["Adobe", 29,75]
+                    ];
+                
+                ausgabenArrayAusgeben(ausgaben);
+            }
+
+            //----------------------------------------------
+            
+            
+            //------------------------------------------------------------------------------------------------------------------
+            
+            
+            //----------------------------------------------
+
+            function einnahmenArrayAusgeben(einnahmen) {
+                
+                for (var i = 0; i < einnahmen.length; i++) {
+                    
+                    //----------------------------------------------
+                    //Aufruf der externen Funktion aus bib.js zum ergaenzen des Arrays
+                    ergaenzeArray(einnahmen[i][1], a);
+                    alert(a);
+                    //----------------------------------------------
+                    
+                    einnahmenName = einnahmen[i][0];
+                    einnahmenBetrag = (einnahmen[i][1]).toFixed(2);
+                    einnahmenPosten = einnahmenName + " " + einnahmenBetrag + " Euro";
+                    
+                    //----------------------------------------------
+                    
+                    erstelleEinnahmenListe();
+                }//ENDE for-Schleife
+                    
+                //----------------------------------------------
+                
+                function erstelleEinnahmenListe() {    
+                    einnahmenListe = document.getElementById("einnahmenPosten");
+                        while (einnahmenListe.firstChild)
+                            einnahmenListe.removeChild(einnahmenListe.firstChild);
+                            
+                            //----------------------------------------------
+                            
+                            for (var i = 0; i<einnahmen.length; i++) {
+                                //----------------------------------------------
+                                einnahmennName = einnahmen[i][0];
+                                einnahmenBetrag = (einnahmen[i][1]).toFixed(2);
+                                einnahmenPosten = einnahmenName + " " + einnahmenBetrag + " Euro";
+                                //----------------------------------------------
+                                var li = document.createElement("li");
+                                li.appendChild(document.createTextNode((i+1) + ". " + einnahmenPosten));
+                                einnahmenListe.appendChild(li);
+                            }//ENDE for-Schleife
+                            
+                            //----------------------------------------------
+                            
+                }//ENDE erstelleListe()
+                
+                //----------------------------------------------    
+                einnahmenArrayErgebnis(einnahmen);
+                
+            }//ENDE einnahmenArrayAusgeben(einnahmen)
+            
+            //----------------------------------------------
+
+            function einnahmenArrayErgebnis(einnahmen) {
+                //---------------------------------------------
+                //Aufruf der externen Funktion aus bib.js zum summieren
+                document.getElementById("einnahmenGesamt").innerHTML = "Gesamt-Betrag: " + (rechneSumme(a)).toFixed(2) + " Euro";
+                
+                //---------------------------------------------
+                
+                einnahmenGesamtBetrag = (rechneSumme(a)).toFixed(2);
+                
+                //einnahmenGesamtBetrag = a;
+                
+                //rechenGesamtErgebnis();
+                //---------------------------------------------
+            }//ENDE ausgabenArrayErgebnis(einnahmen)
+
+            //----------------------------------------------
+            
+            
+            
+            
+
+            //----------------------------------------------
+
+            function ausgabenArrayAusgeben(ausgaben) {
+                
+                for (var i = 0; i < ausgaben.length; i++) {
+                    
+                    //----------------------------------------------
+                    //Aufruf der externen Funktion aus bib.js zum ergaenzen des Arrays
+                    ergaenzeArray(ausgaben[i][1], a);
+                    //----------------------------------------------
+                    
+                    ausgabenName = ausgaben[i][0];
+                    ausgabenBetrag = (ausgaben[i][1]).toFixed(2);
+                    ausgabenPosten = ausgabenName + " " + ausgabenBetrag + " Euro";
+                    
+                    //----------------------------------------------
+                    
+                    erstelleAusgabenListe();
+                }//ENDE for-Schleife
+                    
+                //----------------------------------------------
+                
+                function erstelleAusgabenListe() {    
+                    ausgabenListe = document.getElementById("ausgabenPosten");
+                        while (ausgabenListe.firstChild)
+                            ausgabenListe.removeChild(ausgabenListe.firstChild);
+                            
+                            //----------------------------------------------
+                            
+                            for (var i = 0; i<ausgaben.length; i++) {
+                                //----------------------------------------------
+                                ausgabenName = ausgaben[i][0];
+                                ausgabenBetrag = (ausgaben[i][1]).toFixed(2);
+                                ausgabenPosten = ausgabenName + " " + ausgabenBetrag + " Euro";
+                                //----------------------------------------------
+                                var li = document.createElement("li");
+                                li.appendChild(document.createTextNode((i+1) + ". " + ausgabenPosten));
+                                ausgabenListe.appendChild(li);
+                            }//ENDE for-Schleife
+                            
+                            //----------------------------------------------
+                            
+                }//ENDE erstelleListe()
+                
+                //----------------------------------------------    
+                //console.log(a + " vorher");
+                cleanArrayFromFirst(a);//Array wird um erstes Element gekuerzt
+                //console.log(a + " nachher");
+                
+                //---------------------------------------------
+                
+                ausgabenArrayErgebnis(ausgaben);
+                
+            }//ENDE ausgabenArrayAusgeben(ausgaben)
+            
+            
+            //----------------------------------------------
+
+            function ausgabenArrayErgebnis(ausgaben) {
+                //---------------------------------------------
+                //Aufruf der externen Funktion aus bib.js zum summieren
+                document.getElementById("ausgabenGesamt").innerHTML = "Gesamt-Betrag: " + (rechneSumme(a)).toFixed(2) + " Euro";
+                
+                //---------------------------------------------
+                
+                ausgabeGesamtBetrag = (rechneSumme(a)).toFixed(2);
+                
+                //---------------------------------------------
+            }//ENDE ausgabenArrayErgebnis(ausgaben)
+
+            //----------------------------------------------
+            
+            
+            //------------------------------------------------------------------------------------------------------------------
+            
+            function rechenGesamtErgebnis(){
+                var gesamtErgebnis = einnahmenGesamtBetrag - ausgabeGesamtBetrag;
+                document.getElementById("ergebnisGesamt").innerHTML = gesamtErgebnis.toFixed(2) + " Euro";
+                
+            }
+
+            //------------------------------------------------------------------------------------------------------------------
+            
+
+        </script>
+        
+        <!---------------------------------------------------------------------------------------------------------->
+        
+        <div id="einnahmen">
+            <h2>Einnahmen</h2>
+            <div id="einnahmenPosten"></div>
+            <div id="einnahmenGesamt"></div>
+        </div>
+        
+        <hr>
+        
+        <div id="ausgaben">
+            <h2>Ausgaben</h2>
+            <div id="ausgabenPosten"></div>
+            <div id="ausgabenGesamt"></div>
+        </div>
+        
+        <hr>
+        
+        <div id="ergebnis">
+            <h2>Ergebnis</h2>
+            <div id="ergebnisGesamt"></div>
+        </div>
+        
+    </body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>bilder_ablauf</title>
+        <meta charset="utf-8"/>
+        <!--
+        Der Benutzer kann die Diashow mit Hilfe der Buttons Show starten und Show
+        stoppen und der Methoden setTimeout() und clearTimeout() des window-Objekts
+        beginnen bzw. beenden.
+        Außerdem kann er vier verschiedene Buttons betätigen, um das nächste Bild, das
+        vorherige Bild, das erste Bild oder das letzte Bild direkt einzublenden. Die Nummer
+        des aktuellen Bilds und die Gesamtzahl der Bilder werden ihm jeweils angezeigt. Alle
+        Bilder werden in Image-Objekte vorgeladen.
+        -->
+        <script>
+            function move(zahl) {
+                bIndex = zahl;
+                if(bIndex >= bName.length)
+                    bIndex = 0;
+                else if(bIndex < 0)
+                    bIndex = bName.length -1;
+                    
+                    document.images[0].src = bObjekt[bIndex].src;
+                    
+                    aus.firstChild.nodeValue = (bIndex+1) + "/" + bName.length;
+                    
+                    bu.firstChild.nodeValue = bBU[bIndex];
+                    
+                    
+                if(timeoutAktiv)
+                    timeoutVerweis = window.setTimeout(function() {move(bIndex+1);}, 2000);
+            }
+            
+            function showStarten() {
+                if(timeoutAktiv) return;
+                timeoutAktiv = true;
+                timeoutVerweis = window.setTimeout(function() {move(bIndex+1);}, 2000);
+            }
+            
+            function showStoppen() {
+                window.clearTimeout(timeoutVerweis);
+                timeoutAktiv = false;
+            }
+            
+            /**
+             * An die Funktion move() können unterschiedliche Werte übermittelt werden.
+             * Diese führen zu einer Änderung von bIndex. Falls bIndex zu groß wird, muss wieder bei 0 begonnen werden.
+             * Falls bIndex zu klein wird, muss wieder am Ende des Felds begonnen werden. 
+             * Der Wert der Eigenschaft src wird für den Bildwechsel geändert. Die neue Nummer wird angezeigt.
+             * Falls die Diashow aktiv ist, dann ruft sich die Funktion move() anschließend selbst wieder auf, 
+             * mit einer Zeitverzögerung. Bei diesem Aufruf wird der Parameter der Funktion move() mit Hilfe der aktuellen Bildnummer ermittelt.
+             * Innerhalb der beiden Funktionen showStarten() und showStoppen() wird die Diashow
+             * mit Hilfe der beiden Methoden setTimeout() und clearTimeout() gestartet bzw. gestoppt.
+            */
+        </script>
+    </head>
+    <body>
+        <p>
+            <img src="img/beaker.jpg" alt="Paradies">
+            
+        </p>
+        <div id="bildunterschrift">Info: <span id="info">&nbsp;</span></div>
+        <p>
+            <input id="idAnfang" type="button" value="<<">
+            <input id="idRueckwaerts" type="button" value="<">
+            <input id="idVorwaerts" type="button" value=">">
+            <input id="idEnde" type="button" value=">>">
+            <span id="idAusgabe">&nbsp;</span>
+        </p>
+        <p>
+            <input id="idStarten" type="button" value="Show starten">
+            <input id="idStoppen" type="button" value="Show stoppen">
+        </p>
+        
+        <script src="../../lib/eh.js"></script>
+        <script>
+            meinHandler("idAnfang", "click", function() { move(0); } );
+            meinHandler("idRueckwaerts", "click", function() { move(bIndex -1); } );
+            meinHandler("idVorwaerts", "click", function() { move(bIndex + 1); } );
+            meinHandler("idEnde", "click", function() { move(bObjekt.length-1); } );
+            meinHandler("idStarten", "click", showStarten );
+            meinHandler("idStoppen", "click", showStoppen );
+
+            var bObjekt = new Array(), bIndex;
+            var bName = new Array("beaker", "gonzo", "piggy", "grobi", "scooter");
+            
+            //Array mit den Bildunterschriften
+            var bBU = new Array("Der Beaker aus der Muppet-Show", "Gonzo ist ein Schwein", "Sexy Ms. Piggy", "Grobi ist ein Grobian", "HYPER HYPER");
+            
+            
+            for(var i=0; i<bName.length; i++) {
+                bObjekt[i] = new Image();
+                bObjekt[i].src = "img/" + bName[i] + ".jpg";
+            }
+            
+            bIndex = 0;
+            
+            var aus = document.getElementById("idAusgabe");
+            aus.firstChild.nodeValue = (bIndex+1) + "/" + bName.length;
+            
+            var bu = document.getElementById("info");
+            bu.firstChild.nodeValue = "";
+            
+            var timeoutVerweis, timeoutAktiv = false;
+        </script>
+        
+        
+        <script>
+        //erste Bildunterschrift wird vorbelegt
+            var bu = document.getElementById("info");
+            bu.firstChild.nodeValue = "First Der Beaker aus der Muppet-Show";
+        </script>
+        <!--
+        Die vier ersten Buttons rufen die Funktion move() auf, jeweils mit einem anderen Parameter. 
+        Die Variable bObjekt verweist auf ein Feld, das die Image-Objekte enthält.
+        Die Variable bIndex bezeichnet die Nummer des aktuell angezeigten Image-Objekts
+        innerhalb dieses Felds. Zur Anzeige des nächsten Bilds wird bIndex um 1 erhöht, 
+        zur Anzeige des vorherigen Bilds um 1 vermindert. Das letzte Bild hat die Nummer bObjekt.length-1.
+        
+        Die nächsten beiden Buttons rufen die Funktionen showStarten() und showStoppen() auf.
+        
+        Anschließend werden die Bilder vorgeladen. Die Variable bName verweist auf ein Feld,
+        das die unterschiedlichen Teile des Namens der Bilddateien enthält. 
+        Die Eigenschaft src der vier Image-Objekte wird jeweils mit dem Namen der Bilddatei besetzt. 
+        Die Variable aus verweist auf den span-Container mit der Nummer des aktuell angezeigten Image-Objekts.
+        
+        Als Letztes werden zwei Variable eingeführt: timeoutVerweis verweist auf den zeitlich gesteuerten Ablauf,
+        timeoutAktiv kennzeichnet den Zustand: Die Diashow läuft oder die Diashow läuft nicht.
+        -->
+    </body>
+</html>

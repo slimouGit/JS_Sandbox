@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax_eu</title>
+    <script>
+        /**
+         * In der Funktion anfordern() eröffnet die Methode open() die Kommunikation mit
+         der antwortenden XML-Datei. Die Antwort steht in der Eigenschaft responseXML zur
+         Verfügung.
+
+         In der Funktion auswerten() werden die alten Suchvorschläge entfernt. Diese sind als
+         weitere Kindknoten des Absatzes mit der ID idAbsatz eingetragen. Mit Hilfe einer
+         while-Schleife werden diese Kindknoten einzeln gelöscht, beginnend mit dem letzten
+         Kindknoten. Es wird so lange gelöscht, bis nur noch die beiden ursprünglichen
+         Kindknoten übrig sind: das Suchfeld mit der ID idEin und der Text Suche nach Ländern
+         der EU.
+
+         Falls das Suchfeld durch die letzte Änderung des Benutzers geleert wird, dann wird
+         die Funktion verlassen, und es wird keine Suchhilfe angezeigt.
+
+         Falls das Suchfeld noch Zeichen enthält, dann wird aus der XML-Antwort ein Feld mit
+         allen Ländernamen ermittelt. Alle Elemente dieses Felds werden geprüft. Falls die bisher
+         eingegebenen Zeichen mit den ersten Buchstaben eines Ländernamens übereinstimmen,
+         dann können die Daten zu diesem Land eingeblendet werden.
+
+         Dazu werden zunächst die Informationen zur Fläche und zur Hauptstadt dieses Landes
+         ermittelt. Als Nächstes wird ein Textknoten erzeugt, der die Daten zum Land in
+         lesbarer Form zusammenfasst. Dieser Textknoten wird einem neu erzeugten HTMLElementknoten
+         vom Typ div als Kindknoten zugeordnet. Als Letztes wird dieser div-
+         Knoten dem Absatz mit der ID absatz als neuer Kindknoten hinzugefügt.
+
+         Dieses Programm ließe sich noch optimieren: Wir könnten mit Hilfe von setTimeout()
+         eine kurze Zeit warten, bis nach einem Tastendruck die Anforderung erfolgt.
+         Falls innerhalb dieser Zeit ein weiterer Tastendruck erfolgt, dann wird die Anforderung
+         mit dem neuen Inhalt ausgeführt. Den Inhalt der XML-Datei könnten Sie dynamisch
+         mit Hilfe von PHP und einer Datenbank erzeugen; dann stünden mehr
+         Informationen zur Auswahl.
+         */
+        var name;
+        var foundName;
+
+        function anfordern() {
+            req = new XMLHttpRequest();
+            req.open("get", "ajax_eu.xml", true);
+            req.onreadystatechange = auswerten;
+            req.send();
+        }
+        function auswerten(e) {
+            if(e.target.readyState == 4 && e.target.status == 200) {
+                var absatz = document.getElementById("idAbsatz");
+                while(absatz.childNodes.length > 2)
+                    absatz.removeChild(absatz.lastChild);
+                if(document.getElementById("idEin").value == "")
+                    return;
+                var antwort = e.target.responseXML;
+                var nameAlle = antwort.getElementsByTagName("name");
+                var suche = document.getElementById("idEin").value;
+                for(var i=0; i<nameAlle.length; i++) {
+                    name = nameAlle[i].firstChild.nodeValue;
+                    if(suche == name.substr(0,suche.length)) {
+                        var flaeche = antwort.getElementsByTagName("flaeche")[i].firstChild.nodeValue;
+                        var stadt = antwort.getElementsByTagName("stadt")[i].firstChild.nodeValue;
+                        var text = document.createTextNode(name + ", " + flaeche + " qkm, " + stadt);
+                        var div = document.createElement("div");
+                        div.appendChild(text);
+                        absatz.appendChild(div);
+                        foundName = name;
+                    }
+                }
+            }
+        }
+        function myFunction(event) {
+            var x = event.which || event.keyCode;
+            if(x === 13){
+                //alert(name);
+                document.getElementById("idEin").value = foundName;
+            }
+        }
+
+    </script>
+</head>
+<body>
+
+    <p id="idAbsatz"><input id="idEin" onkeypress="myFunction(event)"> Suche nach Ländern der EU</p>
+
+    <script type="text/javascript" src="../lib/eh.js"></script>
+
+    <script type="text/javascript">
+        meinHandler("idEin", "keypress", anfordern);
+    </script>
+    <!--
+    Der Absatz mit der ID absatz enthält zwei Kindknoten: das Suchfeld mit der ID idEin
+    und den Text Suche nach Ländern der EU. Es gibt einen Eventhandler zum Ereignis keypress,
+    das beim Betätigen einer Taste ausgelöst wird. Dabei kann es sich um eine
+    Buchstabentaste oder um eine Löschtaste handeln. Für Funktionstasten gibt es das
+    Ereignis nicht.
+    -->
+</body>
+</html>

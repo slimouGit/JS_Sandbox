@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<laender>
+    <land>
+        <name>Belgien</name>
+        <flaeche>30528</flaeche>
+        <stadt>Brüssel</stadt>
+    </land>
+    <land>
+        <name>Bulgarien</name>
+        <flaeche>110994</flaeche>
+        <stadt>Sofia</stadt>
+    </land>
+    <land>
+        <name>Dänemark</name>
+        <flaeche>43094</flaeche>
+        <stadt>Kopenhagen</stadt>
+    </land>
+    <land>
+        <name>Deutschland</name>
+        <flaeche>250000</flaeche>
+        <stadt>Berlin</stadt>
+    </land>
+</laender>

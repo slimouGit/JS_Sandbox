@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ajax_hallo</title>
+        <meta charset="utf-8"/>
+        <!--
+        Nach Betätigung des Hyperlinks wird eine Anforderung an den Webserver gesendet.
+        Dieser sendet einen Text als Antwort. Der gesendete Text wird in den (zunächst leeren)
+        Absatz eingesetzt und erscheint auf der Seite.
+        -->
+        <script>
+            function anfordern() {
+                var req = new XMLHttpRequest();
+                req.open("get", "ajax_hallo.php", true);
+                //req.open("get", "ajax_hallo.txt", true);
+                req.onreadystatechange = auswerten;
+                req.send();
+            }
+            
+            function auswerten(e) {
+                if(e.target.readyState == 4 && e.target.status == 200) {
+                    document.getElementById("idAbsatz").firstChild.nodeValue = e.target.responseText;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <p><a id="idLink" href="#">Bitte clicken</a></p>
+        <p id="idAbsatz">&nbsp;</p>
+        
+        <script src="../lib/eh.js"></script>
+        <script>
+            meinHandler("idLink", "click", anfordern);
+        </script>
+        
+        <!--
+        In der Datei ajax_hallo.htm stehen der Hyperlink und der leere Absatz. Durch Betätigung
+        des Hyperlinks wird die Funktion anfordern() aufgerufen. Darin wird zunächst
+        ein neues XMLHttpRequest-Objekt erzeugt. Die Methode open() dieses Objekts eröffnet
+        die Kommunikation mit der antwortenden Seite, hier mit ajax_hallo.php, mit
+        Hilfe der GET-Methode. Der dritte Parameter der Methode open() steht im Normalfall
+        auf true. Damit wird dafür gesorgt, dass die Kommunikation asynchron abgewickelt
+        wird. Andere Abläufe müssen dann nicht auf das Ende der Anforderung warten.
+
+        Dem Eventhandler onreadystatechange wird ein Verweis auf die Funktion auswerten()
+        zugewiesen. Nach dem Senden ändert das XMLHttpRequest-Objekt mehrmals
+        seinen Status. Auf dieses Änderungsereignis reagiert der genannte Eventhandler.
+        Kurz gesagt: Bei jeder Statusänderung wird die Methode auswerten() aufgerufen.
+
+        Die Methode send() des XMLHttpRequest-Objekts sendet die Anforderung an den
+        Webserver. Weitere Daten werden zunächst nicht übermittelt. Das Senden sollte erst
+        erfolgen, nachdem der Eventhandler registriert wurde. Auf diese Weise bleibt kein
+        Ereignis unbemerkt.
+        
+        An die Methode auswerten() wird ein Ereignisobjekt übermittelt. Die Eigenschaft
+        target dieses Objekts verweist auf das XMLHttpRequest-Objekt. Es werden als Erstes
+        dessen Eigenschaften readystate und status betrachtet. Die Auswertung ist erst
+        dann interessant, wenn readystate den Wert 4 (= complete) und status den Wert 200
+        angenommen hat. status repräsentiert den Wert des Statuscodes des Hypertext
+        Transfer Protocols (HTTP). 200 steht für Ok, 404 für Page not found, 500 für Internal
+        Server Error und so weiter.
+        
+        Die Eigenschaft responseText des XMLHttpRequest-Objekts enthält die Antwort des
+        Webservers, in diesem Fall den Text Hallo Ajax, der mit Hilfe des PHP-Schlüsselworts
+        echo ausgegeben wird. Dieser Text wird in den (zunächst leeren) Absatz gesetzt.
+        
+        Sie können statt der Ausgabe einer PHP-Datei auch den Inhalt einer Textdatei vom
+        Webserver anfordern und in ein vorhandenes Dokument einsetzen. Dazu müssen
+        Sie den Aufruf der Methode open() in der Funktion anfordern() tauschen, also die
+        Kommentarzeichen für die zweite Zeile entfernen und für die dritte Zeile setzen.
+        -->
+    </body>
+</html>

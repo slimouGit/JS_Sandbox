@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8"/>
+        <script src="../../lib/eh.js"></script>
+        <script src="../../lib/bib_array_berechnen.js"></script>
+        <style>
+            .error{color:red;}
+        </style>
+    </head>
+    <body>
+        <p>Eingabe-Test</p>
+        
+        <script>
+        var ausgaben = new Array();
+        var einnahmen = new Array();
+        var ausgabenPositionen = new Array();
+        var positionAusgabe;
+        var position;
+        var posten; 
+        var betrag;
+        var betragAusgabe;
+        var betragEinnahme;
+        var art_position;
+        var gesamtAusgaben = 0;
+        var gesamtEinnahmen = 0;
+        
+        //-------------------------------------------------------------------------------------------
+        //-------------------------------------------------------------------------------------------
+        
+        function ausgabe(){
+            console.log("Ausgabe wurde eingegeben");
+            art_position = "ausgabe";
+            einlesenEingabe();
+        }
+        
+        function einnahme(){
+            console.log("Einnahme wurde eingegeben");
+            art_position = "einnahme";
+            einlesenEingabe();
+        }
+        
+        //-------------------------------------------------------------------------------------------
+        //-------------------------------------------------------------------------------------------
+                        
+            function einlesenEingabe(){
+                posten = document.getElementById("posten").value;
+                betrag = document.getElementById("betrag").value;
+                console.log(posten + " " + betrag + " in einlesenEingabe()");
+                
+                testenEingabe(posten, betrag);
+            }//ENDE einlesenEingabe
+
+        //-------------------------------------------------------------------------------------------
+        //-------------------------------------------------------------------------------------------
+            
+            function testenEingabe(){
+
+                //-------------------------------------------------------------------------------------------
+
+                //Regulaerer Ausdruck fuer eingegebenen Betrag
+                var pattern_Betrag = /^([1-9]{1}[0-9]*)(,?)([0-9]*)$/;
+
+                //-------------------------------------------------------------------------------------------
+
+                //Formular wird auf Vollständigkeit geprueft
+
+                if(posten === ""){
+                    document.getElementById("postenError").innerHTML = " Bitte geben Sie eine Position an";
+                    var errorPosten = 0;
+                }else{
+                    document.getElementById("postenError").innerHTML = "";
+                    var errorPosten = 1;
+                }
+
+                if(betrag === ""){
+                    document.getElementById("betragError").innerHTML = " Bitte geben Sie einen Betrag an";
+                    var errorBetrag = 0;
+                }
+                else if(!(betrag.match(pattern_Betrag))){//es wird geprueft, ob das Muster auf die Eingabe passt
+                    document.getElementById("betragError").innerHTML = " Diese Eingabe kann nicht verarbeitet werden";
+                    var errorBetrag = 0;
+                }else{
+                    document.getElementById("betragError").innerHTML = "";
+                    var errorBetrag = 1;
+                }
+                
+                //-------------------------------------------------------------------------------------------
+
+                //es wird geprueft, ob kein Fehler bei der Eingabe aufgetreten ist
+                if(!(errorPosten && errorBetrag)==0) {
+
+                    //-------------------------------------------------------------------------------------------
+
+                    //es wird nach einem Komma gesucht
+                    var komma = betrag.search(",");
+
+                    //-------------------------------------------------------------------------------------------
+
+                    //ist kein Komma gefunden worden, wird ",00" angehangen
+                    if (komma === -1) {
+                        console.log("kein Komma da");
+                        betrag = betrag.concat(",00");
+                        console.log(betrag + " das fehlende Komma wurde ergänzt");
+                    }
+
+                    //-------------------------------------------------------------------------------------------
+
+                    //die Stellen vor dem Komma werden an "betrag_vorKomma" uebergeben
+                    var komma_betrag = betrag.indexOf(",");// & betrag.indexOf(".");//Index des Kommas oder des Punktes ermitteln
+                    var betrag_vorKomma = parseInt(betrag.substring(0, komma_betrag));
+
+                    //die Stellen nach dem Komma werden an "betrag_nachKomma" uebergeben
+                    var komma_betrag = betrag.lastIndexOf(",");
+                    var betrag_nachKomma = (betrag.substring(komma_betrag + 1));
+                    
+                    //-------------------------------------------------------------------------------------------
+                    
+                    //die Stellen nach dem Komma werden auf 2 reduziert
+                    betrag_nachKomma = parseInt(betrag_nachKomma.substr(0, 2));
+                    
+                    //betrag wird mit dem zusammengesetzten Wert initialisiert
+                    betrag = betrag_vorKomma + "." + betrag_nachKomma;
+                    betrag = parseFloat(betrag);
+                    
+                    //-------------------------------------------------------------------------------------------
+                    
+                    //Aufruf der externen Funktion aus bib.js zum ergaenzen des Arrays
+                    ergaenzeArray(betrag, a);
+                    console.log(a);
+                    
+                    //-------------------------------------------------------------------------------------------
+                    
+                    position = posten + " " + (betrag * 1).toFixed(2) + " Euro";
+
+                    console.log(position + " mit Punkt");
+
+                    position = position.replace(".", ",");
+
+                    console.log(position + " mit Komma");
+                    
+                    //-------------------------------------------------------------------------------------------
+                    
+                    if(art_position === "ausgabe"){
+                        betragAusgabe = betrag;
+                        ergaenzeArray(betragAusgabe, ausgaben);
+                        
+                        positionAusgabe = position.toString();
+                        ausgabenPositionen.push(positionAusgabe);
+                        
+                        console.log(ausgaben);
+                        console.log(ausgabenPositionen);
+                        
+                        ausgebenAusgabe(position);
+                    }else{
+                        betragEinahme = betrag;
+                        ergaenzeArray(betragEinahme, einnahmen);
+                        console.log(einnahmen);
+                        ausgebenEinnahme(position);
+                    }
+                    
+                    //-------------------------------------------------------------------------------------------
+                    
+                    //Formular wird geleert
+                    formularLeeren();
+
+                }//ENDE if(!(errorPosten && errorBetrag)==0) {
+            }//ENDE testenEingabe
+
+        //-------------------------------------------------------------------------------------------
+        //-------------------------------------------------------------------------------------------
+        
+        function ausgebenAusgabe(){
+            console.log("eine " + art_position + " wird verarbeitet");
+            console.log(betragAusgabe + " Euro als " + art_position);
+            
+            var ausgabenListe = document.getElementById("ausgabe");
+            
+            while (ausgabenListe.firstChild)
+                ausgabenListe.removeChild(ausgabenListe.firstChild);
+            
+            for (var i = 0; i<ausgabenPositionen.length; i++) {
+                var ausgabenListenPunkt = document.createElement("li");
+                ausgabenListenPunkt.appendChild(document.createTextNode((i+1) + ". " + ausgabenPositionen[i]));
+                ausgabenListe.appendChild(ausgabenListenPunkt);
+            }  
+            
+            ausgebenGesamtAusgaben();
+        }//ENDE ausgebenAusgabe
+        
+        //-------------------------------------------------------------------------------------------
+        //-------------------------------------------------------------------------------------------
+
+        function ausgebenEinnahme(){
+            console.log("eine " + art_position + " wird verarbeitet");
+            console.log(betragEinahme + " Euro als " + art_position);
+            
+            document.getElementById("einnahme").innerHTML = position;
+            
+            ausgebenGesamtEinnahmen();
+        }//ENDE ausgebenEinnahme
+
+        //-------------------------------------------------------------------------------------------
+        //-------------------------------------------------------------------------------------------
+
+        function ausgebenGesamtAusgaben(){
+            //Aufruf der externen Funktion aus bib.js zum summieren
+            gesamtAusgaben = (rechneSumme(ausgaben));
+            
+            document.getElementById("ausgabeGesamt").innerHTML = "Gesamt-Betrag: " + gesamtAusgaben.toFixed(2) + " Euro";
+            
+            ausgebenGesamtErgebnis();
+        }//ENDE ausgebenGesamtAusgaben
+        
+        //-------------------------------------------------------------------------------------------
+        //-------------------------------------------------------------------------------------------
+
+        function ausgebenGesamtEinnahmen(){
+            //Aufruf der externen Funktion aus bib.js zum summieren
+            gesamtEinnahmen = (rechneSumme(einnahmen));
+            
+            document.getElementById("einnahmeGesamt").innerHTML = "Gesamt-Betrag: " + gesamtEinnahmen.toFixed(2) + " Euro";
+            ausgebenGesamtErgebnis();
+        }//ENDE ausgebenGesamtEinnahmen
+
+        //-------------------------------------------------------------------------------------------
+        //-------------------------------------------------------------------------------------------
+        
+        function ausgebenGesamtErgebnis(){
+            var gesamtErgebnis = gesamtEinnahmen - gesamtAusgaben + " Euro";
+            
+            document.getElementById("ergebnisGesamt").innerHTML = "Gesamt-Betrag: " + gesamtErgebnis;
+        }//ENDE ausgebenGesamtErgebnis
+        
+        //-------------------------------------------------------------------------------------------
+        //-------------------------------------------------------------------------------------------
+
+        function formularLeeren(){
+            document.getElementById("eingabeFormular").reset();
+            //Falls Fehlermeldungen angezeigt werden, auch diese entfernen
+            document.getElementById("postenError").innerHTML = "";
+            document.getElementById("betragError").innerHTML = "";
+        }//ENDE formularLeeren
+
+        //-------------------------------------------------------------------------------------------
+        //-------------------------------------------------------------------------------------------
+        </script>
+
+        <!------------------------------------------------------------------------------------------->
+
+        <form id="eingabeFormular">
+            <label>Posten</label>
+            <input type="text" id="posten"><span class="error" id="postenError"></span>
+            <br>
+            <label>Betrag</label>
+            <input type="text" id="betrag" placeholder="XXX,XX"><span class="error" id="betragError"></span>
+        </form>
+
+        <!------------------------------------------------------------------------------------------->
+
+        <button type="button" id="Ausgaben_Button">Ausgabe</button>
+        <button type="button" id="Einnahme_Button">Einnahme</button>
+        <button type="button" id="Reset_Button">Eingabe leeren</button>
+        <br>
+        <div id="einnahmenEbene">
+            <p>Einnahmen</p>
+            <div id="einnahme"></div>
+            <div id="einnahmeGesamt"></div>
+        </div>
+        <div id="ausgabenEbene">
+            <p>Ausgaben</p>
+            <div id="ausgabe"></div>
+            <div id="ausgabeGesamt"></div>
+        </div>
+        <div id="ergebnisEbene">
+            <p>Gesamt-Ergebnis</p>
+            <div id="ergebnisGesamt"></div>
+        </div>
+
+        <!------------------------------------------------------------------------------------------->
+
+        <script>
+            meinHandler("Ausgaben_Button", "click", ausgabe);
+            meinHandler("Einnahme_Button", "click", einnahme);
+            meinHandler("Reset_Button", "click", formularLeeren);
+        </script>
+        
+    </body>
+</html>

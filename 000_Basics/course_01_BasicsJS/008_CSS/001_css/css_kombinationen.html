@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>css_kombinationen</title>
+        <meta charset="utf-8"/>
+        <!--
+        Bei der Angabe p.ueber handelt es sich um einen verbundenen Selektor. Dabei müssen
+        die beiden unterschiedlichen Selektoren zutreffen, also hier der HTML-Selektor
+        und der Klassenselektor. Es werden nur die Absätze überstrichen und fett gedruckt,
+        denen die Klasse ueber zugeordnet ist. Es werden mehrere CSS-Eigenschaften aufgelistet,
+        durch Semikolon voneinander getrennt.
+        
+        Es folgt ein einfacher Klassenselektor: die Klasse schraeg.
+        
+        Bei der Angabe li b (ohne Punkt dazwischen) handelt es sich um einen verschachtelten
+        Selektor. Dabei müssen ebenfalls die beiden Selektoren zutreffen, allerdings in
+        geschachtelter Form. Es werden nur die Teile des Dokuments überstrichen, die sich
+        innerhalb eines b-Containers befinden, der wiederum innerhalb eines li-Containers steht.
+        
+        Sie können mehrere Selektoren nacheinander aufreihen, durch Komma voneinander
+        getrennt. Die nachfolgenden Style Sheets werden für alle Selektoren verwendet.
+        Sowohl die Inhalte von div-Containern als auch die Inhalte von Zellen werden überstrichen.
+        -->
+        <style>
+            p.ueber {text-decoration:overline; font-weight:bold}
+            .schraeg {font-style:italic}
+            li b {text-decoration:overline}
+            div,td {text-decoration:overline}
+        </style>
+    </head>
+    <body>
+        <p class="ueber">Der erste Absatz</p>
+        <p>Der <i class="ueber">zweite</i> Absatz</p>
+        <div>Eine weitere Zeile</div>
+        <p>Eine <b>Liste</b>:</p>
+        
+        <ul>
+            <li>Erster <b>Eintrag</b></li>
+            <li>Zweiter Eintrag</li>
+        </ul>
+
+        <table border="0">
+            <tr>
+                <td>Erste Zelle</td>
+                <td>Zweite Zelle</td>
+            </tr>
+        </table>
+        
+        <p class="ueber schraeg">Der letzte Absatz</p>
+    </body>
+    <!--
+    Der erste Absatz wird überstrichen und fett gedruckt, weil ihm zusätzlich die Klasse
+    ueber zugewiesen wird. Im zweiten Absatz wird nichts überstrichen oder fett gedruckt.
+    Dem i-Container innerhalb dieses zweiten Absatzes wird zwar die Klasse ueber zugewiesen, 
+    aber nicht dem gesamten Absatz.
+    
+    Es folgt ein überstrichener div-Container.
+    
+    Im Absatz über der Liste trifft kein Selektor zu. Es gibt zwar einen b-Container,
+    er steht aber nicht in einem li-Container. Anders sieht es aus beim zweiten Wort
+    des ersten Listeneintrags: Hier haben wir einen b-Container innerhalb eines li-Containers.
+    
+    Innerhalb der Tabelle gibt es zwei überstrichene td-Container.
+    
+    Dem letzten Absatz werden zwei Klassen zugeordnet, durch Leerzeichen getrennt. 
+    Es werden also sowohl die Style Sheets der Klasse ueber als auch die Style Sheets der
+    Klasse schraeg angewendet.
+    -->
+</html>

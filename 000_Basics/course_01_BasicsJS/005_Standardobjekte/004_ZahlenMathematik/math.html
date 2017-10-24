@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>math</title>
+    <script>
+        /**
+         *
+         */
+    </script>
+</head>
+<body>
+    <script>
+        var a = 4.75, b = -4.75, c = 6.25;
+        var aus = "";
+
+        aus += "Zahlen: " + a + " " + b + "<br>";
+
+        //Methode Math.ceil(): Sie rundet eine Zahl auf die nächstgrößere ganze Zahl.
+        aus += "ceil: " + Math.ceil(a) + " " + Math.ceil(b) + "<br>";
+
+        //Methode Math.floor(): Sie rundet eine Zahl auf die nächstkleinere ganze Zahl.
+        aus += "floor: " + Math.floor(a) + " " + Math.floor(b) + "<br>";
+
+        /*
+         Methode Math.round(): Sie rundet eine Zahl kaufmännisch auf eine ganze Zahl. Bei
+         positiven Zahlen bedeutet dies: von .0 bis .499 auf die nächstkleinere ganze Zahl,
+         von .5 bis .999 auf die nächstgrößere ganze Zahl. Bei negativen Zahlen sieht es
+         umgekehrt aus: von .0 bis .499 auf die nächstgrößere ganze Zahl, von .5 bis .999 auf
+         die nächstkleinere ganze Zahl.
+         */
+        aus += "round: " + Math.round(a) + " " + Math.round(b) + "<br><br>";
+
+        //Methode Math.sqrt(): Sie berechnet die Wurzel einer Zahl.
+        aus += "sqrt: Zahl: " + c + " = " + Math.sqrt(c) + "<br>";
+
+        /*
+         Methoden Math.max() und Math.min(): Sie berechnet die größte bzw. kleinste Zahl
+         von beliebig vielen gegebenen Zahlen.
+         */
+        aus += "max: " + Math.max(a,b,c) + "<br>";
+        aus += "min: " + Math.min(a,b,c,-7.75) + "<br>";
+
+        //Methode Math.abs(): Sie berechnet den Betrag einer Zahl, also die Zahl ohne ihr Vorzeichen.
+        aus += "abs: " + Math.abs(a) + " " + Math.abs(b) + "<br><br>";
+
+        //Eigenschaft Math.PI: Sie enthält den Wert der Kreiszahl Pi.
+        aus += "&pi; = " + Math.PI + "<br>";
+
+        //Eigenschaft Math.E: Sie enthält den Wert der Eulerschen Zahl e, die Basis der Exponentialfunktion.
+        aus += "e = " + Math.E + "<br>";
+
+        //Methode Math.exp(): Sie berechnet e hoch Zahl, also die Exponentialfunktion.
+        aus += "e hoch 4.6 = " + Math.exp(4.6) + "<br>";
+
+        /*
+         Methode Math.log(): Sie berechnet den natürlichen Logarithmus einer Zahl, also
+         den Logarithmus einer Zahl zur Basis e. Dies entspricht der Umkehrung der
+         Methode Math.exp().
+         */
+        aus += "ln(100) = " + Math.log(100) + "<br>";
+
+        //Methode Math.pow(): Sie berechnet x hoch y.
+        aus += "10 hoch 2 = " + Math.pow(10,2) + "<br>";
+
+        /*
+         Eigenschaft Math.LN10: Sie enthält den Wert des natürlichen Logarithmus von 10.
+         Zusammen mit der Methode Math.log() können Sie damit den Logarithmus einer
+         Zahl zur Basis 10 berechnen.
+         */
+        aus += "log(100) = " + Math.log(100) / Math.LN10 + "<br><br>";
+
+        //Methode Math.random(): Sie liefert eine zufällige Zahl zwischen 0 und 1, ohne die Obergrenze 1.
+        for(var i=1; i<=10; i++)
+            aus += Math.floor(Math.random() * 6 + 1) + " ";
+        document.write(aus);
+        /**
+         * Im letzten Teil des Programms wird die Methode Math.random() genutzt, um zehnmal
+         zu würfeln. Die Methode liefert einen Wert zwischen 0 und 1, ohne 1. Die Multiplikation
+         mit 6 ergibt einen Wert zwischen 0 und 6, ohne 6. Die Addition von 1 ergibt
+         einen Wert von 1 bis 7, ohne 7. Die Methode Math.floor() rundet abschließend auf die
+         nächstkleinere ganze Zahl, also auf einen Wert von 1 bis 6.
+         */
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>css_aendern_regel</title>
+        <meta charset="utf-8"/>
+        <style>
+            p.ueber {text-decoration:overline}
+            .schraeg {font-style:italic}
+        </style>
+        <link rel="stylesheet" type="text/css" href="css_extern.css">
+        <style>
+            li b {color:#ffffff; background-color:#000000}
+            div,td {font-weight:bold}
+            #idOben {text-decoration:overline}
+            a:hover {background-color:#c0c0c0}
+        </style>
+        <script>
+            function ausgabe() {
+                var aus = "";
+                for(var i=0; i<document.styleSheets.length; i++) {
+                    aus += i + ":\n";
+                    for(var k=0; k<regeln[i].length; k++) {
+                        aus += regeln[i][k].selectorText + ": ";
+                            for(var p=0; p<regeln[i][k].style.length; p++)
+                                aus += regeln[i][k].style[p] + " / ";
+                                aus += "\n";
+                    }
+                }
+            alert(aus);
+            }
+            
+            function aendern() {
+                for(var i=0; i<regeln[2].length; i++) {
+                    if(regeln[2][i].selectorText.toLowerCase() == "li b")
+                        regeln[2][i].style.marginLeft = "50px";
+                    if(regeln[2][i].selectorText.toLowerCase() == "a:hover") 
+                        regeln[2][i].style.backgroundColor = "#00ffff";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <p><input id="idAusgeben" type="button" value="Regeln ausgeben">
+            <input id="idAendern" type="button" value="Regel ändern">
+        </p>
+        <p class="ueber">Der erste Absatz</p>
+        <p>Der <i class="ueber">zweite</i> Absatz</p>
+        <div>Eine weitere Zeile</div>
+        <p>Eine <b>Liste</b>:</p>
+        
+        <ul>
+            <li>Erster <b>Eintrag</b></li>
+            <li>Zweiter Eintrag</li>
+        </ul>
+        
+        <table border="0">
+            <tr>
+                <td><a href="css_angaben.htm">Zur Datei 1</a></td>
+                <td><a href="css_regeln.htm">Zur Datei 2</a></td>
+            </tr>
+        </table>
+        
+        <p id="oben">Der vorletzte Absatz</p>
+        <p class="ueber schraeg">Der letzte Absatz</p>
+        
+        <script type="text/javascript" src="../../lib/eh.js"></script>
+        
+        <script>
+            meinHandler("idAusgeben", "click", ausgabe );
+            meinHandler("idAendern", "click", aendern );
+            
+            if(!document.styleSheets)
+                alert("Kein Zugriff auf die Style Sheets");
+                var regeln = new Array();
+                for(var i=0; i<document.styleSheets.length; i++)
+                    if(document.styleSheets[i].rules)
+                        regeln[i] = document.styleSheets[i].rules;
+                    else
+                        regeln[i] = document.styleSheets[i].cssRules;
+        </script>
+        
+        <!--
+        Im untersten Teil des Dokuments wird zunächst geprüft, ob ein Zugriff auf die Style
+        Sheets möglich ist. Dazu wird die Existenz der Eigenschaft styleSheets des document-
+        Objekts abgefragt. Bei styleSheets handelt es sich um ein Feld. Die einzelnen Elemente
+        des Felds verweisen auf die verschiedenen Bereiche, in denen Style Sheets definiert wurden. 
+        
+        Für die Änderung eines Style Sheets müssen Sie also wissen, in welchem
+        Feldelement es definiert wurde. In diesem Dokument sehen Sie ganz oben drei
+        Style-Sheet-Bereiche:
+        - Der Bereich 0 umfasst die Selektoren p.ueber und .schraeg.
+        - Der Bereich 1 wurde extern definiert.
+        - Der Bereich 2 umfasst die restlichen Selektoren.
+        
+        Es zeigen sich bereits erste Unterschiede bei den Browsern, siehe Abbildung 9.12 und
+        Abbildung 9.13. Im Internet Explorer werden alle HTML-Markierungen in Großbuchstaben
+        geschrieben. Außerdem wird die Auflistung div, td in zwei Teile zerlegt.
+        
+        Auf die Regeln innerhalb jedes dieser drei Bereiche soll über das Feld regeln zugegriffen
+        werden. Im Internet Explorer verweist die Eigenschaft rules auf die Regeln eines
+        Bereichs. In anderen Browsern macht dies die Eigenschaft cssRules.
+        
+        In der Funktion ausgabe() werden die Informationen mit Hilfe einer dreifach
+        geschachtelten Schleife ermittelt. Die äußere Schleife mit i erstreckt sich über alle
+        Style-Sheet-Bereiche. Die mittlere Schleife mit k erstreckt sich über alle Regeln innerhalb
+        eines Style-Sheet-Bereichs. Zu jeder Regel wird der Name des zugehörigen Selektors
+        mit Hilfe der Eigenschaft selectorText angezeigt. Die einzelnen Eigenschaften
+        zu jedem Selektor werden innerhalb der inneren Schleife mit Hilfe der Eigenschaft
+        style angezeigt (außer im Internet Explorer).
+        
+        In der Funktion aendern() werden zwei Regeln geändert. Dazu muss der Style-Sheet-
+        Bereich bekannt sein, in dem sie definiert werden. Anschließend werden in diesem
+        Bereich die Namen aller Selektoren geprüft. Beim passenden Selektor wird die Regel
+        geändert. Damit dies einheitlich bei allen Browsern funktioniert, wird der Name des
+        Selektors zuvor mit der Methode toLowerCase() umgewandelt.
+        -->
+    </body>
+</html>

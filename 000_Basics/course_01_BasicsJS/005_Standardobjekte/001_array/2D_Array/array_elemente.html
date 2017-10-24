@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>array_elemente</title>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+        <p>
+            <script type="text/javascript">
+                var stadtArray = new Array("Berlin", "Rom");
+                
+                document.write("Array: " + stadtArray + "<br><br>");
+                stadtArray.push("Bern", "Brüssel");
+                document.write("push: " + stadtArray + "<br>");
+                
+                var stadt = stadtArray.pop();
+                document.write("pop: " + stadtArray + "<br>");
+                document.write("Entfernt: " + stadt + "<br><br>");
+                
+                stadtArray.unshift("Madrid", "London");
+                document.write("unshift: " + stadtArray + "<br>");
+                
+                stadt = stadtArray.shift();
+                document.write("shift: " + stadtArray + "<br>");
+                document.write("Entfernt: " + stadt + "<br><br>");
+                
+                stadtArray.splice(2, 1, "Prag", "Sofia");
+                document.write("splice zum Hinzufügen: " + stadtArray + "<br>");
+                stadtArray.splice(1, 2);
+                document.write("splice zum Löschen: " + stadtArray + "<br><br>");
+                
+                delete stadtArray[1];
+                document.write("delete: " + stadtArray);
+            </script>
+        </p>
+    </body>
+</html>

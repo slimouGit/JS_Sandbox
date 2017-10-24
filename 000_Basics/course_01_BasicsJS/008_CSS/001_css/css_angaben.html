@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>css_angaben</title>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" type="text/css" href="css_extern.css">
+            
+        <style type="text/css">
+            /* HTML-Selektor für alle Absätze */
+            p {text-decoration:overline}
+            /* Klassenselektor für Markierungen, die diese Klasse nutzen */
+            .ueber {text-decoration:overline}
+            /* ID-Selektor für das Element mit dieser ID */
+            #idOben {text-decoration:overline}
+        </style>
+        
+        
+    </head>
+    <body>
+        <p>Der erste Absatz</p>
+        <p>Eine Liste:</p>
+        
+        <ul>
+            <li>Erster <span class="ueber">Eintrag</span></li>
+            <li>Zweiter Eintrag</li>
+            <li class="ueber">Dritter Eintrag</li>
+        </ul>
+
+        <table border="0">
+            <tr>
+                <td>Erste Zelle</td>
+                <td id="idOben">Zweite Zelle</td>
+                <td>Dritte <span style="text-decoration:overline">Zelle</span></td>
+                <td><b>Vierte</b> Zelle</td>
+            </tr>
+        </table>
+        
+        <script>
+            var ueber = document.getElementsByClassName("ueber");
+            var aus = "";
+            for(var i=0; i<ueber.length; i++)
+                aus += ueber[i].nodeName + " " + ueber[i].firstChild.nodeValue + "\n";
+            alert(aus);
+        </script>
+        
+        <!--
+        Die beiden Absätze werden aufgrund des HTML-Selektors im Kopf der Datei überstrichen.
+        Innerhalb der Liste gibt es zwei Elemente, denen die Klasse ueber zugewiesen wird: 
+        Das span-Element im ersten Listeneintrag und den gesamten dritten Listeneintrag.
+        Die Zuweisung erfolgt mit Hilfe des Attributs class.
+        Die zweite Zelle der Tabelle besitzt die ID idOben. Innerhalb der dritten Zelle erfolgt eine Inline-Angabe, 
+        mit Hilfe des Attributs style. Hier werden keine geschweiften Klammern benötigt. 
+        Mehrere Angaben würden Sie mit Semikolon voneinander trennen.
+        In der vierten Zelle gibt es einen fett gedruckten Bereich, der gemäß dem externen Style Sheet überstrichen wird.
+        Ein node-Objekt bietet in modernen Browsern auch die Methode getElementsBy-ClassName(). 
+        Diese liefert eine Liste aller Elemente, die die betreffende(n) CSSKlasse(n) nutzen.
+        -->
+    </body>
+</html>

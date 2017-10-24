@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>zeit_ausgeben</title>
+    <script type="text/javascript" src="lib/number.js"></script>
+    <script type="text/javascript" src="lib/date.js"></script>
+    <!--
+    In diesem Abschnitt sehen Sie verschiedene Möglichkeiten, ein Date-Objekt auszugeben.
+
+    - Die Ausgabe des Objekts ohne Methode kennen Sie bereits.
+    - Die Methode toLocaleString() erzeugt landesspezifische Angaben, die aus den
+      Informationen zum aktuellen Browser gewonnen werden.
+    - Die Methode toUTCString() erzeugt die koordinierte Weltzeit.
+    - Die Methode getTimezoneOffset() liefert die Zeitverschiebung der lokalen Zeit
+      gegenüber UTC in Minuten. Der Bundesstaat South Australia hat zum Beispiel eine
+      Zeitverschiebung von 9.5 Stunden.
+    - Bei der Methode dateFormat() handelt es sich um eine selbstgeschriebene Erweiterung
+      des Date-Objekts zur formatierten Ausgabe einer Zeitangabe. Intern wird
+      eine Reihe von vordefinierten Methoden genutzt, siehe Abschnitt 6.5.3, »Erweiterung
+      des ›Date‹-Objekts«.
+    -->
+</head>
+<body>
+    <script>
+        var zeit = new Date();
+        var aus = "";
+        aus += "Objekt: " + zeit + "<br><br>";
+
+        aus += "Lokal: " + zeit.toLocaleString() + "<br><br>";
+
+        aus += "UTC: " + zeit.toUTCString() + "<br><br>";
+
+        aus += "Offset: " + (zeit.getTimezoneOffset()/60) + " Std.<br><br>";
+
+        aus += "Format, Standard: " + zeit.dateFormat("d.M.y h:m:s") + "<br><br>";
+
+        aus += "Mit Wochentag: " + zeit.dateFormat("w, d.M.y") + "<br><br>";
+
+        aus += "Mit Wochentag und Monatsname: " + zeit.dateFormat("w, d. S y") + "<br><br>";
+
+        aus += "Mit msec.: " + zeit.dateFormat("h:m:s,i") + "<br>";
+
+        document.write(aus);
+
+        /**
+         * Bei der Nutzung der Methoden toLocaleString() und toUTCString() werden auch
+         der Name des Wochentags und der Name des Monats aufgeführt. Bei der Methode
+         toUTCString() wird die Uhrzeit in der koordinierten Weltzeit angegeben.
+         Die Methode getTimezoneOffset() liefert eine Angabe in Minuten, die hier in Stunden
+         umgerechnet werden. Es folgen noch drei verschiedene Ausgaben als Beispiele
+         für dateFormat().
+         */
+    </script>
+
+</body>
+</html>

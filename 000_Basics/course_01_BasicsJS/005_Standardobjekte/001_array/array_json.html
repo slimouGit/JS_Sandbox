@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>array_json</title>
+        <meta charset="utf-8"/>
+        <script>
+            
+        </script>
+    </head>
+    <body>
+        
+        <script>
+            var geschwindigkeitArray = new Array();
+        
+            // Feld von Zeichenketten
+            var stadtArray = ["Berlin", "Hamburg", "München"];
+            document.write(stadtArray + "<br>");
+            
+            var zKette;
+            if(window.JSON) {
+                zKette = JSON.stringify(stadtArray);
+                }
+                else {
+                    zKette = '["Berlin", "Hamburg", "München"]';
+                }
+                //document.write(zKette + "<br><br>");
+            
+            var ortArray;
+            if(window.JSON) {
+                ortArray = JSON.parse(zKette);
+                }
+                else {
+                    ortArray = eval("(" + zKette + ")");
+                }
+                document.write(ortArray + "<br><br>");
+                
+            //----------------------------------------------
+            
+            
+            
+            // Feld von Objekten
+            var objArray = [
+                {"farbe":"rot", "geschwindigkeit":"50"},
+                {"farbe":"blau", "geschwindigkeit":"85"},
+                {"farbe":"gelb", "geschwindigkeit":"65"}
+            ];
+            
+            for(var i=0; i<objArray.length; i++){
+                document.write(objArray[i].farbe + " " + objArray[i].geschwindigkeit + " <br> ");
+                
+                
+                
+            //--------------------------------------------
+            var geschwindigkeitTemp = parseFloat(objArray[i].geschwindigkeit);
+                geschwindigkeitArray.push(geschwindigkeitTemp);
+            //--------------------------------------------
+            
+            
+            }
+                document.write("<br>");
+                
+                
+            //--------------------------------------------  
+            var summe = 0;
+            for (var i = 0; i < geschwindigkeitArray.length; i++){
+                    summe = summe + geschwindigkeitArray[i];
+            }
+            document.write("Gesamt-Geschwindigkeit: " + summe + " km/h" + "<br><br>");
+            //--------------------------------------------
+            
+            
+            
+            if(window.JSON){
+                zKette = JSON.stringify(objArray);
+            }
+            else{ 
+                zKette = '[{"farbe":"rot", "geschwindigkeit":"50"},' + '{"farbe":"blau", "geschwindigkeit":"85"},' + '{"farbe":"gelb", "geschwindigkeit":"65"}]';
+            }
+            
+            var objFeld;
+            if(window.JSON) {
+                objFeld = JSON.parse(zKette);
+            }
+            else { 
+                objFeld = eval("(" + zKette + ")");
+            }
+            
+            for(var i=0; i<objFeld.length; i++) {
+                document.write(objFeld[i].farbe + " " + objFeld[i].geschwindigkeit + " # ");
+            }
+        </script>
+    </body>
+</html>

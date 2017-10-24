@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>regexp_methoden</title>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+        <script>
+            var tx1 = "Das ist mein Wagen oder sein Wagen und nicht mein Fahrrad.";
+            var tx2 = "Dieser Text sieht anders aus.";
+            
+            document.write("Text 1: " + tx1 + "<br>");
+            document.write("Text 2: " + tx2 + "<br>");
+            document.write("<br>");
+            document.write("Position von ein in 1: " + tx1.search(/.ein/) + "<br>");
+            document.write("Position von ein in 2: " + tx2.search(/.ein/) + "<br>");
+            
+            document.write("<br>");
+            
+            var passend;
+            passend = tx1.match(/.ein/);
+            
+            if(passend)
+            document.write("Ergebnis in 1: " + passend + "<br>");
+            
+            passend = tx2.match(/.ein/);
+            if(passend)
+            document.write("Ergebnis in 2: " + passend + "<br>");
+    
+            document.write("<br>");
+
+            var feld;
+            feld = tx1.match(/.ein/g);
+
+            if(feld)
+            for(var i=0; i<feld.length; i++){
+                document.write("Alle in 1: " + feld[i] + "<br>");
+            }else{
+                document.write("Kein Fund in 2");
+            };
+
+            feld = tx2.match(/.ein/g);
+
+            if(feld)
+            for(var i=0; i<feld.length; i++){
+                document.write("Alle in 2: " + feld[i] + "<br>");
+            }else{
+                document.write("Kein Fund in 2");
+            };
+
+            document.write("<br><br>");
+            
+            document.write(tx1.replace(/Wagen/g, "Auto") + "<br>");
+            document.write(tx2.replace(/Wagen/g, "Auto"));
+        </script>
+    </body>
+</html>

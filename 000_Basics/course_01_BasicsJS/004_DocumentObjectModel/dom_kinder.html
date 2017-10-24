@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>dom_kinder</title>
+        <meta charset="utf-8"/>
+        <script>
+            
+        </script>
+    </head>
+    <body>
+        <p id="a1">Das <i>ist</i> ein Absatz <b>mit</b> Markierungen.</p>
+        <script>
+            var absatz = document.getElementById("a1");
+            
+            document.write("Hat Kinder: " + absatz.hasChildNodes() + "<br>");
+            document.write("Anzahl Kinder: " + absatz.childNodes.length + "<br><br>");
+            
+            for(var i=0; i<absatz.childNodes.length; i++) {
+                if(absatz.childNodes[i].nodeType == 3) { //Der Wert 3 bedeutet: Textknoten
+                    document.write("Kind " + i + ": Typ=Text, Wert: " + absatz.childNodes[i].nodeValue + "<br>");
+                }
+                else if(absatz.childNodes[i].nodeType == 1) { //Der Wert 1 steht für Elementknoten
+                    document.write("Kind " + i + ": Typ=Element, Name: " + absatz.childNodes[i].nodeName + "<br>");
+                }
+            }
+            
+            document.write("<br>Erstes Kind: " + absatz.firstChild.nodeValue + "<br>");
+            
+            document.write("Letztes Kind: " + absatz.lastChild.nodeValue + "<br>");
+            
+            document.write("Kind 1, Erstes Kind: " + absatz.childNodes[1].firstChild.nodeValue + "<br>");
+            
+            document.write(absatz.firstChild.nodeValue + " " + absatz.childNodes[1].firstChild.nodeValue + " " + absatz.childNodes[2].nodeValue + " " + absatz.childNodes[3].firstChild.nodeValue + " " + absatz.lastChild.nodeValue)
+        </script>
+    </body>
+</html>

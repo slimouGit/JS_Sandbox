@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>regexp_anzahl</title>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+        <script>
+        /*
+        - beliebig oft, also auch keinmal, mit Hilfe des Zeichens *
+        - mindestens einmal, mit Hilfe des Zeichens +
+        - keinmal oder einmal, mit Hilfe des Zeichens ?
+        - so oft vorkommt, wie gewünscht, also zum Beispiel die Zeichenkette xyz
+            drei- bis fünfmal, mit Hilfe des Ausdrucks(?:xyz){3,5}.
+        */
+            var aus = "";
+
+        if("ist an der".match(/ist a*/)) aus += "1: ist an der<br>";
+        
+        if("ist in der".match(/ist a*/)) aus += "1: ist in der<br>";
+        
+        if("in der".match(/ist a*/)) aus += "1: in der\n";
+        
+        if("ist an der".match(/ist a+/)) aus += "2: ist an der<br>";
+        
+        if("ist in der".match(/ist a+/)) aus += "2: ist in der<br>";
+        
+        if("im Tor".match(/im To?r/)) aus += "3: im Tor<br>";
+        
+        if("im Toor".match(/im To?r/)) aus += "3: im Toor<br>";
+        
+        if("im Tor".match(/im T(?:o){0,1}r/)) aus += "4: im Tor<br>";
+        
+        if("im Toor".match(/im T(?:o){0,1}r/)) aus += "4: im Toor<br>";
+        
+        if("die Banane".match(/B(?:an){2,3}/)) aus += "5: die Banane<br>";
+        
+        if("das Band".match(/B(?:an){2,3}/)) aus += "5: das Band<br>";
+        
+        document.write(aus);
+        
+        document.write("<br>");
+        
+        //-----------------------------------------------
+        
+        var text = "Alle Vöglein sind schon da.";
+        var suchmuster = text.match(/ein/); 
+        if(suchmuster) {
+            document.write("\"" + suchmuster + "\"" + " ist in \"" + text + "\" enthalten");
+        }
+
+        </script>
+    </body>
+</html>

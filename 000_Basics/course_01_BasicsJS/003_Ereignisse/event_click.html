@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        function geladen(){
+            alert("Dokument wurde geladen"); }
+        function geclickt(bezeichnung){
+            alert("Geclickt: " + bezeichnung); }
+        function neu(){
+            document.open();
+            document.write("<html><body>Hallo Welt<\/body><\/html>");
+            document.close();
+        }
+    </script>
+</head>
+<body onload="geladen();">
+    <p>
+        <input type="button" value="Button 1" onclick="geclickt('Button 1');">
+        <input type="button" value="Button 2" onclick="geclickt(this.value);">
+        <input type="button" value="Neues Dokument" onclick="neu();">
+    </p>
+    <p>
+        <a href="javascript:geclickt('Hyperlink');">Hier steht ein Hyperlink</a>
+    </p>
+
+</body>
+</html>

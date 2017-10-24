@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Mouse-Events</title>
+        <meta charset="utf-8"/>
+        <script>
+            function maus(objekt, ereignis) {
+                document.f.kontrolle.value = "Ereignis: " + ereignis + ", Bild: " + objekt.src;
+            }
+        </script>
+    </head>
+    <body>
+        <p>
+            <img src="http://lorempixel.com/200/200/" alt="Paradies" onclick="maus(this, 'click');">
+            
+            <img src="http://lorempixel.com/250/200/" alt="Sofi" onmouseover="maus(this, 'over');" onmouseout="maus(this, 'out');">
+            
+            <img src="http://lorempixel.com/300/200/" alt="Welle" onmousemove="maus(this, 'bewesche');">
+            
+            <img src="http://lorempixel.com/350/200/" alt="Winter" onmousedown="maus(this, 'down');" onmouseup="maus(this, 'up');">
+        </p>
+        
+        <form name="f" action="#">
+            <p><input size="70" name="kontrolle"></p>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>css_menu</title>
+        <meta charset="utf-8"/>
+        <!--
+        Eine Transparenz von 0.0 macht ein Element unsichtbar. Weitere Möglichkeiten zur
+        Beeinflussung der Sichtbarkeit bieten die CSS-Eigenschaften visibility und display.
+        
+        In diesem Abschnitt folgt ein Beispiel zu visibility. Der Wert visible macht ein Element
+        sichtbar, der Wert hidden macht es unsichtbar.
+        
+        Die Sichtbarkeit nutzen wir hier zur dynamischen Anzeige eines Menüs mit einem
+        Untermenü. In Abbildung 9.16 sehen Sie das Menü im Startzustand. Falls der Benutzer
+        sich mit der Maus über einem der Menüpunkte befindet, dann wird das zugehörige Untermenü sichtbar,
+        -->
+        <style type="text/css">
+            div {position:absolute; width:200px; height:25px; font-size:14pt; font-family:Arial; padding:5px; border-top:solid 1px #000000; 
+                border-bottom:solid 1px #000000; background-color:#f0f0f0}
+            .untermenu {visibility:hidden; height:66px; border-top-width:0px}
+            a:link {color:#000000; text-decoration:none}
+            a:hover {background-color:#d0d0d0}
+        </style>
+        <script>
+            function ein(x) {
+                document.getElementById("idUntermenu" + x).style.visibility = "visible";
+            }
+            
+            function aus(x) {
+                document.getElementById("idUntermenu" + x).style.visibility = "hidden";
+            }
+            
+            function mo() {
+                alert("Tach");
+            }
+        </script>
+    </head>
+    <body>
+        <div id="idMenu1" style="top:20px; left:20px">Menu 1</div>
+        <div id="idMenu2" style="top:20px; left:220px">Menu 2</div>
+        
+        <div id="idUntermenu1" class="untermenu" style="top:50px; left:20px">
+            <a href="#">Untermenü 1 A</a><br>
+            <a href="#">Untermenü 1 B</a><br>
+            <a id="idUntermenu1C" href="#">Untermenü 1 C</a>
+        </div>
+        
+        <div id="idUntermenu2" class="untermenu" style="top:50px; left:220px">
+            <a href="#">Untermenü 2 A</a><br>
+            <a href="#">Untermenü 2 B</a><br>
+            <a href="#">Untermenü 2 C</a>
+        </div>
+        
+        <script type="text/javascript" src="../../lib/eh.js"></script>
+
+        <script type="text/javascript">
+            meinHandler("idMenu1", "mouseover", function() { ein(1); });
+            meinHandler("idMenu1", "mouseout", function() { aus(1); });
+            meinHandler("idMenu2", "mouseover", function() { ein(2); });
+            meinHandler("idMenu2", "mouseout", function() { aus(2); });
+            meinHandler("idUntermenu1", "mouseover", function() { ein(1); });
+            meinHandler("idUntermenu1", "mouseout", function() { aus(1); });
+            meinHandler("idUntermenu2", "mouseover", function() { ein(2); });
+            meinHandler("idUntermenu2", "mouseout", function() { aus(2); });
+            
+            meinHandler("idUntermenu1C", "click", mo);
+        </script>
+        
+        <!--
+        Sowohl die Hauptmenüpunkte als auch die Untermenüs stehen in div-Containern
+        mit den folgenden Eigenschaften:
+        
+        - Schrift Arial 14 pt
+        - eine Größe von 200 × 25 Pixeln
+        - ein oberer und ein unterer Rand
+        - eine Hintergrundfarbe
+        - ein Innenabstand von 5 Pixeln zum Rand
+        
+        Die Eigenschaften der Untermenüs werden mit Hilfe der Klasse untermenu ergänzt
+        bzw. überschrieben: Die Höhe wird auf 66 Pixel geändert, der obere Rand fällt weg,
+        und – das Wichtigste – sie sind unsichtbar.
+        
+        Die Punkte der Untermenüs sind Hyperlinks, mit deren Hilfe zum Beispiel andere
+        Seiten aufgerufen werden. Für diese Hyperlinks wird die Farbe festgelegt. Außerdem
+        werden sie nicht unterstrichen. Falls sich die Maus über einem der Punkte befindet,
+        dann ändert sich die Farbe.
+        
+        Im Dokument selbst werden Menüs und Untermenüs zueinander passend positioniert.
+        
+        Den Untermenüs wird die Klasse untermenu zugewiesen.
+        
+        Das Überstreichen des ersten Hauptmenüpunkts mit der Maus führt zum Aufruf der
+        Funktion ein(), mit dem Parameter 1. Innerhalb der Funktion ein() wird damit die
+        Untereigenschaft visibility der Eigenschaft style des ersten Untermenüs auf
+        visible gesetzt.
+        
+        Umgekehrt führt das Verlassen des ersten Hauptmenüpunkts mit der Maus zum
+        Aufruf der Funktion aus(), mit demselben Parameter. Innerhalb der Funktion aus()
+        wird damit die Untereigenschaft visibility der Eigenschaft style des ersten Untermenüs
+        wieder auf hidden gesetzt.
+        
+        Zu den gleichen Ergebnissen führt das Überstreichen bzw. Verlassen des ersten
+        Untermenüs. Ansonsten verschwände das erste Untermenü, sobald die Maus vom
+        ersten Hauptmenüpunkt zu einem der Punkte des ersten Untermenüs bewegt wird.
+        
+        Dasselbe trifft für den zweite Hauptmenüpunkt und sein Untermenü zu.
+        Die Positionen sind so gewählt, dass die Untermenüs die Hauptmenüpunkte leicht
+        überlappen. Ansonsten würden die Untermenüs unsichtbar, sobald die Maus den
+        zugehörigen Hauptmenüpunkt verlässt.
+        -->
+    </body>
+</html>

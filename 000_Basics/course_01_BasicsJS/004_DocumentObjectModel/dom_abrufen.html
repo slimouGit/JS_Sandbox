@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>dom_abrufen</title>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+        <p id="a1" style="bold">Erster Absatz</p>
+        <p class="a2">Zweiter Absatz</p>
+        <p id="a3" style="text-align:left">Dritter Absatz</p>
+        <p class="a4">Vierter Absatz</p>
+        <script>
+            var absatz3 = document.getElementById("a3");
+            document.write("Über ID: Inhalt: " + absatz3.firstChild.nodeValue + ", Style: " + absatz3.getAttribute("style") + "<br>");
+            
+            var absatz1 = document.getElementsByTagName("p")[0];
+            document.write("Über Tag: Inhalt: " + absatz1.firstChild.nodeValue + ", Style: " + absatz1.getAttribute("style"));
+            
+            var absatz4 = document.getElementsByClassName("a4")[0];
+            document.write("<br>" + absatz4.firstChild.nodeValue + ", " + absatz4.firstChild.nodeName);
+            
+            //var absatz2 = document.querySelector("a2");
+            var absatz2 = document.getElementsByClassName("a2")[0];
+            absatz2.style.backgroundColor = "red";
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>window_oeffnen</title>
+        <meta charset="window_oeffnen"/>
+        <script>
+            var neuesFenster = -1;
+            function neuErzeugen(){
+                neuesFenster = window.open("window_1.html", "neu","width=300, height=200, left=200, top=200");
+            }
+            function neuAbfragen(){
+                if(neuesFenster == -1)
+                    alert("Neues Fenster noch nicht geöffnet");
+                else if(neuesFenster.closed)
+                    alert("Neues Fenster geschlossen");
+                else
+                    alert("Neues Fenster offen");
+            }
+            function neuFuellen(){
+                if(neuesFenster == -1 || neuesFenster.closed)
+                    neuesFenster = window.open("", "neu", "width=300, height=200, left=200, top=200");
+                    neuesFenster.document.open();
+                    neuesFenster.document.write("<html><body>Neuer Inhalt<\/body><\/html>");
+                    neuesFenster.document.close();
+            }
+            
+            function neuSchliessen(){
+                neuesFenster.close();
+            }
+        </script>
+    </head>
+    <body>
+        <!--
+        Es gibt vier Buttons und einen Hyperlink. Die Betätigung der Buttons führt über die
+        Eventhandler zum Aufruf der zugehörigen JavaScript-Funktion.
+        Beim Klick auf den Hyperlink wird die Datei window_2.htm in das Fenster mit dem
+        Namen neu geladen. Falls dieser Name unbekannt ist, also das Fenster nicht existiert,
+        dann wird die Datei in ein gänzlich neues Fenster oder in einen neuen Tab geladen.
+        Dazu wird das Attribut target in der Markierung a benötigt. Mit diesem Attribut
+        kann die Seite nicht mehr gemäß der DTD für HTML 4.01 Strict validiert werden.
+        Daher wurde die DTD für HTML 4.01 Transitional genutzt.
+        -->
+        <p>
+            <input id="idErzeugen" type="button" value="Erzeugen">
+        </p>
+        <p>
+            <a href="window_2.htm" target="neu">Neue Datei</a>
+            <input id="idAbfragen" type="button" value="Abfragen">
+            <input id="idFuellen" type="button" value="Per Code füllen">
+            <input id="idSchliessen" type="button" value="Schließen">
+        </p>
+        <script type="text/javascript" src="../../lib/eh.js"></script>
+        <script type="text/javascript">
+            meinHandler("idErzeugen", "click", neuErzeugen);
+            meinHandler("idAbfragen", "click", neuAbfragen);
+            meinHandler("idFuellen", "click", neuFuellen);
+            meinHandler("idSchliessen", "click", neuSchliessen);
+        </script>
+        
+        <!--
+        Die globale Variable neuesFenster enthält die Information, ob bereits ein neues Fenster
+        existiert. Der Wert –1 bedeutet: das Fenster wurde noch nicht geöffnet. Nach dem
+        Öffnen des neuen Fensters stellt diese Variable einen Verweis auf das window-Objekt
+        des neuen Fensters dar.
+
+        In der Funktion neuErzeugen() wird die Methode open() aufgerufen, hier mit drei
+        Parametern. Der erste Parameter gibt an, welche Datei in das neue Fenster geladen
+        wird. Als zweiter Parameter wird ein Name für das neue Fenster festgelegt. Dieser
+        Name kann als Target-Angabe für einen Hyperlink dienen. Der dritte Parameter ist
+        optional. Innerhalb einer Zeichenkette können Sie einige Werte für die Gestaltung
+        des neuen Fensters angeben, zum Beispiel die Breite (width), die Höhe (height) und
+        die Position, jeweils in Pixel. Die Werte für left und top werden ab der oberen linken
+        Ecke des Bildschirms gerechnet. Rückgabewert der Methode open() ist ein Verweis
+        auf das window-Objekt des neuen Fensters.
+
+        In der Funktion neuAbfragen() wird der Status des neuen Fensters mit Hilfe der Variablen
+        neuesFenster geprüft. Die Eigenschaft closed informiert darüber, ob es aktuell
+        offen oder geschlossen ist. Anschließend wird dieser Status ausgegeben.
+
+        In der Funktion neuFuellen() wird ebenfalls der Status des neuen Fensters geprüft.
+        Falls es nicht offen ist, dann wird es neu erzeugt, allerdings ohne den Inhalt einer
+        Datei. Anschließend wird mit Hilfe des window-Objekts und der Methoden open(),
+        write() und close() des zugehörigen document-Objekts ein neues Dokument dynamisch
+        erzeugt und im Fenster angezeigt.
+
+        In der Funktion neuSchliessen() wird das neue Fenster mit Hilfe der Methode
+        close() geschlossen.
+        -->
+    </body>
+</html>

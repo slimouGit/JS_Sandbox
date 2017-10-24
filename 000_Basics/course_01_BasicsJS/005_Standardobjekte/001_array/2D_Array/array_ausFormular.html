@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    
+   
+    
+</head>
+<body>
+    
+     <script>
+    
+        //------------------------------------------------------------------------------
+        function rechne(){
+            
+            //------------------------------------------------------------------------------
+            var posten = document.getElementById("Eingabe_Posten").value;
+            
+            console.log(posten);
+            
+            var pattern_Posten = /[A-Z][a-z]/;
+            
+            //----------------------------------------------------------------------------
+            var betrag = document.getElementById("Eingabe_Betrag").value;
+            
+            var pattern_Betrag = /^([1-9]{1}[0-9]*(,|\.)){1}[0-9]*(.*)$/;
+            
+            if(betrag.match(pattern_Betrag)){
+                console.log(betrag);
+                var komma_betrag = betrag.indexOf(",") & betrag.indexOf(".");//Index des Kommas oder des Punktes ermitteln
+                var betrag_vorKomma = parseInt(betrag.substring(0,komma_betrag));
+
+                console.log(betrag_vorKomma + " Euro");
+
+                var betrag_nachKomma = (betrag.substring(komma_betrag + 1));
+                var betrag_nachKomma = parseInt(betrag_nachKomma.substr(0,2));
+
+                console.log(betrag_nachKomma + " Cent");
+
+                betrag = betrag_vorKomma + "." + betrag_nachKomma;
+                
+                betrag = parseFloat(betrag);
+
+                var ergebnis = "Ergebnis: " + posten + " " + betrag + " Euro";
+
+                //alert(ergebnis);
+
+                //document.getElementById("ausgabenPosten").firstChild.nodeValue = "Ergebnis: " + ergebnis ;
+                document.getElementById("ausgabenPosten").firstChild.nodeValue = ergebnis;
+
+            }
+            else{
+                alert("\"" + betrag + "\"" + " kann nicht verarbeitet werden");
+            }
+
+
+
+        }
+        //------------------------------------------------------------------------------
+
+
+    </script>
+
+<!---------------------------------------------------------------------------------------------------------->
+
+<div id="eingabeFormular">
+    <form id="eingabe">
+        <div>
+            <label>Posten:</label>
+            <input type="text" class="big_input" id="Eingabe_Posten" placeholder="Posten">
+        </div>
+
+        <div>
+            <label>Betrag:</label>
+            <input type="text" class="small_input" id="Eingabe_Betrag" placeholder="xxx,xx">
+        </div>
+
+        <input type="submit" value="Eintragen" id="Eintrage_Button">
+    </form>
+</div>
+
+<!---------------------------------------------------------------------------------------------------------->
+
+<p id="ausgabenPosten">&nbsp;</p>
+
+<script src="lib/eh.js"></script>
+<script>
+    meinHandler("Eintrage_Button", "click", rechne);
+</script>
+
+</body>
+</html>

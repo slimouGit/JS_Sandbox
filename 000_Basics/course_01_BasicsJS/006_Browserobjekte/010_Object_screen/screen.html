@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>screen</title>
+        <meta charset="utf-8">
+        <!--
+        Bei vielen aktuellen Browsern liefern Ihnen die Eigenschaften des screen-Objekts
+        Informationen über den Bildschirm, den der Benutzer verwendet.
+        
+        Die Eigenschaften height und width sowie availHeight und availWidth geben die
+        Größe des Bildschirms in Pixeln wieder. Die verfügbare Größe entspricht der gesamten Größe, 
+        vermindert um feste Elemente wie zum Beispiel eine sichtbare Taskleiste.
+        
+        Die Eigenschaften colorDepth bzw. pixelDepth geben die Farbtiefe in Bit pro Pixel wieder. 
+        Daraus resultiert die Anzahl der verschiedenen möglichen Farben.
+        -->
+    </head>
+    <body>
+        <p>
+            <script>
+                document.write("height / width: " + screen.height + " " + screen.width + "<br>");
+                document.write("availHeight / availWidth: " + screen.availHeight + " " + screen.availWidth + "<br>");
+                document.write("colorDepth / pixelDepth: " + screen.colorDepth + " " + screen.pixelDepth + "<br>");
+                document.write("Anzahl Farben: " + Math.pow(2,screen.colorDepth) + " " + Math.pow(2, screen.pixelDepth));
+            </script>
+        </p>
+    </body>
+</html>

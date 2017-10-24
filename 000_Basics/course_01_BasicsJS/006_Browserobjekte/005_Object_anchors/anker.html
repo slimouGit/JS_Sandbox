@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>anker</title>
+        <meta charset="utf-8">
+        <!--
+        Das Objekt anchors liegt in der Objekthierarchie unterhalb des Objekts document. 
+        Es stellt ein Feld dar, in dem Verweise auf alle Anker im Dokument stehen. 
+        Wie bei Feldern üblich, gelingt der Zugriff auf die Elemente am besten über den Index.
+        Die Eigenschaft length des Feldes liefert die Anzahl der Anker. Die Eigenschaft name eines
+        einzelnen Feldelements stellt den Namen des Ankers zur Verfügung.
+        In diesem Abschnitt erstellen wir ein Dokument mit drei Ankern. 
+        Die Namen und sichtbaren Texte werden für alle ausgegeben. Für den sichtbaren Text gibt es zwar die
+        Eigenschaft text, allerdings nicht in allen Browsern. Daher wird hier die Tatsache genutzt, 
+        dass jedes Feldelement einen Knoten darstellt, auf dessen ersten Kindknoten zugegriffen werden kann.
+        Bei einem der Anker werden sowohl Name als auch sichtbarer Text geändert.
+        -->
+        <script>
+            function ausgabe(){
+                var tx = "";
+                for(var i=0; i<document.anchors.length; i++)
+                    tx += i + ": Name: " + document.anchors[i].name + ", Text: "
+                    + document.anchors[i].firstChild.nodeValue + "\n";
+                    alert(tx);
+                }
+                function aendern() {
+                    document.anchors[0].name = "beginn";
+                    document.anchors[0].firstChild.nodeValue = "Beginn";
+                }
+        </script>
+    </head>
+    <body>
+        <p><a href="document.html">Zu anderem Dokument</a></p>
+        <p>Anker: <a name="anfang">Anfang</a></p>
+        <p>
+            <input id="idAusgeben" type="button" value="Member ausgeben">
+            <input id="idAendern" type="button" value="Member ändern">
+        </p>
+        <p>Anker: <a name="mitte">Mitte</a></p>
+        <p>Anker: <a name="ende">Ende</a></p>
+        
+        <script src="../../lib/eh.js"></script>
+        
+        <script>
+            meinHandler("idAusgeben", "click", ausgabe);
+            meinHandler("idAendern", "click", aendern);
+        </script>
+        
+        <!--
+        In der Funktion ausgabe() wird die for-Schleife mit Hilfe der Anzahl der Anker gesteuert. 
+        Der Zugriff auf einen einzelnen Anker gelingt über den Index. Dies gilt auch für die Funktion aendern().
+        -->
+    </body>
+</html>

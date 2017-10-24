@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>form_check</title>
+        <meta charset="utf-8"/>
+        <script>
+            function senden() {
+                var tx = "";
+                var absatz = document.getElementById("idAbsatzLand1");
+                var radFeld = absatz.getElementsByTagName("input");
+                
+                for(var i=0; i<radFeld.length; i++)
+                    if(radFeld[i].checked)
+                        tx += "Land 1: " + radFeld[i].value + "\n";
+                    if(document.getElementById("idCheck2").checked)
+                        tx += "Land 2: " + document.getElementById("idCheck2").value + "\n";
+                    if(document.getElementById("idCheck3").checked)
+                        tx += "Land 3: " + document.getElementById("idCheck3").value + "\n";
+                
+                    alert(tx);
+                    return true;
+                }
+                
+                function aendern() {
+                    document.getElementById("idCheck2").checked = true;
+                    var absatz = document.getElementById("idAbsatzLand1");
+                    var radFeld = absatz.getElementsByTagName("input");
+                    
+                    radFeld[2].checked = true;
+                    if(radFeld.length == 3){
+                        var neu = document.createElement("input");
+                        neu.name = "land1";
+                        neu.type = "radio";
+                        neu.value = "Poland";
+                        absatz.appendChild(neu);
+                        
+                        var text = document.createTextNode("Polen");
+                        absatz.appendChild(text);
+                    }
+                }
+                
+                /*
+                In der Funktion senden() wird der Wert der Eigenschaft checked der drei RadioButtons
+                und der beiden CheckBoxen im ersten Absatz geprüft. Der Wert des einzigen
+                markierten RadioButtons wird ausgegeben. Außerdem wird der Wert jeder markierten
+                CheckBox ausgegeben.
+                
+                In der Funktion aendern() werden zunächst eine CheckBox und ein RadioButton markiert.
+                Falls es bisher drei RadioButtons gibt, dann wird anschließend ein weiterer RadioButton
+                inklusive erläuterndem Text hinzugefügt. Dies wird mit Hilfe der Methoden
+                createElement() und createTextNode() des document-Objekts und der Methode
+                appendChild() für ein node-Objekt durchgeführt.
+                
+                Der RadioButton erhält Werte für die Eigenschaften type und value. Der Wert der
+                Eigenschaft name sorgt dafür, dass er zur Gruppe der drei anderen RadioButtons
+                gehört. Am Ende des Absatzes wird der sichtbare Text für den RadioButton angehängt.
+                */
+        </script>
+    </head>
+    <body>
+        <form id="idForm" method="post" action="#">
+            <p id="idAbsatzLand1">
+                Land 1:
+                <input name="land1" type="radio" value="Estonia" checked="checked">Estland
+                <input name="land1" type="radio" value="Latvia">Lettland
+                <input name="land1" type="radio" value="Lithuania">Litauen
+            </p>
+            <p>
+                Land 2: 
+                <input id="idCheck2" name="land2" type="checkbox" value="Sweden">Schweden
+            </p>
+            <p>
+                Land 3: 
+                <input id="idCheck3" name="land3" type="checkbox" value="Finland" checked="checked">Finnland
+            </p>
+            <p>
+                <input id="idAendern" type="button" value="Formular ändern">
+            </p>
+            <p>
+                <input type="submit"><input type="reset">
+            </p>
+        </form>
+    
+        <script src="../../lib/eh.js"></script>
+        <script>
+            meinHandler("idForm", "submit", function() { return senden(); } );
+            meinHandler("idAendern", "click", aendern );
+        </script>
+    </body>
+</html>

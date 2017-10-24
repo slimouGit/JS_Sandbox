@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>form_link</title>
+        <meta charset="utf-8"/>
+        <!--
+        Sie können auch versteckte Formularelemente dazu nutzen, Informationen an den
+        Webserver zu übermitteln. Wie der Name schon sagt, sind diese Informationen für
+        den Betrachter nicht direkt sichtbar. Dies gilt allerdings nur, falls die POST-Methode
+        zum Senden verwendet wird.
+        Dabei gibt es aber auch einen Nachteil gegenüber der reinen JavaScript-Technik, die
+        sie in Abschnitt 7.3.2, »Senden von Datei zu Datei«, kennengelernt haben: Es ist eine
+        Weiterverarbeitung beim Webserver notwendig.
+        Sie können den Wert eines versteckten Formularelements von vornherein festlegen
+        oder ihn auch per JavaScript-Code ändern.
+        Das folgende Beispiel wird über den lokalen Webserver abgerufen. Der Benutzer
+        kann einen von mehreren Hyperlinks betätigen. Die zugehörige Information wird
+        anschließend mit Hilfe eines versteckten Formularelements an den Webserver übermittelt.
+        In Abbildung 7.23 sehen Sie das Dokument, in Abbildung 7.24 eine mögliche
+        Antwort des Webservers.
+        -->
+        <script>
+           function senden(x) {
+               document.getElementById("idVersteckt").value = x;
+               document.getElementById("idForm").submit();
+            } 
+        </script>
+    </head>
+    <body>
+        <form id="idForm" method="post" action="#">
+            <p><input id="idVersteckt" name="land" type="hidden"></p>
+        </form>
+        
+        <p><a id="idLink0" href="#">Italien</a></p>
+        <p><a id="idLink1" href="#">Spanien</a></p>
+        <p><a id="idLink2" href="#">Rumänien</a></p>
+        
+        <script type="text/javascript" src="../../lib/eh.js"></script>
+        <script type="text/javascript">
+            meinHandler("idLink0", "click", function() { senden('Italia'); } );
+            meinHandler("idLink1", "click", function() { senden('Spain'); } );
+            meinHandler("idLink2", "click", function() { senden('Romania'); } );
+        </script>
+        <!--
+        Das Formular sendet seine Daten an die Datei form_link.php. Es enthält ein verstecktes
+        Element. Dieses ist durch den Wert hidden des Attributs type gekennzeichnet. Bei
+        den Hyperlinks sind keine expliziten Verweisziele angegeben. Die Betätigung eines
+        der Hyperlinks führt zum Aufruf der JavaScript-Funktion senden(). In dieser Funktion
+        wird dem versteckten Element der Wert des Parameters übergeben. Anschließend
+        führt der Aufruf der Methode submit() zum Absenden des Formulars.
+        -->
+    </body>
+</html>

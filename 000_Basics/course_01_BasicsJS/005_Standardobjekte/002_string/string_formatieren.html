@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>string_formatieren</title>
+        <meta charset="utf-8"/>
+        <script>
+            
+        </script>
+    </head>
+    <body>
+        <script>
+            var tx = "info@lehre.rz.uni-bonn.de";
+            
+            document.write("Text: " + tx + "<br>");
+            
+            document.write("Fett: " + tx.bold() + "<br>");
+            
+            document.write("Kursiv: " + tx.italics() + "<br>");
+            
+            document.write("Beides: " + tx.bold().italics() + "<br>");
+            
+            document.write("Nicht-proportional: " + tx.fixed() + "<br>");
+            
+            document.write("Durchgestrichen: " + tx.strike() + "<br>");
+            
+            document.write("Große Schrift: " + tx.big() + "<br>");
+            
+            document.write("Kleine Schrift: " + tx.small() + "<br>");
+            
+            document.write("Farbe: <span style='background-color:#ff0000'>" + tx.fontcolor("#ffffff") + "<\/span><br>");
+            
+            document.write("Größe: " + tx.fontsize(4) + "<br>");
+            
+            document.write("Hochgestellt: " + tx.sup() + "<br>");
+            
+            document.write("Tiefgestellt: " + tx.sub());
+        </script>
+    </body>
+</html>

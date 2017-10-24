@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<sammlung>
+    <fixkosten>
+        <posten>Miete</posten>
+        <betrag>760</betrag>
+    </fixkosten>
+    <fixkosten>
+        <posten>Strom</posten>
+        <betrag>55</betrag>
+    </fixkosten>
+    <fixkosten>
+        <posten>Fahrkarte</posten>
+        <betrag>84,50</betrag>
+    </fixkosten>
+</sammlung>
