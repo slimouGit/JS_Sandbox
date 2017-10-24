@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HappyEuro</title>
+    <script>
+
+        //function contructor
+        function Positionen(namePosition, betragPosition, artPosition){
+            this.namePosition = namePosition;
+            this.betragPosition = betragPosition;
+            this.artPosition = artPosition;
+            this.idPosition = idPosition;
+        }
+
+        function einlesenDaten() {
+            namePosition = document.getElementById("inputNamePosition").value;
+            betragPosition = document.getElementById("inputBetragPosition").value;
+            artPosition = document.getElementById("inputArtPosition").value;
+            console.log(namePosition + ": " + betragPosition + " Euro" + " = " + artPosition);
+            testenEingabe();
+        }
+
+        function testenEingabe() {
+            if(artPosition === "Einnahme"){
+                console.log("EINNAHME");
+            }
+            if(artPosition === "Ausgabe"){
+                console.log("AUSGABE");
+            }
+            if(!(artPosition === "Einnahme" || artPosition === "Ausgabe")){
+                console.log(artPosition + " ist nicht bekannt");
+            }
+        }
+
+
+    </script>
+</head>
+<body>
+    <label>Position</label><input type="text" id="inputNamePosition">
+    <label>Betrag</label><input type="text" id="inputBetragPosition">
+    <label>Typ</label><input type="text" id="inputArtPosition">
+    <button type="button" onclick="einlesenDaten()" id="buttonEingabe">Eingabe</button>
+</body>
+</html>

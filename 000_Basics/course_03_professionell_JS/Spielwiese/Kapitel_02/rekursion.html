@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rekursion</title>
+    <script>
+        var fibonacciRekursiv = function(n){
+            return n < 2 ? n : fibonacciRekursiv(n-1) + fibonacciRekursiv(n-2);
+        };
+
+        function fibonacciImperativ(n){
+            var i;
+                fibonacciZahlen = new Array();
+            fibonacciZahlen.push(0);
+            fibonacciZahlen.push(1);
+            for(i=0; i<n; i++){
+                fibonacciZahlen.push(fibonacciZahlen[0] + fibonacciZahlen[1]);
+                fibonacciZahlen.shift();
+            }
+            retur
+        }
+
+        console.log(fibonacciRekursiv(11));
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>callback</title>
+    <script>
+        function eineFunktion(callback){
+            console.log("eine Funktion");
+
+            if(typeof callback === "function"){
+
+                callback();
+
+            }else{
+                alert("no function is called");
+            }
+        }
+
+        function nochEineFunktion(){
+            console.log("noch eine Funktion");
+        }
+
+        eineFunktion(nochEineFunktion);
+    </script>
+
+    <script>console.log("---------------------------------------")</script>
+
+    <script>
+
+        function summePerCallback(x,y,callback){
+            var ergebnis = x+y;
+            if(typeof callback === "function"){
+                callback(ergebnis);
+            }
+        }
+
+        summePerCallback(2,2, function(ergebnis){
+            console.log("Das Ergebnis lautet: " + ergebnis)
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

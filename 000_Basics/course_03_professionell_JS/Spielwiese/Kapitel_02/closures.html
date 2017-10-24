@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>closures</title>
+    <script>
+        function zaehler(name){
+            var i = 0;
+            return function(){
+                i++;
+                console.log(name + ': ' + i);
+            }
+        }
+
+        var zaehler1 = zaehler("Zähler 1");
+        zaehler1();
+        zaehler1();
+
+        var zaehler2 = zaehler("Zähler 2");
+        zaehler2();
+        zaehler2();
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

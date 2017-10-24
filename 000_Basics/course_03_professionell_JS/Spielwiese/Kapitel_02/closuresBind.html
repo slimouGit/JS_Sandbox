@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>closuresBind</title>
+        <script>
+            function erstellePerson(name, vorname){
+                return {
+                name: name,
+                vorname: vorname
+                }
+            }
+            
+            var erstelleMustermann = erstellePerson.bind(null, 'Mustermann');
+            var max = erstelleMustermann('Max');
+            console.log(max);
+            
+            //-----------------------------------------------------------------
+            
+            function erstellePosition(artPosition, namePosition, betragPosition){
+                return {
+                    artPosition: artPosition,
+                    namePosition: namePosition,
+                    betragPosition: betragPosition
+                }
+            }
+            
+            var erstelleEinnahme = erstellePosition.bind(null, 'Einnahme');
+            var erstelleAusgabe = erstellePosition.bind(null, 'Ausgabe');
+            
+            var gehalt = erstelleEinnahme("Gehalt", "5870");
+            var miete = erstelleAusgabe("Miete", "800");
+            var strom = erstelleAusgabe("Strom", "55");
+            
+            console.log(gehalt);
+            console.log(miete);
+            console.log(strom);
+        </script>
+    </head>
+</html>

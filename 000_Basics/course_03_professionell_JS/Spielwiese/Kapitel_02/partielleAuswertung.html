@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>partielleAuswertung</title>
+    <script>
+
+        //------------------------------------------------------------
+
+        //imperativ
+        function volumen1(x, y, z){
+            return x * y * z;
+        }
+        var volumenX = 5;
+        console.log(volumen1(volumenX, 2,2));
+        console.log(volumen1(volumenX, 4,4));
+        console.log(volumen1(volumenX, 6,6));
+
+        //------------------------------------------------------------
+        console.log("-----------------------------------------------");
+
+        //funktional
+        function volumen2(x,y,z){
+            return x * y * z;
+        }
+
+        function volumenX5(y,z){
+            return volumen2(5,y,z);
+        }
+
+        console.log(volumenX5(2,2));
+        console.log(volumenX5(4,4));
+
+        //-----------------------------------------------------------
+        console.log("-----------------------------------------------");
+
+        //generische Funktion mit Closures
+        function volumen3(x, y, z){
+            return x * y * z;
+        }
+
+        function volumenGen(x){
+            return function(y, z){
+                return volumen3(x, y, z);
+            }
+        }
+
+        var volumenGen5 = volumenGen(5);
+
+        console.log(volumenGen5(2,2));
+        console.log(volumenGen5(4,4));
+
+        //------------------------------------------------------------
+        console.log("-----------------------------------------------");
+
+        //generischer Steuerrechner mit Closures
+        function berechneSteuersatz(steuerSatz , betrag){
+            return betrag * steuerSatz / 100;
+        }
+
+        function definiereSteuersatz(steuerSatz){
+            return function(betrag){
+                return berechneSteuersatz(steuerSatz , betrag);
+            }
+        }
+
+        var steuerSatz1 = definiereSteuersatz(10);
+        console.log(steuerSatz1(110));
+        console.log(steuerSatz1(10));
+
+        var steuerSatz2 = definiereSteuersatz(19);
+        console.log(steuerSatz2(235));
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

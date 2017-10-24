@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>currying</title>
+    <script>
+        function volumen(x,y,z){
+            return x*y*z;
+        }
+
+        function volumenCurry(x){
+            return function(y){
+                return function(z){
+                    return x*y*z;
+                }
+            }
+        }
+        console.log(volumen(5,5,5));
+        console.log(volumenCurry(5)(5)(5));
+    </script>
+</head>
+<body>
+
+</body>
+</html>
