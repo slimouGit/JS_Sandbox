@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>fat arrow function</title>
+</head>
+<body>
+    <script>
+        function fn1(){
+            console.log("Hello");
+        }
+        fn1();
+
+        //--------------------------------------------------------
+
+        let fn2 = () => {
+            console.log("Hello fat arrow function 2");
+        }
+        fn2();
+
+        //--------------------------------------------------------
+
+        let fn3 = () =>  console.log("Hello fat arrow function 3");
+        fn3();
+
+        //--------------------------------------------------------
+
+        let fn4 = () =>  console.log("Hello fat arrow function 4");
+        console.log(fn4());
+
+        //--------------------------------------------------------
+
+        let fn5 = () =>  {
+            let a = 2;
+            let b = 4;
+            return a + b;
+        };
+        console.log(fn5());
+
+        //--------------------------------------------------------
+
+        let fn6 = (a, b) =>  {
+            return a + b;
+        };
+        console.log(fn6(20, 8));
+
+        //--------------------------------------------------------
+
+        let fn7 = (a, b) =>  a - b;
+        console.log(fn7(20, 8));
+
+        //--------------------------------------------------------
+
+        let fn8 = a =>  a + 5;
+        console.log(fn8(8));
+
+        //--------------------------------------------------------
+
+        setTimeout(() => console.log("Hello"), 1000 );
+
+
+    </script>
+</body>
+</html>

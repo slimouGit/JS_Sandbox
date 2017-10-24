@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>default parameters</title>
+</head>
+<body>
+    <script>
+        //----------------------------------------------------
+
+        function isEqualTo1(number, compare){
+            return number == compare;
+        }
+
+        console.log(isEqualTo1(54,54));
+
+        //----------------------------------------------------
+
+        function isEqualTo2(number, compare = 54){
+            return number == compare;
+        }
+
+        console.log(isEqualTo2(54));
+
+        //----------------------------------------------------
+
+        function isEqualTo3(number = 10, compare){
+            console.log(number + " " + compare);
+            return number == compare;
+        }
+
+        console.log(isEqualTo3(10)); //false
+
+        //----------------------------------------------------
+
+        function isEqualTo4(number, compare = number){
+            console.log(number + " " + compare);
+            return number == compare;
+        }
+
+        console.log(isEqualTo4(10)); //true
+
+        //----------------------------------------------------
+
+        function isEqualTo4(number, compare = number){
+            console.log(number + " " + compare);
+            return number == compare;
+        }
+
+        console.log(isEqualTo4(10, 20)); //false
+
+        //----------------------------------------------------
+    </script>
+</body>
+</html>
