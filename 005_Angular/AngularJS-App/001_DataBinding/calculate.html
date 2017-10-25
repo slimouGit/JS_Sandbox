@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJS App</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+</head>
+<body ng-app>
+    <p>Fläche und Umfang eines Rechtecks</p>
+    <input type="number" ng-model="my_width" placeholder="Breite"/>
+    <input type="number" ng-model="my_height" placeholder="Höhe"/>
+
+    <p ng-if="my_width>0&&my_height>0">Fläche: {{my_width*my_height}}</p>
+    <p ng-if="my_width>0&&my_height>0">Umfang: {{my_width*2+my_height*2}}</p>
+</body>
+</html>

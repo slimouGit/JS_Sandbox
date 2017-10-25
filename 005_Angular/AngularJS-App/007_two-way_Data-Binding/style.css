@@ -1,0 +1,12 @@
+.container {
+    font-family: Arial, sans-serif;
+    width: 60%;
+    margin: 1em auto;
+    padding: 2.5em;
+    background-color: #eee;
+}
+
+input {
+    padding: 0.3em 0.4em;
+
+}
