@@ -1,11 +1,9 @@
-"use strict";
-
-let myApp = angular.module('myApp', []);
+var myApp = angular.module('myApp', []);
 
 myApp.controller('mainCtrl', function($scope) {
 
     $scope.verfuegbar = "ja";
-    $scope.stueck = 3;
+    $scope.stueck = 1;
 
     $scope.buyProduct = function() {
 
@@ -18,6 +16,3 @@ myApp.controller('mainCtrl', function($scope) {
     };
 
 });
-
-
-
