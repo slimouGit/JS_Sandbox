@@ -20,17 +20,17 @@ if("delete_in_id_0"){
     
 };
 
-function testFick(){alert("testFick" + index);}
+function testFick(){alert("test" + index);}
 
 function delete_in_id_0(){
-    alert("Ficken " + index);
+    alert("salzen " + index);
     
 }
 function delete_in_id_1(){
-    alert("Ficken " + index);
+    alert("suessen " + index);
     
 }
 function delete_in_id_2(){
-    alert("Ficken " + index);
+    alert("schmecken " + index);
     
 }
