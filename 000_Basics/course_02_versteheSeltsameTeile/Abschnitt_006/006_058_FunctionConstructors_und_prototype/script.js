@@ -18,6 +18,8 @@ Person.prototype.getFullNameFormal = function(){
 var max = new Person("Max", "Mustermann");
 console.log(max);
 
+console.log(max.getFullName());
+
 var julia = new Person("Julia", "Wild");
 console.log(julia);
 

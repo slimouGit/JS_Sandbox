@@ -21,4 +21,9 @@ var people = [
     ];
     
     console.log(people);
+
+console.log(people[0].vorname)
+console.log(people[0].adressen[0])
+
+console.log(people[1].greet())
     
