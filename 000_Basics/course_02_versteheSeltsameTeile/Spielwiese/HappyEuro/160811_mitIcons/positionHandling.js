@@ -4,7 +4,7 @@ function deleteInPosition(index){
     var temp = "delete_in_id_";
     temp = temp.concat(index);
     alert(temp);
-    //testFick(index);
+    //testAlert(index);
 //}
 /*
 if(temp){
@@ -20,7 +20,7 @@ if("delete_in_id_0"){
     
 };
 
-function testFick(){alert("test" + index);}
+function testAlert(){alert("test" + index);}
 
 function delete_in_id_0(){
     alert("salzen " + index);
