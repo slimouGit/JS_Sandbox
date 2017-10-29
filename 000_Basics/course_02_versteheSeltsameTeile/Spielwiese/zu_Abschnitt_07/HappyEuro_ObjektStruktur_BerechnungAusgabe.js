@@ -14,6 +14,7 @@ var counter = 0;
 
 //Funktion gibt Daten aus
 function ausgebenDatensatz(callback){
+    console.log("ausgebenDatensatz(arg)")
     for(var i = 0; i<positionen.length;i++){
         counter++;
         console.log(counter + ". " + positionen[i].namePosition + ": " + positionen[i].betragPosition + " Euro" + " | Typ: " 

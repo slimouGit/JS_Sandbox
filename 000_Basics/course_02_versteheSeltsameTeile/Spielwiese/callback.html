@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Callback</title>
+</head>
+<body>
+    <script>
+        "use strict";
+
+        let testVal = "Hello";
+
+        function getResponse(callback){
+            setTimeout(function(){
+                callback();
+            }, 2000);
+            console.log(testVal);
+        }
+
+        function helloWorld(){
+            console.log("World");
+        }
+
+        getResponse(helloWorld);
+    </script>
+</body>
+</html>
