@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <script>
+        "use strict";
+
+        let counter = 0;
+        let Design = [];
+        let Controlling = [];
+
+        class Person{
+            constructor(firstname, lastname, position, department){
+                this.firstname = firstname;
+                this.lastname = lastname;
+                this.position = position;
+                this.department = department;
+                this.id = counter++;
+                this.welcome();
+                this.team = new Team(this.firstname, this.lastname, this.position, this.department, this.id);
+            }
+
+            welcome(){
+                console.log("Hello: " + this.firstname + " " + this.lastname + " ("+this.position+"/"+this.department+")");
+            }
+
+            printData(){
+                console.log(this)
+            }
+        }
+
+        class Team{
+            constructor(firstname, lastname, position, department, id){
+                this.firstname = firstname;
+                this.lastname = lastname;
+                this.position = position;
+                this.department = department;
+                this.id = id;
+                this.welcomeTeamMember();
+                this.assignment();
+            }
+
+            welcomeTeamMember(){
+                console.log("Team-Member: " + this.firstname);
+            }
+
+            assignment(){
+                if(this.department == "Controlling"){
+                    Controlling.push(this);
+                }
+                if(this.department == "Design"){
+                    Design.push(this);
+                }
+            }
+        }
+
+        let mimi = new Person("Mimi", "Illmer", "Accountant", "Controlling");
+        let welde = new Person("Welde", "Okbe", "ProductDesigner", "Design");
+        let max = new Person("Marcus", "Quandt", "Graphic-Designer", "Design")
+
+        mimi.printData();
+    </script>
+</body>
+</html>
