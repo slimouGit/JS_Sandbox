@@ -33,7 +33,7 @@
             windrawMoney(value){
                 if(value<this._accountAmount) {
                     console.log("neuer Kontostand: " + this._accountAmount);
-                    //console.log(this.accountNumber + " - " + value + " Euro");
+                    console.log(this.accountNumber + " - " + value + " Euro");
                     return this._accountAmount -= value;
                 }else{
                     alert(value + " Euro sind nicht verfuegbar");
