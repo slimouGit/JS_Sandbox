@@ -11,6 +11,7 @@
     //ES6
     class ES6Person {
         constructor(firstname, lastname){
+            console.log("Personen Constructor");
             this.firstname = firstname;
             this.lastname = lastname;
             this.welcome();
@@ -32,8 +33,9 @@
     //----------------------------------
     class ES6Student extends ES6Person {
         constructor(firstname, lastname, subject){
+            console.log("Studenten Constructor");
             super(firstname, lastname);
-            this.subject = subject
+            this.subject = subject;
             this.enrolling = new Enrolling(this.firstname, this.lastname, this.subject)
         }
         getFullname(){
@@ -68,6 +70,7 @@
         }
     }
     //----------------------------------
+    let testStudent = new ES6Student("Max", "Mustermann", "Sport");
     let mimiPrivateES6 = new ES6Person("Mimi", "Illmi");
     console.log(mimiPrivateES6);
     mimiPrivateES6.getFullname();
