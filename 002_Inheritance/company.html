@@ -59,11 +59,24 @@
             }
         }
 
+        class StaticTeam{
+            static printDepartment(x){
+                //console.log(x);
+                for(let val of x){
+                    console.log(val);
+                }
+            }
+        }
+
         let mimi = new Person("Mimi", "Illmer", "Accountant", "Controlling");
         let welde = new Person("Welde", "Okbe", "ProductDesigner", "Design");
         let max = new Person("Marcus", "Quandt", "Graphic-Designer", "Design")
 
         mimi.printData();
+
+        StaticTeam.printDepartment(Design);
+        StaticTeam.printDepartment(Controlling);
+
     </script>
 </body>
 </html>
