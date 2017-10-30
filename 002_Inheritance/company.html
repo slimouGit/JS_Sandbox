@@ -11,6 +11,7 @@
         let counter = 0;
         let Design = [];
         let Controlling = [];
+        let data = [];
 
         class Person{
             constructor(firstname, lastname, position, department){
@@ -19,6 +20,7 @@
                 this.position = position;
                 this.department = department;
                 this.id = counter++;
+                this.data = [this.firstname, this.lastname, this.position, this.department, this.id];
                 this.welcome();
                 this.team = new Team(this.firstname, this.lastname, this.position, this.department, this.id);
             }
