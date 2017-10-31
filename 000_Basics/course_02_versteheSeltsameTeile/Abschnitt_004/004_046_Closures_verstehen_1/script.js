@@ -9,3 +9,8 @@ greet("hi")("Salim"); //zweite () fuer Aufruf der inneren/anonymen Funktion in d
 
 var sayHi = greet("ey");
 sayHi("Du");
+
+
+greet("willkommen")("Mimi");
+let welcome = greet("willkommen");
+welcome("Mimi");

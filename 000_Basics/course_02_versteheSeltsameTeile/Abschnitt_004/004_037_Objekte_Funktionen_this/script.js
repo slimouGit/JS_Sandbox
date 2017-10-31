@@ -4,6 +4,7 @@ console.log(this);
 function a(){
     this.neueVariable = "Hallo";
     console.log(this);
+    //console.log(this.neueVariable);
 }
 
 //function expression
