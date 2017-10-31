@@ -1,4 +1,6 @@
 [
   {"id": "1", "forename": "Mimi", "surname": "Illmi", "phone": "017622883263", "email": "smartillmer@gmail.com"},
-  {"id": "2", "forename": "Salim", "surname": "Oussayfi", "phone": "01633661400", "email": "oussayfi@gmail.com"}
+  {"id": "2", "forename": "Salim", "surname": "Oussayfi", "phone": "01633661400", "email": "oussayfi@gmail.com"},
+  {"id": "3", "forename": "Welde", "surname": "Okbe", "phone": "015733253088", "email": "welde-o@gmail.com"},
+  {"id": "4", "forename": "Marcus", "surname": "Quandt", "phone": "01602515893", "email": "marcus.quandt@gmx.de"}
 ]
