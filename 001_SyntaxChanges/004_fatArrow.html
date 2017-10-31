@@ -6,10 +6,18 @@
 </head>
 <body>
     <script>
-        function fn1(){
+        function fn0(){
             console.log("Hello");
         }
-        fn1();
+        fn0();
+
+        //--------------------------------------------------------
+
+        let fn1 = (x, y=10) => {
+            return x+y;
+        }
+        console.log(fn1(10));
+        console.log(fn1(10,0));
 
         //--------------------------------------------------------
 

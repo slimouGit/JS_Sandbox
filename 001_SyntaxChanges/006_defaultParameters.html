@@ -24,6 +24,13 @@
 
         //----------------------------------------------------
 
+        function addFunc(x, y = 10){
+            return x+y;
+        }
+        console.log(addFunc(10));
+        console.log(addFunc(10, 0));
+        //----------------------------------------------------
+
         function isEqualTo3(number = 10, compare){
             console.log(number + " " + compare);
             return number == compare;
