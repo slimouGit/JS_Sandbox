@@ -19,7 +19,18 @@ var arr_2 = [
     "Hallo"     //String
 ];
 
-console.log(arr_2);
+var arr_3 = [
+    1,
+    function(x){
+        console.log(arr_3[0] + x + arr_3[2]);
+    },
+    10
+];
+
+//console.log(arr_2);
 
 //den Index 3 im Array nehmen (Funktion) und ausfuehren mit dem Index 2 im Array (Objekt), und den Wert aus name und stadt mitgeben
 arr_2[3](arr_2[2].name + " aus " + arr_2[2].stadt);
+
+
+arr_3[1](2);

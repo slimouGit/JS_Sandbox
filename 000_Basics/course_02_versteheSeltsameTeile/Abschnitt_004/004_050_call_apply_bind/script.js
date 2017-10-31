@@ -1,4 +1,13 @@
 var person = {
+    vorname: "Mimi",
+    nachname: "Illmi",
+    getFullName: function(){
+        var fullName = this.vorname + " " + this.nachname;
+        return fullName;
+    }
+};
+
+var person2 = {
     vorname: "Salim",
     nachname: "Oussayfi",
     getFullName: function(){
@@ -23,7 +32,7 @@ logPersonName();
 
 var logName = function(lang1, lang2){
     console.log("Logged 2: " + this.getFullName());
-}.bind(person);
+}.bind(person2);
 
 logName();
 
@@ -51,6 +60,12 @@ var logName_4 = function(lang1,lang2){
 };
 
 logName_4.call(person, "en", "de");
+
+var logName_4_5 = function(){
+    console.log("Logged 4,5: " + this.getFullName());
+};
+
+logName_4_5.call(person);
 
 //------------------------------------------------------------
 
