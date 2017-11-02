@@ -9,7 +9,7 @@ export class AppComponent {
   title = 'app';
 }
 
-class Car{
+export class Car{
   id: number;
   brand: string;
   name: string;
