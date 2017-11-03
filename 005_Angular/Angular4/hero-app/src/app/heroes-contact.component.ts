@@ -10,13 +10,13 @@ import {MySecondService} from "./my-second-service";
 
 export class HeroesContact implements OnInit{
     title = 'Contact-Data';
-    contacts = null;
+    //contacts = Contact[];
 
   constructor(private router: Router, private dataService2: MySecondService){
     console.log("service injected in contacts");
   }
 
     ngOnInit(){
-      this.dataService2.printContacts().then(contacts => this.contacts = contacts);
+      //this.dataService2.printContacts().then(contacts => this.contacts = contacts);
     }
 }
