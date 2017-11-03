@@ -9,12 +9,15 @@ export class MyFirstServiceService {
     return Promise.resolve(HEROES);
   }
 
-  // See the "Take it slow" appendix
   getHeroesSlowly(): Promise<Hero[]> {
     return new Promise(resolve => {
-      // Simulate server latency with 2 second delay
+      setTimeout(() => resolve(this.getHeroes()), 2000);
+    });
+  }
+
+  getHerosImmediately(): Promise<Hero[]>{
+    return new Promise(resolve => {
       resolve(this.getHeroes());
-      //setTimeout(() => resolve(this.getHeroes()), 2000);
     });
   }
 

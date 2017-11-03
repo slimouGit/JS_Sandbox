@@ -10,6 +10,8 @@ import { AppRoutingModule }     from './app-routing.module';
 
 import {MyFirstServiceService} from "./my-first-service.service";
 
+import {HeroesContact} from "./heroes-contact.component";
+import {MySecondService} from "./my-second-service";
 
 
 @NgModule({
@@ -17,7 +19,8 @@ import {MyFirstServiceService} from "./my-first-service.service";
     AppComponent,
     HeroDetailComponent,
     HeroesComponent,
-    DashboardComponent
+    DashboardComponent,
+    HeroesContact
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,7 @@ import {MyFirstServiceService} from "./my-first-service.service";
     AppRoutingModule
   ],
 
-  providers: [MyFirstServiceService],
+  providers: [MyFirstServiceService, MySecondService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
