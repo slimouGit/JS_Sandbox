@@ -3,5 +3,17 @@
   <h1>
     Hello {{title}}!
   </h1>
+  <ul>
+    <li *ngFor="let car of cars" (click)="printCar(car.brand)">
+        {{car.brand}}
+    </li>
+  </ul>
+  <p *ngIf="cars.length > 3" >Viele Autos</p>
+
+  <button (click)="displayCar(title)">Display Car</button>
+  <br>
+  <input [(ngModel)]="title">
+  <br>
+  <p *ngIf="selectedCar">{{selectedCar}}</p>
 </div>
 

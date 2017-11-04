@@ -1,4 +1,11 @@
 <h2>{{title}}</h2>
-<!--
-<app-contact></app-contact>
--->
+<ul>
+<li *ngFor='let contactItem of contacts'  (click)="onSelect(contactItem)">
+  <span class="id">{{contactItem.id}}</span>
+  <span class="name">{{contactItem.forename + " " + contactItem.surname}} </span>
+</li>
+</ul>
+<h1 *ngIf="contacts > 1"> Über 3 Kontakte</h1>
+
+
+
