@@ -1,11 +1,13 @@
 <h2>{{title}}</h2>
 <ul>
-<li *ngFor='let contactItem of contacts'  (click)="onSelect(contactItem)">
+<li *ngFor='let contactItem of contacts'  (click)="getPhoneNumber(contactItem)">
   <span class="id">{{contactItem.id}}</span>
   <span class="name">{{contactItem.forename + " " + contactItem.surname}} </span>
 </li>
 </ul>
-<h1 *ngIf="contacts > 1"> Über 3 Kontakte</h1>
+<h1 *ngIf="selectedNumber"> Die Telefonnummmer von {{selectedNumber[0]}} lautet: {{selectedNumber[1]}}</h1>
+
+<button [disabled]="!selectedNumber">Cancel is disabled</button>
 
 
 

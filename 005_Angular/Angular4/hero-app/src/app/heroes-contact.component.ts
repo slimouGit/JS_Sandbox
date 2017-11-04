@@ -12,6 +12,7 @@ export class HeroesContact implements OnInit{
     title = 'Contact-Data';
     contacts : Contact[];
 
+    selectedNumber;
 
   constructor(private router: Router, private dataService2: MySecondService){
     console.log("service injected in contacts");
@@ -22,7 +23,7 @@ export class HeroesContact implements OnInit{
     }
 
   getPhoneNumber(x){
-      alert(x);
+      this.selectedNumber = [x.forename, x.phonenumber];
   }
 
   onSelect(contactItem: Contact):void{
