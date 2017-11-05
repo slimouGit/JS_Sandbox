@@ -13,23 +13,15 @@ export class AppComponent implements OnInit{
 
   cars: Car[];
 
-  title= "World";
-
-  firstname = "Hans";
-  surName;
-
   constructor(private carService: CarService){}
 
   ngOnInit(){
     this.carService.getCars().then(cars => this.cars = cars);
   }
 
-  displayCar(x){
-    alert("Car " + x);
+  showCarDetails(car: Car){
+    console.log(car);
+    this.selectedCar = car;
   }
 
-  printCar(x){
-    console.log(x);
-    this.selectedCar = x;
-  }
 }
