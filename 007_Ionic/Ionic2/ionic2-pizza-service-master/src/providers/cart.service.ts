@@ -3,12 +3,12 @@ import {EventEmitter, Injectable} from '@angular/core';
 import {CartItem, Pizza} from '../models';
 
 @Injectable()
-export class CartService {
-  private cart: CartItem[] = [];
+export class CarService {
+  private cart: CarItem[] = [];
   public statusChanged = new EventEmitter<{type: string; totalCount: number}>();
 
-  getCart(): CartItem[] {
-    return this.cart;
+  getCar(): CarItem[] {
+    return this.car;
   };
 
   addCartItem(pizza: Pizza): void {

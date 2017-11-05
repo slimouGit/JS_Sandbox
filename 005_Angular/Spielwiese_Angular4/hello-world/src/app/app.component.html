@@ -4,16 +4,26 @@
     Hello {{title}}!
   </h1>
   <ul>
-    <li *ngFor="let car of cars" (click)="printCar(car.brand)">
-        {{car.brand}}
+    <p *ngIf="!cars">Cars sind nicht bekannt</p>
+    <li  *ngFor="let carItem of cars" (click)="printCar(carItem.brand)">
+        {{carItem.brand}}
     </li>
   </ul>
+  <!--
   <p *ngIf="cars.length > 3" >Viele Autos</p>
-
+  -->
   <button (click)="displayCar(title)">Display Car</button>
   <br>
   <input [(ngModel)]="title">
   <br>
   <p *ngIf="selectedCar">{{selectedCar}}</p>
+  <p>{{firstname}}</p>
+  <input [ngModel]="firstname" placeholder="Vorname">
+  <br>
+  <input [(ngModel)]="firstname" placeholder="Vorname">
+  <br>
+  <input [(ngModel)]="surname" placeholder="Nachname">
+  <p *ngIf="surname">Nachname: {{surname}}</p>
+
 </div>
 

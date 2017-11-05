@@ -8,7 +8,6 @@ export class MySecondService{
   getContacts(): Promise<Contact[]>{
     return Promise.resolve(CONTACTS);
   }
-
   printContacts(): Promise<Contact[]>{
     return new Promise(resolve => {
       resolve(this.getContacts());
