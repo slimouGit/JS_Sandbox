@@ -9,6 +9,8 @@ import {CarService} from "./car-service";
 })
 export class AppComponent implements OnInit{
 
+  newCar: String;
+
   selectedCar: Car;
 
   cars: Car[];
@@ -22,6 +24,18 @@ export class AppComponent implements OnInit{
   showCarDetails(car: Car){
     console.log(car);
     this.selectedCar = car;
+  }
+
+  onAddCar(newCar: string){
+    console.log("car added");
+    this.cars.push(
+      new Car(8, newCar)
+    );
+  }
+
+  onDeleteCar(index: number){
+    console.log("car deleted " + index);
+    this.cars.splice(index, 1)
   }
 
 }

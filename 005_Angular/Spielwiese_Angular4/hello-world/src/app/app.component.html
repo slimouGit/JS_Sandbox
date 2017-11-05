@@ -1,12 +1,16 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
+  <input [(ngModel)]="newCar">
+  <button (click)="onAddCar(newCar)">Auto hinzufügen</button>
 
-  <ul *ngIf="cars">
+  <ul>
 
-    <li  *ngFor="let carItem of cars"
+    <li  *ngFor="let carItem of cars; let i = index"
          [class.selected]="carItem === selectedCar"
          (click)="showCarDetails(carItem)">
+      {{i}}
           {{carItem.brand}}
+      <button (click)="onDeleteCar(i)">Auto löschen</button>
     </li>
   </ul>
 
