@@ -8,7 +8,7 @@ let express = require("express"); //templates einbinden npm install express
 let bodyParser = require("body-parser"); //gesendete Variablen entgegennehmen npm install body-parser
 
 //Daten lesen
-fs.readFile("./data.json", "utf-8", (err, data) =>{
+fs.readFile("./cars.json", "utf-8", (err, data) =>{
     if(err) throw err;
     let dataParsed = JSON.parse(data);
 
@@ -44,7 +44,7 @@ fs.readFile("./data.json", "utf-8", (err, data) =>{
         entries.push(newEntry);
 
         //Daten in Datei schreiben
-        fs.writeFile("./data.json", JSON.stringify(entries));
+        fs.writeFile("./cars.json", JSON.stringify(entries));
 
         //an Index-Seite weiterleiten
         res.redirect("/index");

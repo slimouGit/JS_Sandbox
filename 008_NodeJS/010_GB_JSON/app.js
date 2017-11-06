@@ -10,7 +10,7 @@ let express = require("express"); //templates einbinden npm install express
 let bodyParser = require("body-parser"); //gesendete Variablen entgegennehmen npm install body-parser
 
 //Daten lesen
-fs.readFile("./data.json", "utf-8", (err, data) =>{
+fs.readFile("./cars.json", "utf-8", (err, data) =>{
     if(err) throw err;
     let dataParsed = JSON.parse(data);
 
