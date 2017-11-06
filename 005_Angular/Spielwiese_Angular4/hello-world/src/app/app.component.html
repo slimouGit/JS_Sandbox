@@ -8,7 +8,7 @@
     <li  *ngFor="let carItem of cars; let i = index"
          [class.selected]="carItem === selectedCar"
          (click)="showCarDetails(carItem)">
-      {{i}}
+          {{i+1}}
           {{carItem.brand}}
       <button (click)="onDeleteCar(i)">Auto löschen</button>
     </li>

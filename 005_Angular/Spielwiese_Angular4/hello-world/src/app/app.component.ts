@@ -9,7 +9,8 @@ import {CarService} from "./car-service";
 })
 export class AppComponent implements OnInit{
 
-  newCar: String;
+  public newCar: string;
+  public counter: number = 0;
 
   selectedCar: Car;
 
@@ -28,8 +29,9 @@ export class AppComponent implements OnInit{
 
   onAddCar(newCar: string){
     console.log("car added");
+    this.counter++;
     this.cars.push(
-      new Car(8, newCar)
+      new Car(this.counter, newCar)
     );
   }
 
