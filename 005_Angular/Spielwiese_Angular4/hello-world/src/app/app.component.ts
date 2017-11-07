@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Car} from "./car";
 import {CarService} from "./car-service";
+import {viewClassName} from "@angular/compiler";
+import {forEach} from "@angular/router/src/utils/collection";
 
 @Component({
   selector: 'app-root',
@@ -16,6 +18,9 @@ export class AppComponent implements OnInit{
 
   cars: Car[];
 
+  showList: boolean = true;
+  showDetail: boolean = false;
+
   constructor(private carService: CarService){}
 
   ngOnInit(){
@@ -25,6 +30,8 @@ export class AppComponent implements OnInit{
   showCarDetails(car: Car){
     console.log(car);
     this.selectedCar = car;
+    this.showList = false;
+    this.showDetail = true;
   }
 
   onAddCar(newCar: string){
@@ -40,4 +47,32 @@ export class AppComponent implements OnInit{
     this.cars.splice(index, 1)
   }
 
+  back(){
+    this.showList = true;
+    this.showDetail = false;
+  }
+
+
+  inputValue: string;
+
+  onChangeInput(event: KeyboardEvent){
+    let target = <HTMLInputElement> event.target;
+    console.log(target.value);
+    this.inputValue=target.value;
+  }
+
+  changeClass(event){
+    let target = event.target;
+    let currentClass = target.classList;
+    let currentId = target.id;
+
+    let elements = document.getElementsByClassName('selected');
+
+    for(let item in elements){
+        console.log(item);
+    }
+
+    document.getElementById(currentId).className = 'selected';
+
+    }
 }

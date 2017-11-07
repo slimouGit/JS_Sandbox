@@ -1,8 +1,8 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-  <input [(ngModel)]="newCar">
+  <input [(ngModel)]="newCar" (keyup)="onChangeInput($event)">{{inputValue}}
   <button (click)="onAddCar(newCar)">Auto hinzufügen</button>
-
+  <div *ngIf="showList">
   <ul>
 
     <li  *ngFor="let carItem of cars; let i = index"
@@ -13,9 +13,21 @@
       <button (click)="onDeleteCar(i)">Auto löschen</button>
     </li>
   </ul>
-
-
-  <car-detail [cars]="selectedCar"></car-detail>
-
+  </div>
+  <div *ngIf="showDetail">
+    <car-detail [cars]="selectedCar"></car-detail>
+    <button (click)="back()">Zurück</button>
+  </div>
+  <hr>
+  <div *ngIf="inputValue == 'secret'">
+    <p>some secret informations</p>
+  </div>
+  <div>
+    <ul>
+      <li id="link1" class="" (click)="changeClass($event)">Link1</li>
+      <li id="link2" class="" (click)="changeClass($event)">Link2</li>
+      <li id="link3" class="" (click)="changeClass($event)">Link3</li>
+    </ul>
+  </div>
 </div>
 
