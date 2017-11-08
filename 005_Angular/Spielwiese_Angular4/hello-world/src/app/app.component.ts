@@ -18,6 +18,8 @@ export class AppComponent implements OnInit{
 
   cars: Car[];
 
+
+
   showList: boolean = true;
   showDetail: boolean = false;
 
@@ -68,8 +70,11 @@ export class AppComponent implements OnInit{
 
     let elements = document.getElementsByClassName('selected');
 
+    document.getElementById(currentId).className = 'selected';
+
     for(let item in elements){
-        console.log(item);
+      console.log(currentId + " " + currentClass);
+      //document.getElementById(currentId).classList.remove(currentClass);
     }
 
     document.getElementById(currentId).className = 'selected';
