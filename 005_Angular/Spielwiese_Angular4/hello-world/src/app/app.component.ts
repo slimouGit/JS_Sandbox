@@ -73,6 +73,7 @@ export class AppComponent implements OnInit{
     document.getElementById(currentId).className = 'selected';
 
     for(let item in elements){
+      console.log(item)
       console.log(currentId + " " + currentClass);
       //document.getElementById(currentId).classList.remove(currentClass);
     }
