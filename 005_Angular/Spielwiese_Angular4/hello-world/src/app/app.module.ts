@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import {FormsModule} from "@angular/forms";
 import {CarDetail} from "./app.car-detail.component";
 
+import{CardComponent} from './card.component';
+
 import { AppComponent } from './app.component';
 
 
@@ -11,7 +13,8 @@ import {CarService} from "./car-service";
 @NgModule({
   declarations: [
     AppComponent,
-    CarDetail
+    CarDetail,
+    CardComponent
   ],
   imports: [
     BrowserModule,
