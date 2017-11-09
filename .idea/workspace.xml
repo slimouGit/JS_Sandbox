@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bc1dbbf1-0cd4-45cf-bc72-a9655e7cf036" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/card.component.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/card.component.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/app.car-detail.component.html" afterPath="$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/app.car-detail.component.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/app.component.html" afterPath="$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/app.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/app.module.ts" afterPath="$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/app.module.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/app.component.ts" afterPath="$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/app.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/car.ts" afterPath="$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/car.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/005_Angular/Angular4/hero-app/dist/" />
     <ignored path="$PROJECT_DIR$/005_Angular/Angular4/hero-app/tmp/" />
@@ -26,11 +26,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.component.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/app.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="36" lean-forward="true" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
+            <state relative-caret-position="98">
+              <caret line="40" column="29" lean-forward="true" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
               <folding>
                 <element signature="e#0#48#0" expanded="true" />
               </folding>
@@ -38,11 +38,43 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.component.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="app.car-detail.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/app.car-detail.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="7" lean-forward="true" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.car-detail.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/app.car-detail.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#47#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="car.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/car.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="72" lean-forward="false" selection-start-line="1" selection-start-column="72" selection-end-line="1" selection-end-column="72" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.component.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/app.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="550">
-              <caret line="34" column="19" lean-forward="false" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
+            <state relative-caret-position="68">
+              <caret line="4" column="46" lean-forward="false" selection-start-line="4" selection-start-column="46" selection-end-line="4" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -52,7 +84,7 @@
         <entry file="file://$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/card.component.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
-              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -61,7 +93,7 @@
       <file leaf-file-name="app.module.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/app.module.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
+            <state relative-caret-position="102">
               <caret line="16" column="17" lean-forward="false" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
               <folding>
                 <element signature="e#0#58#0" expanded="true" />
@@ -138,19 +170,19 @@
         <option value="$PROJECT_DIR$/005_Angular/Angular4/hero-app/src/app/heroes-contact.component.ts" />
         <option value="$PROJECT_DIR$/005_Angular/Angular4/hero-app/src/app/my-second-service.ts" />
         <option value="$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/app.component.css" />
-        <option value="$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/app.car-detail.component.html" />
         <option value="$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/app.car-detail.component.ts" />
-        <option value="$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/car.ts" />
         <option value="$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/MockCarData.ts" />
         <option value="$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/car-service.ts" />
         <option value="$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/my-db/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/my-db/src/app/app.component.ts" />
         <option value="$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/my-db/src/app/my-data-service.service.ts" />
         <option value="$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/navigation.ts" />
-        <option value="$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/app.component.ts" />
         <option value="$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/card.component.ts" />
         <option value="$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/card.component.html" />
+        <option value="$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/car.ts" />
+        <option value="$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/app.component.ts" />
+        <option value="$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/app.car-detail.component.html" />
         <option value="$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/app.component.html" />
       </list>
     </option>
@@ -198,9 +230,8 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="Scope" />
-      <pane id="AndroidView" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -247,6 +278,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -391,7 +423,8 @@
       <workItem from="1510031776368" duration="185000" />
       <workItem from="1510077850117" duration="7918000" />
       <workItem from="1510117930566" duration="2500000" />
-      <workItem from="1510169622701" duration="1362000" />
+      <workItem from="1510169622701" duration="1972000" />
+      <workItem from="1510203655403" duration="2363000" />
     </task>
     <task id="LOCAL-00001" summary=":::">
       <created>1509740168346</created>
@@ -526,11 +559,18 @@
       <option name="project" value="LOCAL" />
       <updated>1510119840354</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="...">
+      <created>1510171016704</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1510171016704</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68544000" />
+    <option name="totallyTimeSpent" value="71517000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="12" width="1924" height="1080" extended-state="0" />
@@ -548,7 +588,7 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27682403" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28004292" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -807,29 +847,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/card.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/app.module.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
+        <state relative-caret-position="102">
           <caret line="16" column="17" lean-forward="false" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
           <folding>
             <element signature="e#0#58#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/app.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="34" column="19" lean-forward="false" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/card.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -841,13 +873,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/car.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="72" lean-forward="false" selection-start-line="1" selection-start-column="72" selection-end-line="1" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/app.car-detail.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/app.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="36" lean-forward="true" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
+        <state relative-caret-position="98">
+          <caret line="40" column="29" lean-forward="true" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
           <folding>
             <element signature="e#0#48#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/app.car-detail.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="7" lean-forward="true" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/app.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="46" lean-forward="false" selection-start-line="4" selection-start-column="46" selection-end-line="4" selection-end-column="46" />
+          <folding />
         </state>
       </provider>
     </entry>

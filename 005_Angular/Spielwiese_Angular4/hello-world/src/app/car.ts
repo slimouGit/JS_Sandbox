@@ -1,5 +1,5 @@
 export class Car{
-  constructor(public id: number, public brand: string){
+  constructor(public id: number, public brand: string, public hp: number){
     console.log("Constructor Car");
 
     this.getCarName();

@@ -1,7 +1,8 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <input [(ngModel)]="newCar" (keyup)="onChangeInput($event)">{{inputValue}}
-  <button (click)="onAddCar(newCar)">Auto hinzufügen</button>
+  <input type="number" [(ngModel)]="horsepower">
+  <button (click)="onAddCar(newCar, horsePower)">Auto hinzufügen</button>
   <div *ngIf="showList">
   <ul>
 

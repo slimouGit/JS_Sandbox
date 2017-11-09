@@ -12,6 +12,7 @@ import {forEach} from "@angular/router/src/utils/collection";
 export class AppComponent implements OnInit{
 
   public newCar: string;
+  public horsePower: number;
   public counter: number = 0;
 
   selectedCar: Car;
@@ -36,11 +37,11 @@ export class AppComponent implements OnInit{
     this.showDetail = true;
   }
 
-  onAddCar(newCar: string){
+  onAddCar(newCar: string, horsePower: number){
     console.log("car added");
     this.counter++;
     this.cars.push(
-      new Car(this.counter, newCar)
+      new Car(this.counter, newCar, horsePower)
     );
   }
 
