@@ -1,8 +1,8 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-  <input [(ngModel)]="newCar" (keyup)="onChangeInput($event)">{{inputValue}}
-  <input type="number" [(ngModel)]="horsepower">
-  <button (click)="onAddCar(newCar, horsePower)">Auto hinzufügen</button>
+  <input [(ngModel)]="brand" (keyup)="onChangeInput($event)">{{inputValue}}
+  <input type="number" [(ngModel)]="horsePower">
+  <button (click)="onAddCar(brand, horsePower)">Auto hinzufügen</button>
   <div *ngIf="showList">
   <ul>
 
@@ -23,15 +23,9 @@
   <div *ngIf="inputValue == 'secret'">
     <p>some secret informations</p>
   </div>
-  <div>
-    <ul>
-      <li id="link1" class="" (click)="changeClass($event)">Link1</li>
-      <li id="link2" class="" (click)="changeClass($event)">Link2</li>
-      <li id="link3" class="" (click)="changeClass($event)">Link3</li>
-    </ul>
-  </div>
+
 </div>
-<my-card></my-card>
-<my-card></my-card>
-<my-card></my-card>
+<my-card title="component 1"></my-card>
+<my-card title="weiteres component"></my-card>
+<my-card title="drittes component"></my-card>
 
