@@ -1,17 +1,37 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, EventEmitter} from '@angular/core';
 import {Car} from "./car";
 import {CarService} from "./car-service";
 import {viewClassName} from "@angular/compiler";
 import {forEach} from "@angular/router/src/utils/collection";
+
+
+
+let e = new EventEmitter();
+e.subscribe(function (param: any) {
+  console.log("Ereignis ist aufgetreten " + param);
+});
+
+e.subscribe(function (param: any) {
+  console.log("Zweites Ereignis ist aufgetreten " + param);
+});
+
+e.emit("Parameter");
+
+e.emit("2. Parameter");
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
+
+
+
 export class AppComponent implements OnInit{
 
-  public newCar: string;
+  public brand: string;
   public horsePower: number;
   public counter: number = 0;
 
@@ -64,22 +84,5 @@ export class AppComponent implements OnInit{
     this.inputValue=target.value;
   }
 
-  changeClass(event){
-    let target = event.target;
-    let currentClass = target.classList;
-    let currentId = target.id;
 
-    let elements = document.getElementsByClassName('selected');
-
-    document.getElementById(currentId).className = 'selected';
-
-    for(let item in elements){
-      console.log(item)
-      console.log(currentId + " " + currentClass);
-      //document.getElementById(currentId).classList.remove(currentClass);
-    }
-
-    document.getElementById(currentId).className = 'selected';
-
-    }
 }

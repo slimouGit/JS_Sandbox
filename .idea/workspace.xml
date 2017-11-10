@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bc1dbbf1-0cd4-45cf-bc72-a9655e7cf036" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/timer-component.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/timer.component.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/app.component.html" afterPath="$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/app.component.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/app.component.ts" afterPath="$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/app.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/car.ts" afterPath="$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/car.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/card.component.html" afterPath="$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/card.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/card.component.ts" afterPath="$PROJECT_DIR$/005_Angular/Spielwiese_Angular4/hello-world/src/app/card.component.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/005_Angular/Angular4/hero-app/dist/" />
     <ignored path="$PROJECT_DIR$/005_Angular/Angular4/hero-app/tmp/" />
@@ -388,7 +382,7 @@
       <workItem from="1510169622701" duration="1972000" />
       <workItem from="1510203655403" duration="2390000" />
       <workItem from="1510252736648" duration="1727000" />
-      <workItem from="1510290671066" duration="1592000" />
+      <workItem from="1510290671066" duration="1616000" />
     </task>
     <task id="LOCAL-00001" summary=":::">
       <created>1509740168346</created>
@@ -551,11 +545,18 @@
       <option name="project" value="LOCAL" />
       <updated>1510207961536</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="...">
+      <created>1510292298411</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1510292298411</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74863000" />
+    <option name="totallyTimeSpent" value="74887000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="12" width="1924" height="1080" extended-state="0" />
