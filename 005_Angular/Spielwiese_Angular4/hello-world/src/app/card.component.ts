@@ -8,5 +8,6 @@ export class CardComponent implements OnInit {
   ngOnInit(){};
 
   @Input() title: string;
+
 }
 

@@ -8,16 +8,3 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'app';
 }
-
-export class Car{
-  id: number;
-  brand: string;
-  name: string;
-}
-/**
-car : Car = {
-  id: 1,
-  brand: "BMW",
-  name: "5er"
-};
-**/
