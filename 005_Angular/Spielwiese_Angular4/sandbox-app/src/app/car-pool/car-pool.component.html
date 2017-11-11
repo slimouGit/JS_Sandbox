@@ -1,0 +1,15 @@
+<p>
+  car-pool works!
+</p>
+
+<button *ngIf="!showCars" (click)="showCarPool()">show cars</button>
+<button *ngIf="showCars" (click)="hideCarPool()">hide cars</button>
+<div>
+  <ul *ngIf="showCars">
+    <li *ngFor="let car of cars, let i = index" (click)="showDetails(car)">
+      {{i}}
+      {{car.brand}}
+    </li>
+  </ul>
+</div>
+
