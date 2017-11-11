@@ -1,0 +1,9 @@
+<p *ngIf="statusMessage">
+  {{sendValue}} wurde geworfen!
+</p>
+
+<input [(ngModel)]="name">
+
+<button (click)="sendName(name)">{{buttonName}}</button>
+
+
