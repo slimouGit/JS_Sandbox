@@ -9,7 +9,7 @@ import {Cars} from "../models/cars";
 })
 export class CarPoolComponent implements OnInit {
 
-  cars:Cars[] = [];
+  cars:Cars[];
   showCars: boolean = false;
   selectedCar;
 
