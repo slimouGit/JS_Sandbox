@@ -6,7 +6,7 @@
 <button *ngIf="showCars" (click)="hideCarPool()">hide cars</button>
 <div>
   <ul *ngIf="showCars">
-    <li *ngFor="let car of cars, let i = index" (click)="showDetails(car)">
+    <li *ngFor="let car of cars, let i = index" (click)="showDetails(car)" [class.selected]="car === selectedCar">
       {{i}}
       {{car.brand}}
     </li>
