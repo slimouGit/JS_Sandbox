@@ -11,6 +11,7 @@ export class CarPoolComponent implements OnInit {
 
   cars:Cars[] = [];
   showCars: boolean = false;
+  selectedCar;
 
   constructor(private dataService: DataService) { }
 
@@ -29,10 +30,10 @@ export class CarPoolComponent implements OnInit {
     this.showCars = false;
   }
 
-  selectedCar;
 
   showDetails(car: Cars){
     console.log(car.brand + " " + car.model + " " + car.color + " " + car.hp);
+    this.selectedCar = car;
   }
 
 }

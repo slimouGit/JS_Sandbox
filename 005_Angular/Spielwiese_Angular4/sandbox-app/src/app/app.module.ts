@@ -9,6 +9,7 @@ import { ContactComponent } from './contact/contact.component';
 import { CarPoolComponent } from './car-pool/car-pool.component';
 
 import { DataService} from "./data-service.service";
+import { CarDetailComponent } from './car-detail/car-detail.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { DataService} from "./data-service.service";
     AppComponent,
     DataComponent,
     ContactComponent,
-    CarPoolComponent
+    CarPoolComponent,
+    CarDetailComponent
   ],
   imports: [
     BrowserModule,

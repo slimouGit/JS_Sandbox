@@ -1,0 +1,26 @@
+<p>
+  car-detail works!
+</p>
+
+<div *ngIf="car">
+  <p>car exist</p>
+  <div>
+    <label>ID: {{car.id}}</label>
+  </div>
+  <div>
+    <label>Marke: {{car.brand}}</label>
+  </div>
+  <div>
+    <label>HP: {{car.model}}</label>
+  </div>
+  <div>
+    <label>Color: {{car.color}}</label>
+  </div>
+  <!--nur Input -->
+  <p>read only</p>
+  <input [ngModel]="car.brand">{{car.brand}}
+  <br>
+  <p>read&write</p>
+  <!-- Input & Output -->
+  <input [(ngModel)]="car.brand">{{car.brand}}
+</div>
