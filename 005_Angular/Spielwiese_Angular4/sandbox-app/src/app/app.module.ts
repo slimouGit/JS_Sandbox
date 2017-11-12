@@ -11,6 +11,8 @@ import { CarPoolComponent } from './car-pool/car-pool.component';
 import { DataService} from "./data-service.service";
 import { CarDetailComponent } from './car-detail/car-detail.component';
 
+import {InfoTextService} from "./info-text.service";
+
 
 @NgModule({
   declarations: [
@@ -25,7 +27,7 @@ import { CarDetailComponent } from './car-detail/car-detail.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [DataService],
+  providers: [DataService, InfoTextService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
