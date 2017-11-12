@@ -30,10 +30,15 @@ export class CarPoolComponent implements OnInit {
     this.showCars = false;
   }
 
-
   showDetails(car: Cars){
     console.log(car.brand + " " + car.model + " " + car.color + " " + car.hp);
     this.selectedCar = car;
   }
 
+  updateValue;
+
+  showUpdatedCar(val){
+    console.log("thrown value: " + val);
+    this.updateValue = val;
+  }
 }

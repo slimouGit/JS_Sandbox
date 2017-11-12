@@ -14,3 +14,7 @@
 </div>
 
 <app-car-detail [car]="selectedCar"></app-car-detail>
+
+<app-car-detail (carUpdated)="showUpdatedCar($event)"></app-car-detail>
+
+<p>updateValue: {{updateValue}}</p>
