@@ -13,7 +13,6 @@ import { CarDetailComponent } from './car-detail/car-detail.component';
 
 import {InfoTextService} from "./info-text.service";
 
-
 @NgModule({
   declarations: [
     AppComponent,

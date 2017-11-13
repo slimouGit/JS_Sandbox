@@ -8,7 +8,6 @@ import {InfoTextService} from "./info-text.service";
   styleUrls: ['./app.component.css']
 })
 
-
 export class AppComponent implements OnInit{
   title = 'app';
 
