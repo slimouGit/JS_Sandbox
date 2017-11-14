@@ -19,7 +19,7 @@ export class CarPoolComponent implements OnInit {
     this.dataService.getData().subscribe(
       result => this.cars = result,
       error => console.log(error),
-            () => console.log(this.cars)
+            () => console.log("")
     )
   }
 
@@ -38,7 +38,7 @@ export class CarPoolComponent implements OnInit {
   updateValue;
 
   showUpdatedCar(val){
-    console.log("thrown value: " + val);
+    //console.log("thrown value: " + val);
     this.updateValue = val;
   }
 }

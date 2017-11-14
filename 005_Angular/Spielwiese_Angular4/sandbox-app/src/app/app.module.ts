@@ -13,6 +13,7 @@ import { CarDetailComponent } from './car-detail/car-detail.component';
 
 import {InfoTextService} from "./info-text.service";
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +26,7 @@ import {InfoTextService} from "./info-text.service";
     BrowserModule,
     FormsModule,
     HttpClientModule
+
   ],
   providers: [DataService, InfoTextService],
   bootstrap: [AppComponent]
