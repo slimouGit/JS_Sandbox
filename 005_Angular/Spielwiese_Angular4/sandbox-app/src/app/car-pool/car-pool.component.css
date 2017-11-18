@@ -1,1 +1,36 @@
 .selected {color: red;}
+
+.cardContainer{
+  display: inline-flex;
+
+}
+ul {
+  list-style-type: none;
+}
+.itemCard{
+  background-color: #0c60ee;
+  color: #fff;
+  text-align: center;
+}
+.itemCard p{
+  font-family: sans-serif;
+  margin: 10px 0px 10px 0px;
+}
+.imgWrapper{
+  position: relative;
+  width: 280px;
+  height: 150px;
+  overflow: hidden;
+}
+.carImg img{
+  width: 300px;
+  min-width: 280px;
+  min-height: 150px;
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  right: -9999px;
+  bottom: -9999px;
+  margin: auto;
+}
+

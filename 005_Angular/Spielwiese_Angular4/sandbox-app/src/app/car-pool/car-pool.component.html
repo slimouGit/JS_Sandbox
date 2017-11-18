@@ -1,14 +1,19 @@
 <p>
   car-pool works!
 </p>
-
+<div>
 <button *ngIf="!showCars" (click)="showCarPool()">show cars</button>
 <button *ngIf="showCars" (click)="hideCarPool()">hide cars</button>
-<div>
+</div>
+<div class="cardContainer"  *ngFor="let car of cars, let i = index" (click)="showDetails(car)" [class.selected]="car === selectedCar">
   <ul *ngIf="showCars">
-    <li *ngFor="let car of cars, let i = index" (click)="showDetails(car)" [class.selected]="car === selectedCar">
-      {{i}}
-      {{car.brand}}
+    <li>
+      <div class="itemCard">
+        <div class="imgWrapper">
+          <div class="carImg"><img src="assets/img/{{car.id}}.jpg"></div>
+        </div>
+        <div class="carBrand>"><p>{{car.brand}}</p></div>
+      </div>
     </li>
   </ul>
 </div>
