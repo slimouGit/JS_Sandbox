@@ -25,4 +25,12 @@
   <input [(ngModel)]="car.brand">{{car.brand}}
 </div>
 
+<!--  -->
+<div>
+  <p>Übergebener Boolean: {{showCars}}</p>
+  <div *ngIf="showCars">
+    <p>Das wird nur angezeigt, wenn showCars true ist.</p>
+  </div>
+</div>
+
 

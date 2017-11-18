@@ -23,3 +23,6 @@
 <app-car-detail (carUpdated)="showUpdatedCar($event)"></app-car-detail>
 
 <p>updateValue: {{updateValue}}</p>
+
+<!-- Boolean "showCars" annehmen und als "showCarsBoolean" in car-detail zur verfuegung stellen-->
+<app-car-detail [showCars]="showCars"></app-car-detail>
