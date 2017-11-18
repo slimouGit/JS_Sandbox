@@ -34,3 +34,10 @@ ul {
   margin: auto;
 }
 
+.detalView{
+  z-index: 2;
+  position: relative;
+  width: 280px;
+  height: 150px;
+}
+

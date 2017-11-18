@@ -5,11 +5,20 @@
 <button *ngIf="!showCars" (click)="showCarPool()">show cars</button>
 <button *ngIf="showCars" (click)="hideCarPool()">hide cars</button>
 </div>
-<div class="cardContainer"  *ngFor="let car of cars, let i = index" (click)="showDetails(car)" [class.selected]="car === selectedCar">
+<div class="cardContainer"  *ngFor="let car of cars, let i = index"
+     (click)="showDetails(car)"
+     [class.selected]="car === selectedCar"
+     (mouseover)="showDetailViewIcon($event, car.id)"
+     (mouseleave)="hideDetailViewIcon()"
+      >
   <ul *ngIf="showCars">
     <li>
+
       <div class="itemCard">
         <div class="imgWrapper">
+          <div class="detalView" *ngIf="detailViewIcon">
+            <img src="assets/img/detailView.png">
+          </div>
           <div class="carImg"><img src="assets/img/{{car.id}}.jpg"></div>
         </div>
         <div class="carBrand>"><p>{{car.brand}}</p></div>

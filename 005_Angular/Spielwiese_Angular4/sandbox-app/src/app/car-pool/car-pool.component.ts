@@ -44,4 +44,17 @@ export class CarPoolComponent implements OnInit {
     //console.log("thrown value: " + val);
     this.updateValue = val;
   }
+
+  detailViewIcon:boolean;
+
+  showDetailViewIcon(event, id){
+    console.log(id);
+
+    console.log(event.target)
+
+    this.detailViewIcon = true;
+  }
+  hideDetailViewIcon(){
+    this.detailViewIcon = false;
+  }
 }

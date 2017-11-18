@@ -24,4 +24,6 @@ export class CarDetailComponent implements OnInit {
     this.carUpdated.emit("Car updated");
   }
 
+
+
 }
