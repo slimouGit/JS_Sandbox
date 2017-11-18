@@ -11,7 +11,7 @@ export class CarDetailComponent implements OnInit {
   @Input() car: Cars[];
 
   //Boolean aus car-pool entgegennehmen
-  @Input() showCars: boolean;
+  @Input() showCarsTransferedBoolean: boolean;
 
   @Output() carUpdated: EventEmitter<string> = new EventEmitter();
 
