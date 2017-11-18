@@ -12,6 +12,7 @@ import { DataService} from "./data-service.service";
 import { CarDetailComponent } from './car-detail/car-detail.component';
 
 import {InfoTextService} from "./info-text.service";
+import { CarGarageComponent } from './car-garage/car-garage.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import {InfoTextService} from "./info-text.service";
     DataComponent,
     ContactComponent,
     CarPoolComponent,
-    CarDetailComponent
+    CarDetailComponent,
+    CarGarageComponent
   ],
   imports: [
     BrowserModule,

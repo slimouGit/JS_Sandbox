@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule} from "@angular/forms";
 import {CarDetail} from "./app.car-detail.component";
+import {TimerComponent} from "./timer-component";
 
 import{CardComponent} from './card.component';
 
@@ -14,7 +15,8 @@ import {CarService} from "./car-service";
   declarations: [
     AppComponent,
     CarDetail,
-    CardComponent
+    CardComponent,
+    TimerComponent
   ],
   imports: [
     BrowserModule,
