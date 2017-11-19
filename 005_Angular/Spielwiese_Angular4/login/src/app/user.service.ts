@@ -17,4 +17,8 @@ export class UserService {
     return this.isUserLoggedIn;
   }
 
+  logoutUser(){
+    this.isUserLoggedIn = false;
+  }
+
 }

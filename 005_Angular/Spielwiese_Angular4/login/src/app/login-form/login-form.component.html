@@ -1,4 +1,4 @@
-<form (submit)="loginUser($event)">
+<form *ngIf="!loggedState" (submit)="loginUser($event)">
 
   <div class="input">
     <label>Username</label>
@@ -15,3 +15,8 @@
   </div>
 
 </form>
+
+<div *ngIf="loggedState">
+  bereits eingelogged!
+  <p (click)="logout()">ausloggen?</p>
+</div>

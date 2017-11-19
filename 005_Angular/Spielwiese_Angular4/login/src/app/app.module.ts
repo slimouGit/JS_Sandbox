@@ -10,10 +10,12 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import {RouterModule, Routes} from "@angular/router";
 import {UserService} from "./user.service";
 import {AuthguardGuard} from "./authguard.guard";
+import { ContactComponent } from './contact/contact.component';
 
 const appRoutes:Routes = [
   { path: '', component: LoginFormComponent },
-  { path: 'dashboard', canActivate: [AuthguardGuard], component: DashboardComponent }
+  { path: 'dashboard', canActivate: [AuthguardGuard], component: DashboardComponent },
+  { path: 'contact', canActivate: [AuthguardGuard], component: ContactComponent }
 ];
 
 @NgModule({
@@ -26,7 +28,8 @@ const appRoutes:Routes = [
     HeaderComponent,
     LoginFormComponent,
     FooterComponent,
-    DashboardComponent
+    DashboardComponent,
+    ContactComponent
   ],
   providers: [UserService, AuthguardGuard],
   bootstrap: [AppComponent]

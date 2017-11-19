@@ -7,12 +7,12 @@ import {UserService} from "../user.service";
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.css']
 })
-export class LoginFormComponent implements OnInit {
+export class LoginFormComponent {
 
   constructor(private router: Router, private user: UserService) { }
 
-  ngOnInit() {
-  }
+  //Login Status in loggedState speichern
+  loggedState = this.user.getUserLoggedIn();
 
   loginUser(e){
     e.preventDefault();
@@ -23,5 +23,9 @@ export class LoginFormComponent implements OnInit {
       this.user.setUserLoggedIn();
       this.router.navigate(['./dashboard']);
     }
+  }
+
+  logout(){
+    this.loggedState = this.user.logoutUser();
   }
 }
