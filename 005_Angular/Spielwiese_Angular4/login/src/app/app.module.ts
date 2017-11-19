@@ -8,17 +8,19 @@ import { FooterComponent } from './footer/footer.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 import {RouterModule, Routes} from "@angular/router";
+import {UserService} from "./user.service";
+import {AuthguardGuard} from "./authguard.guard";
 
 const appRoutes:Routes = [
-  {
-    path: '', component: LoginFormComponent
-  },
-  {
-    path: 'dashboard', component: DashboardComponent
-  }
-]
+  { path: '', component: LoginFormComponent },
+  { path: 'dashboard', canActivate: [AuthguardGuard], component: DashboardComponent }
+];
 
 @NgModule({
+  imports: [
+    RouterModule.forRoot(appRoutes),
+    BrowserModule
+  ],
   declarations: [
     AppComponent,
     HeaderComponent,
@@ -26,11 +28,7 @@ const appRoutes:Routes = [
     FooterComponent,
     DashboardComponent
   ],
-  imports: [
-    BrowserModule,
-    RouterModule.forRoot(appRoutes)
-  ],
-  providers: [],
+  providers: [UserService, AuthguardGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
