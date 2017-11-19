@@ -11,11 +11,13 @@ import {RouterModule, Routes} from "@angular/router";
 import {UserService} from "./user.service";
 import {AuthguardGuard} from "./authguard.guard";
 import { ContactComponent } from './contact/contact.component';
+import { ErrorComponent } from './error/error.component';
 
 const appRoutes:Routes = [
   { path: '', component: LoginFormComponent },
   { path: 'dashboard', canActivate: [AuthguardGuard], component: DashboardComponent },
-  { path: 'contact', canActivate: [AuthguardGuard], component: ContactComponent }
+  { path: 'contact', canActivate: [AuthguardGuard], component: ContactComponent },
+  { path: 'error', component: ErrorComponent }
 ];
 
 @NgModule({
@@ -29,7 +31,8 @@ const appRoutes:Routes = [
     LoginFormComponent,
     FooterComponent,
     DashboardComponent,
-    ContactComponent
+    ContactComponent,
+    ErrorComponent
   ],
   providers: [UserService, AuthguardGuard],
   bootstrap: [AppComponent]

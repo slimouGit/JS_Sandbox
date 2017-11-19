@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router} from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import {UserService} from "./user.service";
 
 @Injectable()
 export class AuthguardGuard implements CanActivate {
 
-  constructor(private user:UserService){}
+  constructor(private user:UserService, private router: Router){}
 
-  canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+    if(!this.user.getUserLoggedIn()){
+      this.router.navigate(['./error']); //Fehlerseite
+    }
     return this.user.getUserLoggedIn();
   }
 }
