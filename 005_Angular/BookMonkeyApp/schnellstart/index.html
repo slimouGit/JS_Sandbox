@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular Schnellstart</title>
+    <!-- ertse beiden Script-Tags binden Polyfills ein -->
+    <script src="https://unpkg.com/core-js/client/shim.min.js"></script>
+    <script src="https://unpkg.com/zone.js@0.8.14?main=browser"></script>
+    <script src="https://unpkg.com/systemjs@0.20.19/dist/system.src.js"></script>
+    <script src="systemjs.config.js"></script>
+    <script>
+        System.import('./app/main')
+    </script>
+</head>
+<body>
+    <my-app>Loading ...</my-app>
+</body>
+</html>
